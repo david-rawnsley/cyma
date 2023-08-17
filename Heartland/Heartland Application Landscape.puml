@@ -1,0 +1,53 @@
+@startuml Heartland Application Context - Loan Origination Context
+
+!theme C4_cyma from style/themes
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include style/sprites.puml
+!include style/brand_cyma.puml
+'LAYOUT
+'LAYOUT_AS_SKETCH()
+LAYOUT_LANDSCAPE()
+
+Person_Ext(customer, "Customer", "A customer of Heartland bank […]", $sprite="users")
+Person_Ext(intermediary, "Intermediary", "A person who acts as a link between people in order to try and bring about […]", $sprite="users")
+
+Person(credit, "Credit Team", "Responsible for performing the underwriting activities of a loan", $sprite="users")
+Person(operations, "Operations Team", "Responsible for managing the loan application e2e.", $sprite="users")
+Person(sales, "Sales Team", "Responsible for managing the loan application e2e.", $sprite="users")
+
+System_Ext(digicustservices, "Digital customer Services", "Comprised of the Heartland Digital Platform and Mobile Application")
+System_Ext(docman, "Document Management", "Enables document management activities")
+System_Ext(intportals, "Intermediary Portals", "Solutions such as HOP, Partner Portal and Open with Heartland")
+System_Ext(intservices, "Heartland Integration Services", "IBM API Connect and Oracle Service Bus enabled by Heartland to perform integration activities.")
+System_Ext(ofcubs, "Oracle FLEXCUBE Universal Banking", "System of Record that enables Heartlands core banking services.")
+System_Ext(mi, "Marketing Impact", "Used for bulk document print, fold and insert and then send to Mailing house to distribute.")
+
+System_Boundary(sb3, "Origination Solution") {
+    System(ofsll, "Oracle Financial Services Lending and Leasing", "System of Record that enables Heartland Lending and Leasing")
+    System(ud, "Unified Dashboard", "Solution that provides capabilities outside of OFSLL and Waka.")
+    System(waka, "Waka", "Enables a limited set of business workflows to enable Heartland users.")
+}
+
+Rel(credit, ofsll, "Evaluate \napplications", "")
+Rel(credit, waka, "Performs \ncalculations", "")
+Rel(customer, digicustservices, "Applies for loan", "")
+Rel(digicustservices, intservices, "", "")
+Rel(intermediary, intportals, "Applies for loan", "")
+Rel(intportals, intservices, "", "")
+Rel(intservices, docman, "", "")
+Rel(intservices, ofsll, "", "")
+Rel(ofsll, docman, "", "")
+Rel(ofsll, mi, "", "")
+Rel(ofsll, ofcubs, "", "")
+Rel(operations, ofsll, "Manage application lifecycle", "")
+Rel(operations, waka, "Performs \ncalculations", "")
+Rel(sales, intportals, "Supports \nIntermediaries", "")
+Rel(sales, ofsll, "Manages leads", "")
+Rel(sales, ud, "Manages leads", "")
+Rel(ud, intservices, "", "")
+Rel(waka, intservices, "", "")
+
+SHOW_FLOATING_LEGEND()
+
+@enduml

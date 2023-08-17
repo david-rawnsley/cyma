@@ -1,0 +1,32 @@
+@startuml
+
+'Style
+'skinparam defaultFontName Raleway
+
+'Colour Branding
+!$COLOUR_COMPONENT = "#F2B184"
+!$COLOUR_CONTAINER = "#EB843D"
+!$COLOUR_PERSON = "#671D47"
+!$COLOUR_PERSON_EXT = "#53534A"
+!$COLOUR_SYSTEM = "#CB6015"
+!$COLOUR_SYSTEM_EXT = "#7C7C6F"
+!$COLOUR_NEUTRAL = "#F7F7F7"
+!$COLOUR_REL = "#53534A"
+
+'Update existing element styles
+UpdateElementStyle("system", $shape=RoundedBoxShape(), $shadowing="true", $legendText="system", $sprite="blur_on")
+UpdateElementStyle("external_system", $shape=RoundedBoxShape(), $shadowing="true", $legendText="external system", $sprite="blur_on")
+UpdateElementStyle("person", $shape=RoundedBoxShape(), $shadowing="true", $legendText="person", $sprite="user")
+UpdateElementStyle("external_person", $shape=RoundedBoxShape(), $shadowing="true", $legendText="external person", $sprite="user")
+UpdateElementStyle("container", $shape=RoundedBoxShape(), $shadowing="true", $legendText="container", $sprite="buffer")
+UpdateElementStyle("component", $shape=RoundedBoxShape(), $shadowing="true", $legendText="container", $sprite="buffer")
+/' UpdateRelStyle($lineColor=$COLOUR_REL, $textColor=$COLOUR_REL)
+UpdateBoundaryStyle($shape=RoundedBoxShape(), $shadowing="true", ?legendText="") '/
+
+'Add tags for specific overrides
+AddSystemTag(sunset,$bgColor="#F38554", $legendText="sunset system")
+AddSystemTag(tbc,$bgColor=DarkRed, $legendText="tbc system")
+AddSystemTag(new,$bgColor=DarkGreen, $legendText="new system", $shadowing="true")
+AddSystemTag(ret,$bgColor=Black, $legendText="contained system", $shadowing="true")
+
+@enduml

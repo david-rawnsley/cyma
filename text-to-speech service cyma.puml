@@ -1,0 +1,24 @@
+@startuml Text-to-Speech Service
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+!include style/sprites.puml
+!include style/brand.puml
+
+'LAYOUT_LANDSCAPE()
+
+Person_Ext(p_t_customer, "Customer", "Any customer interacting with customer services")
+Person(p_market, "Marketing", "Manages Marketing and Brand requirements", $sprite="users")
+Person(p_ivradmin, "IVR Administrator", "Performs administrative functions within the IVR solution")
+Person(p_vactor, "Voice Actor", "Responsible for providing vocal services")
+System(sys_mitel, "Mitel", "Provides call center, unified communications and cloud communications solutions.")
+'System_Ext(sys_mitel1, "Mitel", "Provides call center, unified communications and cloud communications solutions.")
+
+Rel_U(p_vactor, sys_mitel, "Records script", "pstn")
+Rel_D(p_market, p_ivradmin, "Requests changes to IVR", "email")
+Rel_R(p_t_customer, sys_mitel, "Calls Tower", "pstn")
+Rel_L(p_ivradmin, sys_mitel, "Manages IVR")
+
+SHOW_FLOATING_LEGEND()
+
+@enduml

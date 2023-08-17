@@ -1,0 +1,18 @@
+@startuml
+
+'Style
+skinparam defaultFontName Raleway
+
+UpdateElementStyle("system", $shape=RoundedBoxShape(), $shadowing="true", $legendText="system", $sprite="blur_on")
+UpdateElementStyle("external_system", $shape=RoundedBoxShape(), $shadowing="true", $legendText="external system", $sprite="blur_on")
+UpdateElementStyle("person", $shape=RoundedBoxShape(), $shadowing="true", $legendText="person", $sprite="user")
+UpdateElementStyle("external_person", $shape=RoundedBoxShape(), $shadowing="true", $legendText="external person", $sprite="user")
+UpdateElementStyle("container", $shape=RoundedBoxShape(), $shadowing="true", $legendText="container", $sprite="buffer")
+
+'AddSystemTag(microservice, $shape=EightSidedShape(), $legendText="microservice", $sprite="kotlin*.5")
+AddSystemTag(sunset,$bgColor="#F38554", $legendText="sunset system")
+AddSystemTag(tbc,$bgColor=DarkRed, $legendText="tbc system")
+AddSystemTag(new,$bgColor=DarkGreen, $legendText="new system", $shadowing="true")
+AddSystemTag(ret,$bgColor=Black, $legendText="contained system", $shadowing="true")
+
+@enduml

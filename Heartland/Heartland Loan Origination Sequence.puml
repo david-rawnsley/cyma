@@ -1,0 +1,56 @@
+@startuml
+
+title Loan Origination Process
+skinparam defaultFontName Raleway
+
+actor Borrower
+participant Lender
+
+Borrower -> Lender: Loan Application
+Lender -> Lender: Prequalification
+Lender -> Lender: Underwriting
+Lender -> Lender: Approval/Denial
+Lender -> Lender: Documentation
+Lender -> Borrower: Loan Agreement
+Borrower -> Lender: Signed Agreement
+Lender -> Lender: Closing
+Lender -> Borrower: Loan Disbursement
+
+@enduml
+
+@startuml
+
+title Loan Origination Process
+skinparam defaultFontName Raleway
+'skinparam handwritten true
+
+start
+:Loan Application;
+if (Prequalification) then (yes)
+  :Perform Prequalification;
+else (no)
+'  stop
+endif
+if (Underwriting) then (yes)
+  :Perform Underwriting;
+else (no)
+'  stop
+endif
+if (Approval) then (yes)
+  :Approve Loan;
+else (no)
+  :Decline Loan;
+  stop
+endif
+:Prepare Documentation;
+:Send Loan Agreement;
+:Receive Signed Agreement;
+:Close Loan Application;
+:Disburse Loan Funds;
+stop
+
+@enduml
+
+@startuml
+help skinparams
+@enduml
