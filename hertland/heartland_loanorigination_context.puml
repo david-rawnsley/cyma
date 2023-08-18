@@ -1,10 +1,12 @@
 @startuml Heartland Application Context - Loan Origination Context
 
-!theme C4_cyma from style/themes
+!theme C4_cyma from https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/themes
 
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
-!include style/sprites.puml
-!include style/brand_cyma.puml
+
+!include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/sprites.puml
+!include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/brand_cyma.puml
+
 'LAYOUT
 'LAYOUT_AS_SKETCH()
 LAYOUT_LANDSCAPE()
