@@ -1,0 +1,68 @@
+@startuml Claims Transformation Context
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include style/sprites.puml
+!include style/brand.puml
+
+ 'LAYOUT
+'LAYOUT_AS_SKETCH()
+'LAYOUT_LANDSCAPE()
+
+Person(p_claims_consultant, "Claims Consultant", "Manages claims through their lifecycle", $sprite="user")
+Person(p_claims_teamlead, "Claims Team Leader", "Manages claims consultants claims", $sprite="user")
+Person(p_house_assessor, "House Assessor", "Manages and performs the assessing function for Tower", $sprite="user")
+Person(p_motor_assessor, "Motor Assessor", "Manages and performs the assessing function for Tower", $sprite="user")
+Person(p_qa_manager, "QA Manager", "Performs QA management functions within the QA solution", $sprite="user")
+Person_Ext(p_t_customer, "Customer", "Any customer interacting with customer services", $sprite="user")
+Person_Ext(pext_house_assessor, "House Assessor", "Performs the assessing function on behalf of Tower", $sprite="user")
+Person_Ext(pext_house_repairer, "House Repairer", "Performs the repair function on behalf of Tower", $sprite="user")
+Person_Ext(pext_motor_assessor, "Motor Assessor", "Performs the assessing function on behalf of Tower", $sprite="user")
+Person_Ext(pext_motor_repairer, "Motor Repairer", "Performs the repair function on behalf of Tower", $sprite="user")
+
+System(sys_ahp, "Assessor House Platform", "Platform that manages the repairer network and claims through assessment, quotation and repair", $tags="new", $sprite="house_damage")
+System(sys_amp, "Assessor Motor Platform", "Platform that manages the repairer network and claims through assessment, quotation and repair", $tags="new", $sprite="car")
+System(sys_calabrio, "Calabrio", "Provides the Workforce Management solution to handle availablity and skills", $sprite="clock")
+System(sys_data_services, "Data Services", "Provides Integration services for Towers systems.", $sprite="snowflake")
+System(sys_eis, "EIS", "Tower core insurance system with Policy, Claim and Billing management functionality.", $sprite="blur_on")
+System(sys_ignite, "Ignite", "Provides queue management for claims enquiries and calls.", $sprite="hands_helping")
+System(sys_integration, "Azure Integration Services", "Provides Integration services for Towers systems.", $sprite="microsoft")
+System(sys_mytower, "My Tower", "Provides customers the ability to digitally interact with Tower services.", $sprite="web_asset")
+System(sys_nims, "vNIMS", "Tower core insurance system with Policy, Claim and Billing management functionality.", $sprite="blur_on", $tags="sunset")
+System(sys_notification_svc, "Notification Service", "Tower notification service that sends notifications on the preferred channel. [TBC]", $sprite="email", $tags="tbc")
+System(sys_qaplatform, "Claim Audit Platform \n[GaugeQuality]", "Provides the automation of a feature to be added to the claim.", $tags="new")
+System_Ext(sysext_ahp, "Assessor House Platform", "Platform that manages the repairer network and claims through assessment, quotation and repair", $sprite="house_damage")
+System_Ext(sysext_ahp_rep, "Repair House Platform", "Platform that manages the claim through repair", $sprite="house_damage")
+System_Ext(sysext_amp, "Assessor Motor Platform", "Platform that manages the repairer network and claims through assessment, quotation and repair", $sprite="car")
+System_Ext(sysext_amp_rep, "Repair Motor Platform", "Platform that manages the claim through repair", $sprite="car")
+
+Rel(p_claims_consultant, sys_calabrio, "Manages availability", "Uses")
+Rel(p_claims_consultant, sys_eis, "Manages claims", "Visits pages")
+Rel(p_claims_consultant, sys_ignite, "Manages claim enquiries", "Uses")
+Rel(p_claims_consultant, sys_nims, "Manages claims", "Visits pages")
+Rel(p_claims_teamlead, sys_qaplatform, "Views QA using", "Visits pages")
+Rel(p_house_assessor, sys_ahp, "Manages claims", "Visits pages")
+Rel(p_motor_assessor, sys_amp, "Manages claims", "Visits pages")
+Rel(p_qa_manager, sys_qaplatform, "Manages QA using", "Visits pages")
+Rel(p_t_customer, p_claims_consultant, "Submits claims using", "PSTN")
+Rel(p_t_customer, sys_mytower, "Manages claims using", "Visits pages")
+Rel(pext_house_assessor, sys_ahp, "Manages claims", "Visits pages")
+Rel(pext_house_assessor, sysext_ahp, "Uses", "Visits pages")
+Rel(pext_house_repairer, sysext_ahp_rep, "Uses", "Visits pages")
+Rel(pext_motor_assessor, sys_amp, "Manages claims", "Visits pages")
+Rel(pext_motor_assessor, sysext_amp, "Uses", "Visits pages")
+Rel(pext_motor_repairer, sysext_amp_rep, "Uses", "Visits pages")
+Rel(sys_ahp, sys_data_services, "Sends data", "JSON/HTTP")
+Rel(sys_ahp, sysext_ahp, "Makes API calls", "JSON/HTTP")
+Rel(sys_ahp, sysext_ahp_rep, "Makes API calls", "JSON/HTTP")
+Rel(sys_amp, sys_data_services, "Sends data", "JSON/HTTP")
+Rel(sys_amp, sysext_amp, "Makes API calls", "JSON/HTTP")
+Rel(sys_amp, sysext_amp_rep, "Makes API calls", "JSON/HTTP")
+Rel(sys_eis, sys_integration, "Sends events", "JSON/AMQP")
+Rel(sys_integration, sys_ahp, "Makes API calls", "JSON/HTTP")
+Rel(sys_integration, sys_amp, "Makes API calls", "JSON/HTTP")
+Rel(sys_integration, sys_notification_svc, "Makes API calls", "JSON/HTTP")
+Rel(sys_mytower, sys_eis, "Makes API calls to submit claim", "JSON/HTTP")
+
+SHOW_FLOATING_LEGEND()
+
+@enduml

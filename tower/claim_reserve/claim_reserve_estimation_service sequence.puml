@@ -1,0 +1,50 @@
+@startuml 
+'!theme sketchy-outline
+
+title Reserve Estimation Service
+autonumber
+
+'Style
+hide footbox
+skinparam TitleBorderThickness 0
+skinparam responseMessageBelowArrow true
+skinparam shadowing false
+skinparam defaultFontName Raleway
+'LAYOUT_AS_SKETCH()
+
+participant EIS
+participant DXP
+participant EventBroker as EISQ
+participant Claim_API as CAPI
+participant "Reserve Estimation Service" as RES
+participant Snowflake AS SNW
+
+RES->EISQ: subscribeEvent(Lodged)
+
+EIS-> EIS: businessRuleTrigger()
+EIS-> EISQ: sendEvent(Lodged)
+
+EISQ-> RES: sendEvent(Lodged)
+activate RES
+
+RES -> CAPI: getClaimDetails(claimnumber)
+activate CAPI
+
+CAPI -> EIS: getClaimDetails(claimnumber)
+activate EIS
+
+EIS-->CAPI:response()
+deactivate EIS
+
+CAPI --> RES: response()
+deactivate CAPI
+
+RES->RES: evalClaim()
+
+RES -> SNW: getReserveCalculation()
+activate SNW
+SNW --> RES
+deactivate SNW
+
+RES -> DXP: patchClaim(reserve)
+@enduml

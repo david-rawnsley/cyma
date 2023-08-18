@@ -1,0 +1,162 @@
+@startjson
+
+[
+  {
+    "damageNumber": "1",
+    "displayValue": "2022, M.G., ZS ZS11 Excite Wagon 5dr Spts Auto 4sp 2WD 1.5i, PLR609",
+    "damageType": "TwrAutoLoss",
+    "loss": {
+      "associatedRiskItemOid": "j3buAhjrIbB0zZjqv-xOaA",
+      "riskItemOid": "j3buAhjrIbB0zZjqv-xOaA",
+      "damageDesc": "Left hand side of vehicle smashed in",
+      "partyType": "FIRST",
+      "parties": [
+        {
+          "namePrefix": null,
+          "firstName": "Snoop",
+          "middleName": "",
+          "lastName": "Dogg",
+          "otherName": "",
+          "nameTypeCd": "IND",
+          "oid": "K93424460163",
+          "contactPreferenceCd": "EMAIL",
+          "displayValue": "Snoop Dogg",
+          "relationShipToInsuredCd": null,
+          "addresses": [
+            {
+              "addressLine1": "Porritt Avenue",
+              "addressLine2": "27",
+              "addressLine3": "",
+              "city": "Auckland",
+              "county": "",
+              "countryCd": "NZ",
+              "postalCode": "0626",
+              "stateProvCd": "",
+              "latitude": null,
+              "longitude": null,
+              "componentName": null,
+              "addressTypeCd": "postalPhysical",
+              "displayValue": "27, Porritt Avenue, Auckland, 0626"
+            }
+          ],
+          "componentName": "TwrAutoOccupant",
+          "extension": {},
+          "emails": [
+            {
+              "email": "snoop@dogg.com",
+              "emailTypeCd": null
+            }
+          ],
+          "phones": [],
+          "roles": null,
+          "birthDt": "1964-12-31T12:00:00Z",
+          "partyNumber": "",
+          "companyNumber": null,
+          "externalId": null,
+          "preferredPaymentMethod": null,
+          "bankAccountInfo": null,
+          "bankName": null,
+          "bankAccountNumber": null,
+          "accountHolderName": null,
+          "bankTransitNumber": null,
+          "bankCd": null,
+          "bankBranchCd": null,
+          "bankAccountType": null,
+          "additionalNameInd": null,
+          "additionalName": null,
+          "instanceName": "ldQfBL_9ZiV13jrzbWZJSg",
+          "type": null,
+          "partyRoles": [],
+          "externalPartyInd": false,
+          "suffix": null
+        }
+      ],
+      "addresses": null,
+      "componentName": "TwrAutoLoss",
+      "instanceName": "gMMQQz9q4zxvh4QojwdN6A",
+      "extension": {},
+      "oid": "mgZjsifEmPBK8kj62TRLSA",
+      "severityCd": "MINOR",
+      "lossDesc": null
+    },
+    "itemizedLosses": [],
+    "componentName": "ClaimsDamage",
+    "instanceName": "vUJy5Y4nTy4EUye00q1Nlw",
+    "oid": "tPbbACZBhFVeYDXGTJdPFw",
+    "features": null
+  },
+  {
+    "damageNumber": "2",
+    "displayValue": "2019, Nissan, Qashqai, HAY777",
+    "damageType": "Twr3rdPartyAutoLoss",
+    "loss": {
+      "associatedRiskItemOid": "j3buAhjrIbB0zZjqv-xOaA",
+      "riskItemOid": "OTHER",
+      "damageDesc": "Damage to front of vehicle",
+      "partyType": "THIRD",
+      "parties": [
+        {
+          "namePrefix": null,
+          "firstName": "Tupac",
+          "middleName": "",
+          "lastName": "Shakur",
+          "otherName": "",
+          "nameTypeCd": "IND",
+          "oid": "m6A-jOxd1ROxjX-ySh1FoQ",
+          "contactPreferenceCd": null,
+          "displayValue": "Tupac Shakur",
+          "relationShipToInsuredCd": null,
+          "addresses": null,
+          "componentName": "Twr3rdPartyAutoOccupant",
+          "extension": {},
+          "emails": [],
+          "phones": [
+            {
+              "phoneTypeCd": null,
+              "phone": "021666666"
+            },
+            {
+              "phoneTypeCd": "mobilePhone",
+              "phone": ""
+            }
+          ],
+          "roles": null,
+          "birthDt": null,
+          "partyNumber": null,
+          "companyNumber": null,
+          "externalId": null,
+          "preferredPaymentMethod": null,
+          "bankAccountInfo": null,
+          "bankName": null,
+          "bankAccountNumber": null,
+          "accountHolderName": null,
+          "bankTransitNumber": null,
+          "bankCd": null,
+          "bankBranchCd": null,
+          "bankAccountType": null,
+          "additionalNameInd": null,
+          "additionalName": null,
+          "instanceName": "r5RjdxZpfyUmqzmvhzBAZQ",
+          "type": null,
+          "partyRoles": [],
+          "externalPartyInd": true,
+          "suffix": null
+        }
+      ],
+      "addresses": null,
+      "componentName": "Twr3rdPartyAutoLoss",
+      "instanceName": "iSkQ8qI-S7Y81EgxzOlKIQ",
+      "extension": {},
+      "oid": "i6Z3VWWwC2oOvPiHulhJiQ",
+      "severityCd": null,
+      "lossDesc": null
+    },
+    "itemizedLosses": [],
+    "componentName": "ClaimsDamage",
+    "instanceName": "vV0-pofB2z8Bt9Cv5lRJrA",
+    "oid": "jKqupit-4jCmgO1A9MpL3Q",
+    "features": null
+  }
+]
+
+@endjson

@@ -1,0 +1,36 @@
+@startjson
+
+<style>
+jsonDiagram {
+    node {
+        BackGroundColor #d8d7d7
+        LineColor #3D3935
+        FontName Raleway
+        FontColor #3D3935
+        'FontSize 18
+        'FontStyle bold
+        RoundCorner 10
+        LineThickness 1
+        LineStyle 10;5
+        PlantUML Language Reference Guide (1.2021.2) 213 / 415
+        separator {
+            LineThickness 0.5
+            LineColor black
+            LineStyle 1;5
+        }
+    }
+    arrow {
+        'BackGroundColor lightblue
+        LineColor #3D3935
+        LineThickness 2
+        LineStyle 5;5
+    }
+    highlight {
+        BackGroundColor #671D47
+        FontColor white
+        'FontStyle italic
+    }
+}
+</style>
+
+@endjson

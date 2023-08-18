@@ -1,0 +1,107 @@
+@startyaml
+
+policy:
+  termEffectiveDate: "2023-02-14T21:23:17.615Z"
+  termExpirationDate: "2023-02-14T21:23:17.615Z"
+  inceptionDate: "2023-02-14T21:23:17.615Z"
+  componentName: "string"
+  policyNumber: "string"
+  productCd: "string"
+  productVersion: number
+  verified: boolean
+  policyStatus: "string"
+  policyLOB: "string"
+  policyBLOB: "string"
+  reportedPolicyNumber: "string"
+  employeePolicy: "boolean"
+claimNumber: "string"
+additionalClaimNumber: "string"
+claimStatusCd: "string"
+claimSubStatusCd: "string"
+lossDt: "2023-02-14T21:23:17.615Z"
+lossDesc: "string"
+customerNumber: "string"
+reportedDt: "2023-02-14T21:23:17.615Z"
+policyNumber: "string"
+knownTimeInd: boolean
+causeOfLossCd: "string"
+secondaryLossCauseCd: "string"
+lossLocation:
+  addressId: "string"
+  unitFloorNumber: "string"
+  streetNumber: "string"
+  streetName: "string"
+  postCode: "string"
+  suburb: "string"
+  city: "string"
+  country: "string"
+  countryCd: "string"
+  addressType: "string"
+  longitude: number
+  latitude: number
+lossLocationDesc: "string"
+reportingMethod: "string"
+parties:
+  - oid: "string"
+    displayValue: "string"
+    namePrefix: "string"
+    firstName: "string"
+    middleName: "string"
+    lastName: "string"
+    otherName: "string"
+    nameTypeCd: "string"
+    additionalNameInd: boolean
+    additionalName: "string"
+    contactPreferenceCd: "string"
+    relationShipToInsuredCd: "string"
+    addresses:
+      - addressId: "string"
+        unitFloorNumber: "string"
+        streetNumber: "string"
+        streetName: "string"
+        postCode: "string"
+        suburb: "string"
+        city: "string"
+        country: "string"
+        countryCd: "string"
+        addressType: "string"
+        longitude: number
+        latitude: number
+    emails:
+      - email: "string"
+        emailTypeCd: "string"
+    phones:
+      - phoneTypeCd: "string"
+        phone: "string"
+    roles:
+      - claimsPartyRoleCd: "string"
+        claimsPartySubRoleCd: "string"
+        connectedTo: "string"
+    birthDt: "2023-02-14T21:23:17.615Z"
+    partyNumber: "string"
+    companyNumber: "string"
+    externalId: "string"
+    type: "string"
+    partyRoles:
+      - "string"
+    externalPartyInd: boolean
+    suffix: "string"
+totalIncurred:
+  amount: number
+  currencyCd: "string"
+claimManager:
+  resourceType: "string"
+  resourceId: "string"
+currencyCd: "string"
+catastropheCd: "string"
+vulnerableCustomer: "boolean"
+lossType:
+  - value: "string"
+excess:
+  - oid: "string"
+    excessName: "string"
+    excessValue: "decimal"
+    excessDescription: "string"
+
+
+@endyaml

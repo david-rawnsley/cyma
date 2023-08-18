@@ -1,0 +1,25 @@
+@startuml Claim Allocation Service
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include style/sprites.puml
+!include style/brand.puml
+
+'Style
+'LAYOUT_AS_SKETCH()
+'LAYOUT_LANDSCAPE()
+
+System(sys_allocation_svc, "Claim Allocation Service", "Provides the business rules to allocate the claims management resource.", $sprite="hands_helping", $tags="new")
+System(sys_bulkallocation_svc, "Bulk Allocation Service", "Provides serice to process claims and update the Claim manager", $sprite="code", $tags="new")
+System(sys_claim_api, "Claim API", "Service that provides business logic for the domain defined by the API", $tags="new")
+System(sys_eis, "EIS", "Tower core insurance system with Policy, Claim and Billing management functionality.", $sprite="blur_on")
+System(sys_notification_svc, "Notification Service", "Tower notification service that sends notifications on the preferred channel. [TBC]", $sprite="email", $tags="tbc")
+
+Rel(sys_allocation_svc,sys_claim_api, "Makes API calls", "JSON/HTTP")
+Rel(sys_bulkallocation_svc, sys_allocation_svc, "Makes API calls", "JSON/HTTP")
+Rel(sys_claim_api,sys_eis, "Makes API calls", "JSON/HTTP")
+Rel(sys_bulkallocation_svc,sys_claim_api, "Makes API calls", "JSON/HTTP")
+Rel(sys_eis,sys_notification_svc, "Makes API calls", "JSON/HTTP")
+
+SHOW_FLOATING_LEGEND()
+
+@enduml

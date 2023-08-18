@@ -1,0 +1,111 @@
+@startjson
+
+!include style/brand_json.puml
+
+{
+  "Message": "string",
+  "Errors": [
+    {
+      "ReasonSource": "string",
+      "ReasonCode": "string",
+      "Value": "string",
+      "Message": "string"
+    }
+  ],
+  "Result": [
+    {
+      "OptionalColumns": {
+        "additionalProp1": "string",
+        "additionalProp2": "string",
+        "additionalProp3": "string"
+      },
+      "Id": "string",
+      "Identity": "string",
+      "FirstName": "string",
+      "LastName": "string",
+      "EmploymentNumber": "string",
+      "Email": "string",
+      "DisplayName": "string",
+      "TerminationDate": "string",
+      "EmploymentStartDate": "string",
+      "TimeZoneId": "string",
+      "BusinessUnitId": "string",
+      "SiteId": "string",
+      "TeamId": "string",
+      "PersonSkills": [
+        {
+          "SkillId": "string",
+          "Proficiency": 0,
+          "Active": true
+        }
+      ],
+      "WorkflowControlSetId": "string",
+      "ContractId": "string",
+      "ContractScheduleId": "string",
+      "BudgetGroupId": "string",
+      "PartTimePercentageId": "string",
+      "ShiftBagId": "string",
+      "Note": "string",
+      "Roles": [
+        {
+          "BusinessUnitId": "string",
+          "RoleId": "string"
+        }
+      ],
+      "FirstDayOfWeek": 0
+    }
+  ]
+}
+
+@endjson
+
+@startjson
+
+!include style/brand_json.puml
+
+{
+  "Message": "string",
+  "Errors": [
+    {
+      "ReasonSource": "string",
+      "ReasonCode": "string",
+      "Value": "string",
+      "Message": "string"
+    }
+  ],
+  "Result": [
+    {
+      "PersonId": "string",
+      "Date": "2023-02-14",
+      "Shift": [
+        {
+          "Name": "string",
+          "Period": {
+            "StartTime": "2023-02-14T01:42:17.616Z",
+            "EndTime": "2023-02-14T01:42:17.616Z"
+          },
+          "ActivityId": "string",
+          "AbsenceId": "string",
+          "DisplayColor": 0,
+          "DisplayColorHex": "string",
+          "ExternalMeetingId": "string",
+          "Overtime": "string",
+          "Confidential": true
+        }
+      ],
+      "DayOff": {
+        "Name": "string",
+        "DayOffTemplateId": "string",
+        "DisplayColor": 0,
+        "DisplayColorHex": "string"
+      },
+      "ShiftCategory": {
+        "Id": "string",
+        "Name": "string",
+        "ShortName": "string"
+      }
+    }
+  ]
+}
+
+@endjson

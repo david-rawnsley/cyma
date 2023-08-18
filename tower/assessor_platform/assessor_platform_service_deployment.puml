@@ -1,0 +1,34 @@
+@startuml Assessor Platform Service Deployment
+
+title Assessor Platform Service Deployment
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml
+!include style/sprites.puml
+!include style/brand.puml
+
+'Style
+'LAYOUT_AS_SKETCH()
+'LAYOUT_LANDSCAPE()
+
+System_Boundary(sb1, "Azure Integration Services") {
+    System_Boundary(sb2, "API Management") {
+        System(sys_house_svc, "Assessor House Service", "Provides integration to the Assessor Platform", $tags="new")
+        System(sys_mtr_svc, "Assessor Motor Service", "Provides integration to the Assessor Platform", $tags="new")
+        System(sys_assessor_svc, "Assessor Service", "Service that provides business logic for the domain defined by the API", $tags="new")
+    }
+}
+
+'System\(sys_decision_svc, "Decision Service", "Business Rules Engine stores and executes business rules"\)
+
+System_Boundary(sb3, "Azure Compute Services") {
+    System(sys_aks_svc, "Azure Kubernetes Services", "Deploy and scale containers on managed Kubernetes")
+}
+
+Rel(sys_house_svc, sys_aks_svc, "Makes API calls", "JSON/HTTP")
+Rel(sys_mtr_svc, sys_aks_svc, "Makes API calls", "JSON/HTTP")
+Rel(sys_assessor_svc, sys_aks_svc, "Makes API calls", "JSON/HTTP")
+'Rel(sys_pltfm_svc, sys_decision_svc, "Makes API calls", "JSON/HTTP")
+'Rel(sys_aks_svc, sys_asql_svc, "Makes SQL calls", "JDBC")
+
+SHOW_FLOATING_LEGEND()
+
+@enduml

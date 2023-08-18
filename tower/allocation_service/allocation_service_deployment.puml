@@ -1,0 +1,30 @@
+@startuml Allocation Service Deployment
+
+title Allocation Service Deployment
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml
+!include style/sprites.puml
+!include style/brand.puml
+
+'Style
+'LAYOUT_AS_SKETCH()
+'LAYOUT_LANDSCAPE()
+
+System_Boundary(sb1, "Azure Integration Services") {
+    System_Boundary(sb2, "API Management") {
+        System(sys_allocation_svc, "Allocation Service", "Provides the business rules to allocate the claims management resource.", $sprite="hands_helping", $tags="new")
+    }
+}
+
+System_Boundary(sb3, "Azure Compute Services") {
+    System(sys_aks_svc, "Azure Kubernetes Services", "Deploy and scale containers on managed Kubernetes")
+
+System_Boundary(sb4, "Azure Database Services") {
+    System(sys_asql_svc, "Azure SQL Services", "Migrate, modernize, and innovate on the modern SQL family of cloud databases")
+}
+
+Rel(sys_allocation_svc, sys_aks_svc, "Makes API calls", "JSON/HTTP")
+Rel(sys_aks_svc, sys_asql_svc, "Makes SQL calls", "JDBC")
+
+SHOW_FLOATING_LEGEND()
+
+@enduml

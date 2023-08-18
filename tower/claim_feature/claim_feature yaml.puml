@@ -1,0 +1,96 @@
+@startyaml
+!include style/brand_json.puml
+
+type: object
+properties:
+  countryCode:
+    type: string
+    minLength: 2
+    maxLength: 2
+    description: Country code representing the country of the policy is attached to Alpha-2 (ISO 3166)
+  product:
+    type: string
+    enum: [house, contents]
+    description: The policy product that the claim is associated to. Valid values are HOUSE and CONTENTS
+  plan:
+    type: string
+    description: Policy plan related to the claim.
+  damageType:
+    type: string
+    description: The damage type associated with the specific registered damage against the claim.
+  causeOfLoss:
+    type: string
+    description: Cause of loss associated with the claim.
+  secondaryCauseOfLoss:
+    type: string
+    description: The secondary cause of loss associated with the claim.
+  catastropheCode:
+    type: string
+    description: The catastrophe code of the claim. Required when product is house.
+  generalAreaOfDamage:
+    type: string
+    description: General area of damage value. Required when product is house.
+  lossLocation:
+    type: string
+    description: The loss location associated with the claim
+  associatedItem:
+    type: string
+    description: The loss item associated with the claim. Required when product is contents.
+  itemType:
+    type: string
+    description: The loss item type. Required when the product is contents.
+required:
+  - countryCode
+  - product
+  - plan
+  - damageType
+  - causeOfLoss
+  - secondaryCauseOfLoss
+  - if:
+      properties:
+        product:
+          const: house
+    then:
+      - catastropheCode
+      - generalAreaOfDamage
+  - if:
+      properties:
+        product:
+          const: contents
+    then:
+      - associatedItem
+      - itemType
+
+@endyaml
+
+@startyaml
+
+$schema: "http://json-schema.org/draft-07/schema#"
+type: object
+properties:
+  claimant:
+    type: string
+    enum:
+      - insuredParty
+      - vehicleParty
+      - propertyOwnerParty
+  featureId:
+    type: string
+  associatedInsurableRisk:
+    type: string
+    enum:
+      - vehicle
+      - riskAddress
+      - scheduledPropertyItem
+  readyToApprove:
+    type: boolean
+  applyExcess:
+    type: boolean
+required:
+  - claimant
+  - featureId
+  - associatedInsurableRisk
+  - readyToApprove
+  - applyExcess
+
+@endyaml

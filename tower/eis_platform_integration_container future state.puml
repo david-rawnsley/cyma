@@ -1,0 +1,67 @@
+@startuml eis platform integration container
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include style/sprites.puml
+!include style/brand.puml
+
+'LAYOUT_AS_SKETCH()
+LAYOUT_LANDSCAPE()
+
+Person_Ext(p_t_customer, "Customer", "Any customer interacting with customer services", $sprite="user")
+System_Boundary(sb1, "EIS") {
+    System(sys_eis, "EIS", "Tower core insurance system with Policy, Claim and Billing management functionality.")
+    'System(sys_dxp, "DXP", "Tower core insurance system API ecosystem.")
+}
+
+System(sys_allocation_svc, "Allocation Service", "Assigns the management resource to the claim.", $sprite="hands_helping", $tags="new")
+System(sys_fis_svc, "Fraud Indicator Service (FIS)", "Provides fraud indicators to Towers internal services.", $sprite="kotlin*.5")
+System(sys_ics_svc, "Investigation Case Service (ICS)", "Provides integration to Towers investigation services.", $sprite="kotlin*.5")
+System(sys_pltfm_svc, "Assessor Platform Service", "Provides integration to the Platforms for Motor or House and Contents.", $sprite="kotlin*.5", $tags="new")
+System(sys_recovery_svc, "Recovery Service", "Create and track recovery records for claims which have 3rd party liability", $sprite="kotlin*.5")
+'System(sys_resesti_svc, "Reserve Estimation Service", "Provides the calulation to define the claim reserve.", $sprite="calculator*.75", $tags="new")
+
+System_Boundary(sb2, "Azure Integration Services") {
+    System_Boundary(sb3, "Azure Messaging Services") {
+        Container(con_messagebus, "Message Bus", "Azure Service Queue", "provides a lightweight buffer that temporarily stores messages ...")
+    }
+
+    System_Boundary(sb4, "Azure APIM") {
+        System(sys_pltfm_svc, "Assessor Platform Service", "Provides integration to the Assessor Platform", $sprite="kotlin*.5", $tags="new")
+        System(sys_claim_api, "Claim API", "Service that provides business logic for the domain defined by the API", $tags="new")
+        System_Ext(sys_customer_api, "Customer API", "Service that provides business logic for the domain defined by the API", $sprite="kotlin*.5", $tags="new")
+        System_Ext(sys_policy_api, "Policy API", "Service that provides business logic for the domain defined by the API", $sprite="kotlin*.5", $tags="new")
+    }
+}
+
+System_Boundary(sb5, "Digital Experience") {
+    System(sys_mytower, "My Tower", "Provides customers the ability to digitally interact with Tower services.", $sprite="web_asset")
+    System(sys_digiexp_api, "Digital Experience API", "Provides integration to Towers Core Insurance services.", $sprite="dotnet")
+}
+
+Rel(p_t_customer, sys_mytower, "Visits pages", "HTTP")
+Rel(sys_allocation_svc, con_messagebus, "Subscribes to events", "JSON/HTTP")
+Rel(sys_allocation_svc, sys_claim_api, "Makes API calls", "JSON/HTTP")
+Rel(sys_claim_api, sys_eis, "Makes API calls", "JSON/HTTP")
+Rel(sys_customer_api, sys_eis, "Makes API calls", "JSON/HTTP")
+Rel(sys_digiexp_api, con_messagebus, "Subscribes to events", "JSON/HTTP")
+Rel(sys_digiexp_api, sys_claim_api, "Makes API calls", "JSON/HTTP")
+Rel(sys_digiexp_api, sys_customer_api, "Makes API calls", "JSON/HTTP")
+Rel(sys_digiexp_api, sys_policy_api, "Makes API calls", "JSON/HTTP")
+Rel(sys_fis_svc, con_messagebus, "Subscribes to events", "JSON/HTTP")
+Rel(sys_fis_svc, sys_claim_api, "Makes API calls", "JSON/HTTP")
+Rel(sys_ics_svc, con_messagebus, "Subscribes to events", "JSON/HTTP")
+Rel(sys_ics_svc, sys_claim_api, "Makes API calls", "JSON/HTTP")
+Rel(sys_ics_svc, sys_fis_svc, "Makes API calls", "JSON/HTTP")
+Rel(sys_mytower, sys_digiexp_api, "Makes API calls", "JSON/HTTP")
+Rel(sys_pltfm_svc, con_messagebus, "Subscribes to events", "JSON/HTTP")
+Rel(sys_pltfm_svc, con_messagebus, "Subscribes to events", "JSON/HTTP")
+Rel(sys_pltfm_svc, sys_claim_api, "Makes API calls", "JSON/HTTP")
+Rel(sys_policy_api, sys_eis, "Makes API calls", "JSON/HTTP")
+Rel(sys_recovery_svc, con_messagebus, "Subscribes to events", "JSON/HTTP")
+Rel(sys_recovery_svc, sys_claim_api, "Makes API calls", "JSON/HTTP")
+'Rel(sys_resesti_svc, con_messagebus, "Subscribes to events", "JSON/HTTP")
+'Rel(sys_resesti_svc, sys_claim_api, "Makes API calls", "JSON/HTTP")
+
+SHOW_FLOATING_LEGEND()
+
+@enduml

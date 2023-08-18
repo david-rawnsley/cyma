@@ -1,0 +1,75 @@
+@startjson
+
+{
+  "claimSubStatusCd": "AWAITING_ASSESSMENT",
+  "policy": {
+    "termEffectiveDate": "2023-03-01T11:00:00Z",
+    "termExpirationDate": null,
+    "inceptionDate": null,
+    "componentName": null,
+    "riskItems": null,
+    "parties": null,
+    "policyNumber": "P00004005565",
+    "productCd": "PREC-AU",
+    "productVersion": 1,
+    "verified": true,
+    "policyStatus": null,
+    "policyLOB": "AUTO",
+    "policyBLOB": "P",
+    "reportedPolicyNumber": null
+  },
+  "claimNumber": "C90129867",
+  "additionalClaimNumber": "C90129867",
+  "claimStatusCd": "OPEN",
+  "lossDt": "2023-03-01T20:56:00Z",
+  "lossDesc": "Someone crashed into my car whilst pulling out of a driveway",
+  "customerNumber": "K93424460163",
+  "reportedDt": "2023-03-01T20:56:00Z",
+  "policyNumber": "P00004005565",
+  "policyProductCd": "PREC-AU",
+  "knownTimeInd": null,
+  "lineOfBusinessCd": "AUTO",
+  "productVersion": 1,
+  "causeOfLossCd": "ACCIDENT_WHILE_DRIVING",
+  "lossLocationDesc": null,
+  "lossLocation": null,
+  "secondaryLossCauseCd": null,
+  "reportingMethod": null,
+  "parties": null,
+  "addresses": [
+    {
+      "addressLine1": "Rosedale Road",
+      "addressLine2": "97A",
+      "addressLine3": null,
+      "city": "Auckland",
+      "county": "",
+      "countryCd": "NZ",
+      "postalCode": "0632",
+      "stateProvCd": "Pinehill",
+      "latitude": 174.724864,
+      "longitude": -36.736078,
+      "componentName": null,
+      "addressTypeCd": "postalPhysical",
+      "displayValue": "97A, Rosedale Road, Pinehill, Auckland, 0632"
+    }
+  ],
+  "componentName": null,
+  "policyProductVersion": 1,
+  "totalIncurred": {
+    "amount": 3335,
+    "currencyCd": "NZD"
+  },
+  "fileOwner": {
+    "typeCd": "internalUser",
+    "refId": "qa",
+    "displayValue": "QA QA user"
+  },
+  "claimsPolicyStatus": "ACTIVE",
+  "extension": {},
+  "selectedRiskItemOids": null,
+  "currencyCd": null,
+  "productCd": "CLAIM_AU"
+}
+
+
+@endjson

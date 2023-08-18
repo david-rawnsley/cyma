@@ -1,0 +1,43 @@
+@startuml Assessor Platform Context [current]
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml
+!include style/sprites.puml
+!include style/brand.puml
+
+'Style
+'LAYOUT_AS_SKETCH()
+'LAYOUT_LANDSCAPE()
+
+'System(sys_webclient, "Web Browser", "Google Chrome, Mozilla Firefox, Apple Safari or Microsoft Edge", $sprite="web_asset")
+
+WithoutPropertyHeader()
+
+Deployment_Node(mob, "User's mobile device", "Apple IOS or Android"){
+    Container(mobile, "Mobile App", "Claris FileMaker Go 19", "Provides a limited subset of the Lighthouse functionality to users via their mobile device.")
+}
+
+Deployment_Node(comp, "User's computer", "Microsoft Windows of Apple macOS"){
+    Deployment_Node(browser, "Web Browser", "Google Chrome, Mozilla Firefox, Apple Safari or Microsoft Edge"){
+        Container(spa, "Single Page Application", "JavaScript and Angular", "Provides all of the Lighthouse functionality to users via their web browser.")
+    }
+}
+
+System_Boundary(sb1, "Foundation Data (IaaS)") {
+    AddProperty("FQDN", "tower.foundationdata.co.nz")
+    System_Ext(sys_fdproxy, "Proxy", "Reverse Proxy Service to protect web assets")
+
+
+    System_Boundary(sb2, "Filemaker Pro (Lighthouse)") {
+        System_Ext(sys_wpe, "Web Publishing Engine", "The Web Publishing Engine makes web published databases available to web users", $sprite="web_asset")
+        ContainerDb(sys_fddatabase, "Database Server", "Filemaker Pro Database Engine")
+    }
+
+}
+
+
+Rel(spa, sys_fdproxy, "Visits Pages", "HTTPS")
+Rel(sys_fdproxy, sys_wpe, "Accesses", "HTTPS")
+Rel_R(sys_wpe, sys_fddatabase, "Custom Web Publishing with PHP", "TCP/4003")
+Rel(mobile, sys_fddatabase, "Accesses", "TCP/4003")
+
+@enduml

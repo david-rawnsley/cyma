@@ -1,0 +1,56 @@
+@startuml Claim Status Managment Service - Sequence
+'!theme sketchy-outline
+
+title Draft Claim Management Service Sequence
+
+'Style
+hide footbox
+skinparam TitleBorderThickness 0
+' skinparam responseMessageBelowArrow true
+' skinparam shadowing true
+skinparam defaultFontName Raleway
+autonumber
+
+box "EIS" #7A87C8
+participant "Draft Claim \nManagement Service" as CMS
+participant EIS
+end box
+participant "Notification Service" as NS
+participant "Customer" as CSTMR
+
+CMS -> CMS: scheduleTrigger()
+
+CMS -> EIS: SELECT claims WHERE statusCd IS DRAFT
+activate EIS
+return response()
+
+loop for each claim in response()
+
+    CMS -> EIS: GET /v1/claim/{claimNumber}
+    activate EIS
+    return response()
+
+    alt if lastUpdate > now() - x days
+
+        CMS -> NS: sendNotification()
+        activate CMS
+        activate NS
+
+        NS -> CSTMR: sendNotification()
+        return response()
+        CMS -> EIS: recordBAM()
+        activate EIS
+        return response()
+        deactivate CMS
+    end
+
+    alt if lastUpdate > now() - 90 days
+        CMS -> EIS: withdrawClaim()
+        activate EIS
+        return response()
+    end
+    end loop
+
+
+
+    @enduml

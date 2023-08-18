@@ -1,0 +1,120 @@
+@startuml Claim Status Managment Service - Sequence
+'!theme sketchy-outline
+
+title Assessor Platform Invoice Integration (Inbound)
+
+'Style
+hide footbox
+skinparam TitleBorderThickness 0
+' skinparam responseMessageBelowArrow true
+' skinparam shadowing true
+skinparam defaultFontName Raleway
+autonumber
+
+participant EIS
+participant "Assessor Platform Service" as APS
+participant "Assessor Platform" as APM
+participant "Repairer" as RPR
+participant "Notification Service" as NS
+participant "Customer" as CS
+
+
+group Send claim details
+    EIS -> APS: POST claim()
+    activate APS
+    'APS --> EIS: response()
+
+    APS -> APM: POST claim()
+    activate APM
+    APM --> APS: response()
+
+    deactivate APS
+
+    APM -> RPR: POST claim()
+    deactivate APM
+    activate RPR
+    RPR --> APM: response()
+    deactivate RPR
+end
+
+group Send quote/estimate request
+    APM -> RPR: POST quote()
+    activate RPR
+    RPR -> RPR: generate quote()
+    return response()
+    deactivate RPR
+    activate APM
+    APM -> APM: evaluate quote()
+    APM -> RPR: POST quote response(approve)
+
+    APM -> APS: POST reserves()
+    deactivate APM
+    activate APS
+
+    APS -> EIS: POST reserves()
+    deactivate APS
+    deactivate APM
+end
+
+group Repair sequence
+    activate RPR
+    RPR -> RPR: repair claim()
+
+    loop for each update
+        RPR -> APM: POST claim(update)
+        deactivate RPR
+        activate APM
+
+        APM -> APS: POST claim(status)
+        activate APS
+        APS --> APM: claim(status)
+        deactivate APM
+
+        APS -> EIS: POST claim(status)
+        activate EIS
+        EIS --> APS: response()
+        deactivate APS
+        deactivate EIS
+
+        alt if customer notification = true
+
+            EIS -> NS: POST notification()
+            activate EIS
+            activate NS
+            NS --> EIS: response()
+            EIS -> EIS: POST BAM(notification)
+            deactivate EIS
+            NS -> CS: SEND notification()
+            deactivate NS
+        end
+    end
+end
+
+group Invoice Sequence
+    RPR -> RPR: generate invoice()
+    activate RPR
+
+    RPR -> APM: POST invoice()
+    deactivate RPR
+    activate APM
+    APM -> APM: evaluate invoice()
+    APM -> RPR: POST invoice response(approve)
+
+    APM -> APS: POST payments()
+    activate APS
+    APS --> APM: response()
+    deactivate APM
+
+    APS -> EIS: POST payments()
+    activate EIS
+    EIS --> APS: response()
+    deactivate APS
+    deactivate EIS
+    deactivate APM
+end
+
+group Vendor Sequence
+
+end
+
+@enduml

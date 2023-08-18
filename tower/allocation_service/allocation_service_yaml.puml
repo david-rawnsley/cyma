@@ -1,0 +1,28 @@
+@startyaml
+!include style/brand_json.puml
+
+type: object
+required:
+  - resourceType
+  - resourceId
+  - followUp
+  - unit
+properties:
+  resourceType:
+    type: string
+    description: A string indicating the type of the allocated resource.
+  email:
+    type: string
+    description: A string representing the email address of the claim manager.
+  resourceId:
+    type: string
+    description: A string indicating the ID of the allocated resource.
+  followUp:
+    type: integer
+    description: An integer indicating the follow-up status of the claim manager.
+  unit:
+    type: string
+    enum: [hour, day, week, month, year]
+    description: A string representing the unit of measure to be used. Valid values are hour, day, week, month, year
+
+@endyaml

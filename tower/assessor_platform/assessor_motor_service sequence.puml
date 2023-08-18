@@ -1,0 +1,155 @@
+@startuml Claim Status Managment Service - Sequence
+'!theme sketchy-outline
+
+title Assessor Platform Integration - Outbound
+
+'Style
+hide footbox
+skinparam TitleBorderThickness 0
+skinparam BoxPadding 10
+skinparam responseMessageBelowArrow true
+skinparam roundcorner 10
+skinparam defaultFontName Raleway
+autonumber
+
+box "Tower Domain" #7A87C8
+participant EIS
+participant "Assessor \nService" as AS
+participant "Assessor Motor \nService" as AMS
+participant "Assessor House \nService" as AHS
+participant "Claims \nAPI" as CAPI
+end box
+
+box "Assessing Platform Domain"
+participant "Assessing Platform \nService" as HC
+end box
+
+EIS -> AS: POST claim()
+activate AS
+AS -> CAPI: GET /v1/claims/{claimNumber}
+activate CAPI
+return response()
+
+alt if LoB = motor
+    AS -> AMS: POST claim()
+
+    activate AMS
+
+
+    AMS -> HC: GET claim()
+    activate HC
+    return response()
+
+    alt if claim <> exist
+        AMS -> HC: POST claim()
+        activate HC
+        return response()
+
+    else if claim exist
+        AMS -> HC: POST|PUT|PATCH claim()
+        activate HC
+        return response()
+    end
+
+    return response()
+else LoB = house or contents
+    AS -> AHS: POST claim()
+
+    activate AHS
+
+
+    AHS -> HC: GET claim()
+    activate HC
+    return response()
+
+    alt if claim <> exist
+        AHS -> HC: POST claim()
+        activate HC
+        return response()
+
+    else if claim exist
+        AHS -> HC: POST|PUT|PATCH claim()
+        activate HC
+        return response()
+    end
+
+    return response()
+end
+
+return response()
+
+@enduml
+
+@startuml
+hide footbox
+skinparam TitleBorderThickness 0
+skinparam BoxPadding 10
+skinparam responseMessageBelowArrow true
+' skinparam shadowing true
+skinparam defaultFontName Raleway
+autonumber
+
+title Assessor Platform Integration - Inbound
+
+box "Tower Domain" #7A87C8
+participant "Assessor \nService" as AS
+participant "Assessor Motor \nService" as AMS
+end box
+
+box "Assessing Platform Domain"
+participant "Assessing Platform \nService" as HC
+end box
+
+activate HC
+HC -> HC: event()
+
+HC -> AMS: POST webhook(event)
+deactivate HC
+
+activate AMS
+AMS -> AMS: processWebhook()
+
+AMS -> HC: readResource()
+activate HC
+return response()
+AMS -> AMS: processResponse()
+
+AMS -> AS: POST resource()
+
+@enduml
+
+@startuml
+hide footbox
+skinparam TitleBorderThickness 0
+skinparam BoxPadding 10
+skinparam responseMessageBelowArrow true
+' skinparam shadowing true
+skinparam defaultFontName Raleway
+autonumber
+
+box "Tower Domain" #7A87C8
+participant "Assessor \nService" as AS
+participant "Assessor House \nService" as AHS
+end box
+
+box "Wilbur Domain"
+participant "Wilbur \nService" as HC
+end box
+
+activate HC
+HC -> HC: event()
+
+HC -> AHS: POST webhook(event)
+deactivate HC
+
+activate AHS
+AHS -> AHS: processWebhook()
+
+AHS -> HC: readResource()
+activate HC
+return response()
+AHS -> AHS: processResponse()
+
+AHS -> AS: POST resource()
+
+@enduml

@@ -1,0 +1,34 @@
+@startuml Reserve Estimation Service Integration Container
+
+'title Reserve Estimation Service Integration Container
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include style/sprites.puml
+!include style/brand.puml
+
+'Style
+'LAYOUT_AS_SKETCH()
+'LAYOUT_LANDSCAPE()
+
+System(sys_eis, "EIS", "Tower core insurance system with Policy, Claim and Billing management functionality.", $sprite="blur_on")
+System_Ext(sys_nims, "vNIMS", "Tower core insurance system with Policy, Claim and Billing management functionality.", $sprite="blur_on", $tags="sunset")
+System_Boundary(sb1, "Azure Integration Services") {
+System_Boundary(sb2, "Azure Messaging Services") {
+        Container(con_messagebus, "Message Bus", "Azure Service Bus queue", "provides a lightweight buffer that temporarily stores messages ...")
+    }
+    System(sys_resesti_svc, "Reserve Estimation Service", "Provides the calulation engine to define the reserveon the claim.", $sprite="calculator*.5", $tags="new")
+    System(sys_claim_api, "Claim API", "Service that provides business logic for the domain defined by the API", $tags="new")
+}
+System(sys_data_services, "Data Services", "Provides Integration services for Towers systems.", $sprite="snowflake")
+
+Rel(sys_eis, con_messagebus, "Sends events [topic]", "JSON/AMQP")
+Rel(sys_claim_api, sys_eis, "Makes API calls", "JSON/HTTP")
+Rel(sys_nims, con_messagebus, "Sends events [topic]", "JSON/AMQP")
+Rel(sys_claim_api, sys_nims, "Makes API calls to", "JSON/HTTP")
+Rel(sys_resesti_svc, con_messagebus, "Subscribes to events", "JSON/HTTP")
+Rel(sys_resesti_svc, sys_claim_api, "Makes API calls", "JSON/HTTP")
+Rel(sys_resesti_svc,sys_data_services, "Makes API calls to calculate predictive model", "JSON/HTTP")
+
+SHOW_FLOATING_LEGEND()
+
+@enduml

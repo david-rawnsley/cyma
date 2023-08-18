@@ -1,0 +1,65 @@
+@startjson
+
+[
+  {
+    "coverageOid": "qMBc8ErDIJMd7mzilSxFhA",
+    "coverageDesc": null,
+    "associatedInsurableRiskOid": "j3buAhjrIbB0zZjqv-xOaA",
+    "oid": "po9m_AaSrHI93k2S2OxIXw",
+    "featureNumber": "1",
+    "featureId": "8497041767",
+    "claimant": {
+      "typeCd": "PARTY",
+      "refId": "K93424460163",
+      "displayValue": "Snoop Dogg"
+    },
+    "associatedInsurableRisk": {
+      "oid": "j3buAhjrIbB0zZjqv-xOaA",
+      "displayValue": "2022, M.G., ZS ZS11 Excite Wagon 5dr Spts Auto 4sp 2WD 1.5i"
+    },
+    "coverage": {
+      "oid": "qMBc8ErDIJMd7mzilSxFhA",
+      "coverageCd": "VehicleVehDamage"
+    },
+    "damage": {
+      "damageNumber": "1",
+      "displayValue": "2022, M.G., ZS ZS11 Excite Wagon 5dr Spts Auto 4sp 2WD 1.5i, PLR609"
+    },
+    "featureIncurred": {
+      "amount": 3335,
+      "currencyCd": "NZD"
+    },
+    "statusCd": "OPEN",
+    "featureOwner": {
+      "typeCd": "internalUser",
+      "refId": null,
+      "displayValue": "QA QA user"
+    },
+    "reserves": [
+      {
+        "amount": {
+          "amount": 3335,
+          "currencyCd": "NZD"
+        },
+        "typeCd": "INDEMNITY"
+      },
+      {
+        "amount": {
+          "amount": 0,
+          "currencyCd": "NZD"
+        },
+        "typeCd": "EXPENSE"
+      },
+      {
+        "amount": {
+          "amount": 0,
+          "currencyCd": "NZD"
+        },
+        "typeCd": "RECOVERY"
+      }
+    ],
+    "extension": {}
+  }
+]
+
+@endjson

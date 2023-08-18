@@ -1,0 +1,56 @@
+@startuml Assessor Platform Integration Container
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+!include style/sprites.puml
+!include style/brand.puml
+
+'LAYOUT_AS_SKETCH()
+LAYOUT_LANDSCAPE()
+
+System_Ext(sys_ahp, "Assessor House Platform \n[Wilbur]", "Platform that manages the repairer network and claims through assessment, quotation and repair", $sprite="house_damage")
+System_Ext(sys_amp, "Assessor Motor Platform \n[Hello Claims]", "Platform that manages the repairer network and claims through assessment, quotation and repair", $sprite="car")
+'System_Ext(sys_gb, "GB", "Performs assessment of Claims on behalf of Tower and claims management through quotation and repair", $sprite="house")
+
+System_Boundary(sb1, "Experience API Layer") {
+    System(sys_house_svc, "Assessor House Service", "Provides integration to the Assessor Platform", $tags="new")
+    System(sys_mtr_svc, "Assessor Motor Service", "Provides integration to the Assessor Platform", $tags="new")
+}
+
+System_Boundary(sb2, "Process API Layer") {
+    System(sys_assessor_svc, "Assessor Service", "Service that provides business logic for the domain defined by the API", $tags="new")
+    System(sys_ics, "Investigation Case Service", "Fraud and Risk Investigation Integration Solution")
+    System(sys_media_svc, "Media Service", "Tower media service that enables retrieval and processing of media. [TBC]", $tags="tbc")
+    System(sys_notification_svc, "Notification Service", "Tower notification service that sends notifications on the preferred channel. [TBC]", $sprite="email", $tags="tbc")
+    System(sys_userprofile_svc, "User Profile API", "Provides user services for user details recorded in Towers directory services.", $sprite="user", $tags="new")
+}
+
+System_Boundary(sb3, "System API Layer") {
+    System(sys_claim_api, "Claim API", "Service that provides business logic for the domain defined by the API", $tags="new")
+    System(sys_polonius, "Polonius", "Fraud and Risk Investigation Solution")
+    System(sys_smartcomms, "SmartComms", "SmartCOMM helps enterprises deliver personalized, interactive communications via customers' preferred channels", $sprite="email")
+    System_Ext(sys_mtext, "Vodafone multiTXT", "multiTXT Pro makes sending messages simple and cost-effective.", $sprite="sms")
+}
+System(sys_eis, "EIS", "Tower core insurance system with Policy, Claim and Billing management functionality.", $sprite="blur_on")
+
+'Rel(sys_gb, sys_house_svc, "Makes API calls", "JSON/HTTPS")
+Rel(sys_assessor_svc, sys_claim_api, "Makes API calls", "JSON/HTTPS")
+Rel(sys_assessor_svc, sys_ics, "Makes API calls", "JSON/HTTPS")
+Rel(sys_assessor_svc, sys_media_svc, "Makes API calls", "JSON/HTTPS")
+Rel(sys_assessor_svc, sys_notification_svc, "Makes API calls", "JSON/HTTPS")
+Rel(sys_assessor_svc, sys_userprofile_svc, "Makes API calls", "JSON/HTTPS")
+Rel(sys_eis, sys_assessor_svc, "Makes API calls", "JSON/HTTPS")
+Rel(sys_eis, sys_notification_svc, "Makes API calls", "JSON/HTTPS")
+Rel(sys_house_svc, sys_assessor_svc, "Makes API calls", "JSON/HTTPS")
+Rel(sys_ics, sys_polonius, "Makes API calls", "JSON/HTTPS")
+Rel(sys_mtr_svc, sys_assessor_svc, "Makes API calls", "JSON/HTTPS")
+Rel(sys_notification_svc, sys_mtext, "Makes API calls", "JSON/HTTPS")
+Rel(sys_notification_svc, sys_smartcomms, "Makes API calls", "JSON/HTTPS")
+Rel_L(sys_house_svc, sys_ahp, "Makes\Receives API calls", "JSON/HTTPS")
+Rel_L(sys_mtr_svc, sys_amp, "Makes\Receives API calls", "JSON/HTTPS")
+Rel_U(sys_claim_api, sys_eis, "Makes API calls", "JSON/HTTPS")
+
+SHOW_FLOATING_LEGEND()
+
+'footer drawn with PlantUML v. %version() and C4-PlantUML v. C4Version()
+@enduml

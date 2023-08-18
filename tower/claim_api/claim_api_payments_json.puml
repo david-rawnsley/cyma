@@ -1,0 +1,120 @@
+@startjson
+
+!include style/brand_json.puml
+
+#highlight "paymentStatus"
+#highlight "paymentMemo"
+#highlight "payee" / "typeCd"
+#highlight "payee" / "refId"
+#highlight "grossPaymentAmt" / "amount"
+#highlight "grossPaymentAmt" / "currencyCd"
+#highlight "netPaymentAmt" / "amount"
+#highlight "netPaymentAmt" / "currencyCd"
+#highlight "paymentDetails" / "type"
+#highlight "paymentDetails" / "eft"
+#highlight "paymentDetails" / "eft" / "bankAccountNumber"
+#highlight "paymentDetails" / "eft" / "bankTransitNumber"
+#highlight "paymentDetails" / "eft" / "bankAccountInfo"
+#highlight "paymentDetails" / "eft" / "bankName"
+#highlight "paymentDetails" / "eft" / "bankBranchCd"
+#highlight "paymentDetails" / "eft" / "bankAccountHolderName"
+#highlight "paymentDetails" / "eft" / "bankCd"
+#highlight "paymentDetails" / "eft" / "bankAccountTypeCd"
+#highlight "payableDays"
+#highlight "compensationInd"
+#highlight "frequency"
+#highlight "claimCurrencyCd"
+#highlight "distributions" / "0" / "amount"
+#highlight "distributions" / "0" / "allocationType"
+#highlight "distributions" / "0" / "featureOid"
+#highlight "distributions" / "0" / "reserveTypeCd"
+#highlight "distributions" / "0" / "adjustReserveInd"
+#highlight "distributions" / "0" / "feature"
+
+{
+  "paymentNumber": "string",
+  "paymentIssueDate": "2023-02-23T02:46:18.045Z",
+  "paymentStatus": "string",
+  "paymentMemo": "string",
+  "payee": {
+    "typeCd": "string",
+    "refId": "string",
+    "displayValue": "string"
+  },
+  "grossPaymentAmt": {
+    "amount": 0,
+    "currencyCd": "string"
+  },
+  "netPaymentAmt": {
+    "amount": 0,
+    "currencyCd": "string"
+  },
+  "referenceNumber": "string",
+  "paymentDetails": {
+    "type": "string",
+    "cheque": {
+      "checkNumber": "string",
+      "manualInd": true,
+      "paymentDeliveryMethodCd": "string",
+      "address": {
+        "addressLine1": "string",
+        "addressLine2": "string",
+        "addressLine3": "string",
+        "city": "string",
+        "county": "string",
+        "countryCd": "string",
+        "postalCode": "string",
+        "stateProvCd": "string",
+        "latitude": 0,
+        "longitude": 0,
+        "componentName": "string",
+        "addressTypeCd": "string",
+        "displayValue": "string"
+      }
+    },
+    "eft": {
+      "bankAccountNumber": "string",
+      "bankTransitNumber": "string",
+      "bankAccountInfo": "string",
+      "bankName": "string",
+      "bankBranchCd": "string",
+      "bankAccountHolderName": "string",
+      "bankCd": "string",
+      "bankAccountTypeCd": "string"
+    }
+  },
+  "payableDays": 0,
+  "compensationInd": true,
+  "extension": {},
+  "oid": "string",
+  "frequency": "string",
+  "claimCurrencyCd": "string",
+  "exchangeRateDetails": {
+    "rateType": "string",
+    "exchangeRateDate": "2023-02-23T02:46:18.045Z",
+    "exchangeRate": 0,
+    "exchangeSource": "string"
+  },
+  "distributions": [
+    {
+      "amount": 0,
+      "allocationType": "string",
+      "featureOid": "string",
+      "reserveTypeCd": "string",
+      "adjustReserveInd": true,
+      "oid": "string",
+      "featureId": 0,
+      "finalPaymentInd": true,
+      "exGratiaInd": true,
+      "exGratiaDetails": {
+        "exGratiaReasonCd": "string",
+        "exGratiaDesc": "string"
+      },
+      "supplementalInd": true
+    }
+  ],
+  "fromDt": "2023-02-23T02:46:18.045Z",
+  "throughDt": "2023-02-23T02:46:18.045Z"
+}
+
+@endjson

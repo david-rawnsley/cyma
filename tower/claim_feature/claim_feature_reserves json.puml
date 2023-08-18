@@ -1,0 +1,215 @@
+@startjson
+
+!include style/brand_json.puml
+
+#highlight "0" / "reserves"
+#highlight "1" / "reserves"
+#highlight "2" / "reserves"
+#highlight "0" / "reserves" / "0" / "typeCd"
+#highlight "0" / "reserves" / "1" / "typeCd"
+#highlight "0" / "reserves" / "2" / "typeCd"
+#highlight "1" / "reserves" / "0" / "typeCd"
+#highlight "1" / "reserves" / "1" / "typeCd"
+#highlight "1" / "reserves" / "2" / "typeCd"
+#highlight "2" / "reserves" / "0" / "typeCd"
+#highlight "2" / "reserves" / "1" / "typeCd"
+#highlight "2" / "reserves" / "2" / "typeCd"
+
+[ {
+    "coverageOid" : "i4rUp4v36R43nE3EYP1PDg",
+    "associatedInsurableRiskOid" : "qVyI60auCkBi2LBd0QdO1A",
+    "oid" : "nsWgHv6MbVmgKpFVaYhIkQ",
+    "featureNumber" : "1",
+    "featureId" : "33556000",
+    "claimant" : {
+        "typeCd" : "PARTY",
+        "refId" : "p7WCrOAoEWhgTR3550ZBPw",
+        "displayValue" : "Saliukas Grabis"
+    }
+    ,
+    "associatedInsurableRisk" : {
+        "oid" : "qVyI60auCkBi2LBd0QdO1A",
+        "displayValue" : "RiskParty Pavarde"
+    }
+    ,
+    "coverage" : {
+        "oid" : "i4rUp4v36R43nE3EYP1PDg",
+        "coverageCd" : "BAA"
+    }
+    ,
+    "damage" : {
+        "damageNumber" : "1",
+        "displayValue" : "Saliukas Grabis"
+    }
+    ,
+    "featureIncurred" : {
+        "amount" : 30.00,
+        "currencyCd" : "USD"
+    }
+    ,
+    "statusCd" : "OPEN",
+    "featureOwner" : {
+        "typeCd" : "queue",
+        "refId" : "Claim Management",
+        "displayValue" : "Claim Management"
+    }
+    ,
+    "reserves" : [ {
+        "amount" : {
+            "amount" : 10.00,
+            "currencyCd" : "USD"
+        }
+        ,
+        "typeCd" : "INDEMNITY"
+    }
+    , {
+        "amount" : {
+            "amount" : 20.00,
+            "currencyCd" : "USD"
+        }
+        ,
+        "typeCd" : "EXPENSE"
+    }
+    , {
+        "amount" : {
+            "amount" : 30.00,
+            "currencyCd" : "USD"
+        }
+        ,
+        "typeCd" : "RECOVERY"
+    }
+    ]
+}
+, {
+    "coverageOid" : "iNCZl0szmehNk8Iqhq1IOQ",
+    "associatedInsurableRiskOid" : "qVyI60auCkBi2LBd0QdO1A",
+    "oid" : "rMXRV4da9G1dOjh6ZLtLjw",
+    "featureNumber" : "1",
+    "featureId" : "33555998",
+    "claimant" : {
+        "typeCd" : "PARTY",
+        "refId" : "o60ISld_-0_0fBT349F",
+        "displayValue" : "Valia Zana"
+    }
+    ,
+    "associatedInsurableRisk" : {
+        "oid" : "qVyI60auCkBi2LBd0QdO1A",
+        "displayValue" : "RiskParty Pavarde"
+    }
+    ,
+    "coverage" : {
+        "oid" : "iNCZl0szmehNk8Iqhq1IOQ",
+        "coverageCd" : "EXGRATIA"
+    }
+    ,
+    "damage" : {
+        "damageNumber" : "2",
+        "displayValue" : "<Unnamed>"
+    }
+    ,
+    "featureIncurred" : {
+        "amount" : 3005.00,
+        "currencyCd" : "USD"
+    }
+    ,
+    "statusCd" : "PENDING",
+    "featureOwner" : {
+        "typeCd" : "queue",
+        "refId" : "Claim Management",
+        "displayValue" : "Claim Management"
+    }
+    ,
+    "reserves" : [ {
+        "amount" : {
+            "amount" : 3005.00,
+            "currencyCd" : "USD"
+        }
+        ,
+        "typeCd" : "INDEMNITY"
+    }
+    , {
+        "amount" : {
+            "amount" : 0.00,
+            "currencyCd" : "USD"
+        }
+        ,
+        "typeCd" : "EXPENSE"
+    }
+    , {
+        "amount" : {
+            "amount" : 0.00,
+            "currencyCd" : "USD"
+        }
+        ,
+        "typeCd" : "RECOVERY"
+    }
+    ]
+}
+, {
+    "coverageOid" : "i4rUp4v36R43nE3EYP1PDg",
+    "associatedInsurableRiskOid" : "qVyI60auCkBi2LBd0QdO1A",
+    "oid" : "tjKMUHMRZess6dLzG4dMpw",
+    "featureNumber" : "2",
+    "featureId" : "33555999",
+    "claimant" : {
+        "typeCd" : "PARTY",
+        "refId" : "o60ISld_-0_0fBT349FA1A",
+        "displayValue" : "Valia Zana"
+    }
+    ,
+    "associatedInsurableRisk" : {
+        "oid" : "qVyI60auCkBi2LBd0QdO1A",
+        "displayValue" : "RiskParty Pavarde"
+    }
+    ,
+    "coverage" : {
+        "oid" : "i4rUp4v36R43nE3EYP1PDg",
+        "coverageCd" : "BAA"
+    }
+    ,
+    "damage" : {
+        "damageNumber" : "2",
+        "displayValue" : "<Unnamed>"
+    }
+    ,
+    "featureIncurred" : {
+        "amount" : 0.00,
+        "currencyCd" : "USD"
+    }
+    ,
+    "statusCd" : "CLOSED",
+    "featureOwner" : {
+        "typeCd" : "queue",
+        "refId" : "Claim Management",
+        "displayValue" : "Claim Management"
+    }
+    ,
+    "reserves" : [ {
+        "amount" : {
+            "amount" : 0.00,
+            "currencyCd" : "USD"
+        }
+        ,
+        "typeCd" : "INDEMNITY"
+    }
+    , {
+        "amount" : {
+            "amount" : 0.00,
+            "currencyCd" : "USD"
+        }
+        ,
+        "typeCd" : "EXPENSE"
+    }
+    , {
+        "amount" : {
+            "amount" : 0.00,
+            "currencyCd" : "USD"
+        }
+        ,
+        "typeCd" : "RECOVERY"
+    }
+    ]
+}
+]
+
+@endjson

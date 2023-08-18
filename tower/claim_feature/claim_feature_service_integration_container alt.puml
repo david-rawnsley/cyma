@@ -1,0 +1,61 @@
+@startuml Claim Feature Service Integration Container
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include style/sprites.puml
+!include style/brand.puml
+
+'Style
+'LAYOUT_AS_SKETCH()
+'LAYOUT_LANDSCAPE()
+
+System_Boundary(sb1, "EIS") {
+    System(sys_eis, "EIS", "Tower core insurance system with Policy, Claim and Billing management functionality.", $sprite="blur_on")
+}
+
+System_Boundary(sb2, "OpenL Service") {
+    System(sys_decision_svc, "Decision Service", "Business Rules Engine stores and executes business rules")
+}
+
+System_Boundary(sb3, "Azure Integration Services") {
+    System_Boundary(sb4, "API Management") {
+        System(sys_feature_svc, "Claim Feature Service", "Provides the automation of a feature to be added to the claim.", $tags="new")
+    }
+}
+
+Rel(sys_eis, sys_feature_svc, "Makes calls", "JSON/HTTP")
+Rel(sys_feature_svc, sys_decision_svc, "Makes calls", "JSON/HTTP")
+
+SHOW_FLOATING_LEGEND()
+
+@enduml
+
+@startuml Claim Feature Service Integration Container
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include style/sprites.puml
+!include style/brand.puml
+
+'Style
+'LAYOUT_AS_SKETCH()
+'LAYOUT_LANDSCAPE()
+
+System_Boundary(sb1, "EIS") {
+    System(sys_eis, "EIS", "Tower core insurance system with Policy, Claim and Billing management functionality.", $sprite="blur_on")
+}
+
+System_Boundary(sb2, "OpenL Service") {
+        System(sys_feature_svc, "Claim Feature Service", "Provides the automation of a feature to be added to the claim.", $tags="new")
+}
+
+' System_Boundary(sb3, "Azure Integration Services") {
+'     System_Boundary(sb4, "API Management") {
+'         System(sys_feature_svc, "Claim Feature Service", "Provides the automation of a feature to be added to the claim.", $tags="new")
+'     }
+' }
+
+Rel(sys_eis, sys_feature_svc, "Makes calls", "JSON/HTTP")
+'Rel(sys_feature_svc, sys_decision_svc, "Makes calls", "JSON/HTTP")
+
+SHOW_FLOATING_LEGEND()
+
+@enduml

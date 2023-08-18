@@ -1,0 +1,105 @@
+@startuml allocation_service sequence
+'!theme sketchy-outline
+
+title Allocation Service Sequence
+
+'Style
+hide footbox
+skinparam TitleBorderThickness 0
+skinparam BoxPadding 10
+skinparam responseMessageBelowArrow true
+skinparam roundcorner 10
+skinparam defaultFontName Raleway
+autonumber
+
+box EIS Development Squad
+participant EIS
+end box
+
+box "WAI Squad" #7A87C8
+participant "Claim API" as CAPI
+box "Claims Squad"
+participant "Allocation Service" as AAS
+end box
+participant "Availability Service" as WFM
+participant "User Profile Service" as UPS
+end box
+
+EIS-> EIS: businessRuleTrigger()
+
+EIS-> AAS: POST /allocation/claimManager(claimNumber, forceAlloc, resourceType, resourceId)
+activate AAS
+
+alt if resourceType = group and resourceId <> empty
+
+    AAS -> AAS: GET skillRule()
+
+    alt if skillRule.allocateToResource IS TRUE
+        AAS -> AAS: set resourceType = user
+        AAS-> WFM: getResources(skill, availability)
+        activate WFM
+        return response()
+        group round robin resource selection sequence
+            note over AAS: Add resources to resource pool, \nbuilds total resources for pool \nadds new members removes old \nmembers, poolId returned by \nTOMRule
+            AAS -> WFM: getResourceSchedule(emailAddress)
+            activate WFM
+            return response()
+        end
+    end
+    AAS -> AAS: set resourceId()
+else
+    AAS -> CAPI: GET /claims/(claimNumber)
+    activate CAPI
+
+    CAPI -> EIS: GET /claims/{claim-number}
+    activate EIS
+
+    EIS-->CAPI:response()
+    deactivate EIS
+
+    return response()
+    deactivate CAPI
+    AAS -> AAS: GET operatingModelRule()
+
+    alt if claimTOMRule.allocateToResource IS TRUE AND (claim.file_owner IS NULL or forceAlloc = TRUE)
+
+        AAS-> WFM: getResources(skill, availability)
+        activate WFM
+        return response()
+        deactivate WFM
+
+        alt if forceAlloc = TRUE
+        AAS -> UPS: GET /user/{samAccountName}
+        activate UPS
+        return response(emailAddress)
+            AAS -> AAS: excludeExistingClaimOwner()
+        end
+
+        group round robin resource selection sequence
+            note over AAS: Add resources to resource pool, \nbuilds total resources for pool \nadds new members removes old \nmembers, poolId returned by \nTOMRule
+            AAS -> WFM: getResourceSchedule(emailAddress)
+            activate WFM
+            return response()
+        end
+
+    else if claimTOMRule.allocateToResource IS false
+        AAS -> AAS: defineEISQueueManager()
+    end
+end
+
+
+note over AAS: add UserProfile query to retrieve sAMaccountname
+
+AAS -> UPS: GET /user/{emailAddress}
+activate UPS
+return response()
+
+AAS --> EIS: response(resourceType, resourceId, emailAddress, followUpInt, followUpUnit, resourceSchedule)
+deactivate AAS
+
+EIS -> EIS: POST /claims/{claim-number}/owner()
+opt manual trigger by CSO or via re-allocation
+EIS -> EIS: notify(customer)
+end
+
+@enduml

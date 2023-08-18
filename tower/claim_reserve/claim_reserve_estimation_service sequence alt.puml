@@ -1,0 +1,24 @@
+@startuml
+'!theme sketchy-outline
+
+title Reserve Estimation Service
+autonumber
+
+'Style
+hide footbox
+skinparam TitleBorderThickness 0
+skinparam responseMessageBelowArrow true
+skinparam shadowing false
+skinparam defaultFontName Raleway
+'LAYOUT_AS_SKETCH()
+
+box "EIS" #7A87C8
+participant EIS
+participant "Reserve Estimation Service" as RES
+end box
+
+EIS-> RES: getReserve(claimNumber, $parameters)
+activate RES
+return response()
+
+@enduml

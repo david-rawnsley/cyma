@@ -1,0 +1,31 @@
+@startuml Allocation Service
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include style/sprites.puml
+!include style/brand.puml
+
+'Style
+'LAYOUT_AS_SKETCH()
+'LAYOUT_LANDSCAPE()
+
+Person_Ext(p_t_vendor, "Vendor", "Any approved vendor interacting with financial services", $sprite="user")
+Person(p_claims_consultant, "Claims Consultant", "Performs administrative functions within the IVR solution", $sprite="user")
+System(sys_email, "Tower Email Services", "Provides customers the ability to digitally interact with Tower services.", $sprite="email")
+System(sys_eis, "EIS", "Tower core insurance system with Policy, Claim and Billing management functionality.", $sprite="blur_on")
+System(sys_invoiceProcessor, "Invoice Processor Service", "Provides Integration services for Towers systems Azure Logic Apps.", $sprite="code", $tags="new")
+System(sys_oracle_fin, "Oracle Financials","Provides Financial services for Tower Insurance.", $sprite="oracle_original")
+System_Ext(sys_westpac_banking, "Westpac Banking", "Banking functions - Direct debits, dishonours, bank statements, reconciliations", $sprite="bank")
+System(sys_nims, "vNIMS", "Tower core insurance system with Policy, Claim and Billing management functionality.", $sprite="blur_on", $tags="sunset")
+
+Rel(p_claims_consultant,sys_eis, "Manages Claims Payments", "HTTP")
+Rel(p_t_vendor, sys_email, "Sends Invoices", "SMTP/CSV")
+Rel(sys_eis,sys_oracle_fin, "Sends G/L files", "CSV/HTTP")
+Rel(sys_eis,sys_westpac_banking, "Sends Payment files", "CSV/HTTP")
+Rel(sys_invoiceProcessor,sys_eis, "Makes API calls", "JSON/HTTP")
+Rel(sys_invoiceProcessor,sys_email, "Reads invoices", "CSV/HTTP")
+Rel(sys_invoiceProcessor,sys_nims, "Sends Payment file", "CSV/HTTP")
+Rel(sys_nims,sys_oracle_fin, "Sends G/L files", "CSV/HTTP")
+Rel(sys_nims,sys_westpac_banking, "Sends Payment files", "CSV/HTTP")
+
+SHOW_FLOATING_LEGEND()
+@enduml

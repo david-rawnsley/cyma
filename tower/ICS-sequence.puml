@@ -1,0 +1,40 @@
+@startuml ICS Sequence
+'!theme sketchy-outline
+
+title Investigation Case Service - POST Case
+
+participant EIS
+participant ICS
+participant FIS
+participant Polonius
+ 
+EIS-> EIS: businessRuleTrigger()
+ 
+EIS -> ICS: postCase(fisSessionid)
+activate ICS
+ 
+ICS-> FIS: getSession(fisSessionid)
+activate FIS
+FIS--> ICS: response()
+deactivate FIS
+
+ICS -> Polonius: getTask(claimnumber)
+activate Polonius
+Polonius --> ICS: response()
+deactivate Polonius
+
+alt task exists = false
+ICS -> ICS: transformToTask()
+ICS -> Polonius: postTask()
+activate Polonius
+Polonius --> ICS: response(taskId)
+deactivate Polonius
+
+else task exists = true
+
+note over ICS, Polonius: Implement PUT/PATCH method to update case.
+
+end
+ICS --> EIS: response(icsCaseId)
+deactivate ICS
+@enduml

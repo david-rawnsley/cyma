@@ -1,0 +1,52 @@
+@startuml Assessor Platform Context
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include style/sprites.puml
+!include style/brand.puml
+
+'LAYOUT
+'LAYOUT_AS_SKETCH()
+'LAYOUT_LANDSCAPE()
+
+Person_Ext(p_t_customer, "Customer", "Any customer interacting with customer services", $sprite="user")
+Person(p_claims_consultant, "Claims Consultant", "Manages claims through their lifecycle", $sprite="user")
+Person(p_motor_assessor, "Motor Assessor", "Manages and performs the assessing function for Tower", $sprite="user")
+Person(p_house_assessor, "House Assessor", "Manages and performs the assessing function for Tower", $sprite="user")
+System(sys_mytower, "My Tower", "Provides customers the ability to digitally interact with Tower services.", $sprite="web_asset")
+System(sys_eis, "EIS", "Tower core insurance system with Policy, Claim and Billing management functionality.", $sprite="blur_on")
+System(sys_nims, "vNIMS", "Tower core insurance system with Policy, Claim and Billing management functionality.", $sprite="blur_on", $tags="sunset")
+System(sys_amp, "Assessor Motor Platform", "Platform that manages the repairer network and claims through assessment, quotation and repair", $sprite="car")
+System(sys_ahp, "Assessor House Platform", "Platform that manages the repairer network and claims through assessment, quotation and repair", $sprite="house_damage")
+Person_Ext(pext_house_assessor, "House Assessor", "Performs the assessing function on behalf of Tower", $sprite="user")
+Person_Ext(pext_motor_assessor, "Motor Assessor", "Performs the assessing function on behalf of Tower", $sprite="user")
+System(sys_integration, "Azure Integration Services", "Provides Integration services for Towers systems.", $sprite="microsoft")
+System_Ext(sysext_amp, "Assessor Motor Platform", "Platform that manages the repairer network and claims through assessment, quotation and repair", $sprite="car")
+System_Ext(sysext_ahp, "Assessor House Platform", "Platform that manages the repairer network and claims through assessment, quotation and repair", $sprite="house_damage")
+System(sys_notification_svc, "Notification Service", "Tower notification service that sends notifications on the preferred channel. [TBC]", $sprite="email", $tags="tbc")
+System(sys_data_services, "Data Services", "Provides Integration services for Towers systems.", $sprite="snowflake")
+System(sys_polonius, "Polonius", "Fraud and Risk Investigation Solution")
+
+Rel(p_claims_consultant, sys_eis, "Manages claims", "Visits pages")
+Rel(p_claims_consultant, sys_nims, "Manages claims", "Visits pages")
+Rel(p_house_assessor, sys_ahp, "Manages claims", "Visits pages")
+Rel(p_motor_assessor, sys_amp, "Manages claims", "Visits pages")
+Rel(p_t_customer, p_claims_consultant, "Submits claims using", "PSTN")
+Rel(p_t_customer, sys_mytower, "Manages claims using", "Visits pages")
+Rel(pext_house_assessor, sys_ahp, "Manages claims", "Visits pages")
+Rel(pext_house_assessor, sysext_ahp, "Uses", "Visits pages")
+Rel(pext_motor_assessor, sys_amp, "Manages claims", "Visits pages")
+Rel(pext_motor_assessor, sysext_amp, "Uses", "Visits pages")
+Rel(sys_ahp, sys_data_services, "Sends data", "JSON/HTTP")
+Rel(sys_ahp, sysext_ahp, "Makes API calls", "JSON/HTTP")
+Rel(sys_amp, sys_data_services, "Sends data", "JSON/HTTP")
+Rel(sys_amp, sysext_amp, "Makes API calls", "JSON/HTTP")
+Rel(sys_eis, sys_integration, "Sends events", "JSON/AMQP")
+Rel(sys_integration, sys_ahp, "Makes API calls", "JSON/HTTP")
+Rel(sys_integration, sys_amp, "Makes API calls", "JSON/HTTP")
+Rel(sys_eis, sys_notification_svc, "Makes API calls", "JSON/HTTP")
+Rel(sys_mytower, sys_eis, "Makes API calls to submit claim", "JSON/HTTP")
+Rel(sys_integration, sys_polonius, "Makes API calls", "JSON/HTTP")
+
+SHOW_FLOATING_LEGEND()
+
+@enduml

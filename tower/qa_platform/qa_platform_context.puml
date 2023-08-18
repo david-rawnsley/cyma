@@ -1,0 +1,35 @@
+@startuml QA Platform Context
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include style/sprites.puml
+!include style/brand.puml
+
+'Style
+'LAYOUT_AS_SKETCH()
+'LAYOUT_LANDSCAPE()
+
+Person(p_claims_teamlead, "Claims Team Leader", "Manages claims consultants claims", $sprite="user")
+Person(p_qa_dtaadmin, "QA Data Admin", "Performs data loading functions within the QA Solution", $sprite="user")
+Person(p_qa_manager, "QA Manager", "Performs QA management functions within the QA solution", $sprite="user")
+
+System(sys_ahp, "Assessor House Platform", "Platform that manages the repairer network and claims through assessment, quotation and repair", $sprite="house_damage")
+System(sys_amp, "Assessor Motor Platform", "Platform that manages the repairer network and claims through assessment, quotation and repair", $sprite="car")
+System(sys_data_services, "Data Services", "Provides Integration services for Towers systems.", $sprite="snowflake")
+System(sys_eis, "EIS", "Tower core insurance system with Policy, Claim and Billing management functionality.", $sprite="blur_on")
+System(sys_nims, "vNIMS", "Tower core insurance system with Policy, Claim and Billing management functionality.", $sprite="blur_on", $tags="sunset")
+System(sys_polonius, "Polonius", "Fraud and Risk Investigation Solution")
+System(sys_qaplatform, "Claim Audit Platform\n[GaugeQuality]", "Provides the QA services to support the Claims domain within Tower.", $tags="new")
+
+Rel(p_claims_teamlead, sys_qaplatform, "Reviews QA Report using", "Visits pages")
+Rel(p_qa_dtaadmin, sys_data_services, "Runs Data Report", "Extracts Data")
+Rel(p_qa_dtaadmin, sys_qaplatform, "Loads QA data using", "Visits pages")
+Rel(p_qa_manager, sys_ahp, "Performs QA", "Visits pages")
+Rel(p_qa_manager, sys_amp, "Performs QA", "Visits pages")
+Rel(p_qa_manager, sys_eis, "Performs QA", "Visits pages")
+Rel(p_qa_manager, sys_nims, "Performs QA", "Visits pages")
+Rel(p_qa_manager, sys_polonius, "Performs QA", "Visits pages")
+Rel(p_qa_manager, sys_qaplatform, "Manages QA using", "Visits pages")
+
+SHOW_FLOATING_LEGEND()
+
+@enduml

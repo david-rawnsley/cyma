@@ -1,0 +1,116 @@
+@startjson request motor
+
+!include style/brand_json.puml
+
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "countryCode": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 2
+        }
+        ,
+        "brandCode": {
+            "type": "string"
+        }
+        ,
+        "product": {
+            "type": "string"
+        }
+        ,
+        "plan": {
+            "type": "string"
+        }
+        ,
+        "damageType": {
+            "type": "string"
+        }
+        ,
+        "causeOfLoss": {
+            "type": "string"
+        }
+        ,
+        "secondaryCauseOfLoss": {
+            "type": "string"
+        }
+        ,
+        "vehicleDrivable": {
+            "type": "boolean"
+        }
+    }
+    ,
+    "required": [
+    "countryCode",
+    "product",
+    "plan",
+    "damageType",
+    "causeOfLoss",
+    "secondaryCauseOfLoss",
+    "vehicleDrivable"
+    ]
+}
+
+
+@endjson
+
+@startjson request home
+
+!include style/brand_json.puml
+
+
+
+
+@endjson
+
+
+@startjson response
+!include style/brand_json.puml
+
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "claimant": {
+            "type": "string",
+            "enum": [
+            "insuredParty",
+            "vehicleParty",
+            "propertyOwnerParty"
+            ]
+        }
+        ,
+        "featureId": {
+            "type": "string"
+        }
+        ,
+        "associatedInsurableRisk": {
+            "type": "string",
+            "enum": [
+            "vehicle",
+            "riskAddress",
+            "scheduledPropertyItem"
+            ]
+        }
+        ,
+        "readyToApprove": {
+            "type": "boolean"
+        }
+        ,
+        "applyExcess": {
+            "type": "boolean"
+        }
+    }
+    ,
+    "required": [
+    "claimant",
+    "featureId",
+    "associatedInsurableRisk",
+    "readyToApprove",
+    "applyExcess"
+    ]
+}
+
+
+@endjson

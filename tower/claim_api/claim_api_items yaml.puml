@@ -1,0 +1,550 @@
+@startjson
+
+[
+{
+    "itemNumber": "1",
+    "oid": "mc0yOQ5aJ2gxjm1eJpdE3Q",
+    "damageType": "TwrAutoLoss"
+}
+]
+
+@endjson
+
+@startjson
+
+<style>
+  .h1 {
+    BackGroundColor green
+    FontColor white
+    FontStyle italic
+  }
+  .h2 {
+    BackGroundColor red
+    FontColor white
+    FontStyle bold
+  }
+</style>
+
+#highlight "0" / "itemizedLosses"
+#highlight "0" / "itemizedLosses" / "0" / "itemType"
+#highlight "0" / "extension" / "airbagsDeployed"
+#highlight "0" / "extension" / "knockForKnock"
+#highlight "0" / "generalAreaOfDamage" / "0" / "area"
+#highlight "0" / "features" / "0" / "reserves" / "0" / "amount"
+#highlight "0" / "features" / "0" / "reserves" / "0" / "amount" / "amount"
+#highlight "0" / "features" / "0" / "reserves" / "0" / "amount" / "currencyCd"
+#highlight "0" / "features" / "0" / "reserves" / "0" / "typeCd"
+
+[
+{
+    "itemNumber": "1",
+    "displayValue": "2021, Nissan, Qashqai J11 ST-L Hatchback 5dr Xtronic 1sp 2.0i, NLF753",
+    "damageType": "TwrAutoLoss",
+    "itemizedLosses": [
+    {
+        "oid": "abcd",
+        "itemType": "C-Keys and Locks"
+    }
+    ],
+    "componentName": "ClaimsDamage",
+    "oid": "mc0yOQ5aJ2gxjm1eJpdE3Q",
+    "extension": {
+        "airbagsDeployed": "TRUE",
+        "knockForKnock": "TRUE"
+    },
+    "generalAreaOfDamage": [
+        {
+            "area": "Door - front drivers side"
+        }
+    ]
+    ,
+    "features": [
+    {
+        "oid": "pgXq-Bc8Cm7-bmEnu9NF9g",
+        "featureNumber": "1",
+        "featureId": "8266408109",
+        "coverage": {
+            "oid": "hEAnA1gRhBl3asFeavFHDw",
+            "coverageCd": "VehicleVehDamage"
+        }
+        ,
+        "featureIncurred": {
+            "amount": 2000,
+            "currencyCd": "NZD"
+        }
+        ,
+        "statusCd": "OPEN",
+        "reserves": [
+        {
+            "amount": {
+                "amount": 2000,
+                "currencyCd": "NZD"
+            }
+            ,
+            "typeCd": "INDEMNITY"
+        }
+        ,
+        {
+            "amount": {
+                "amount": 0,
+                "currencyCd": "NZD"
+            }
+            ,
+            "typeCd": "EXPENSE"
+        }
+        ,
+        {
+            "amount": {
+                "amount": 0,
+                "currencyCd": "NZD"
+            }
+            ,
+            "typeCd": "RECOVERY"
+        }
+        ]
+    }
+    ]
+}
+]
+
+@endjson
+
+
+@startjson
+
+{
+  "claimSubStatusCd": "string",
+  "policy": {
+    "termEffectiveDate": "2023-04-19T22:34:52.917Z",
+    "termExpirationDate": "2023-04-19T22:34:52.917Z",
+    "inceptionDate": "2023-04-19T22:34:52.917Z",
+    "componentName": "string",
+    "riskItems": [
+      {
+        "oid": "string",
+        "displayValue": "string",
+        "associatedInsurableRiskOid": "string",
+        "componentName": "string",
+        "coverages": [
+          {
+            "oid": "string",
+            "coverageCd": "string",
+            "componentName": "string",
+            "deductibleAmount": {
+              "amount": 0,
+              "currencyCd": "string"
+            },
+            "designatedCoverageInd": true,
+            "coverageDetails": [
+              {
+                "limitLevel": "string",
+                "limitAmount": {
+                  "amount": 0,
+                  "currencyCd": "string"
+                },
+                "componentName": "string"
+              }
+            ]
+          }
+        ],
+        "scheduledItems": [
+          {
+            "oid": "string",
+            "displayValue": "string",
+            "associatedInsurableRiskOid": "string",
+            "componentName": "string",
+            "coverages": [
+              {
+                "oid": "string",
+                "coverageCd": "string",
+                "componentName": "string",
+                "deductibleAmount": {
+                  "amount": 0,
+                  "currencyCd": "string"
+                },
+                "designatedCoverageInd": true,
+                "coverageDetails": [
+                  {
+                    "limitLevel": "string",
+                    "limitAmount": {
+                      "amount": 0,
+                      "currencyCd": "string"
+                    },
+                    "componentName": "string"
+                  }
+                ]
+              }
+            ],
+            "scheduledItems": [
+              {}
+            ],
+            "party": {
+              "namePrefix": "string",
+              "firstName": "string",
+              "middleName": "string",
+              "lastName": "string",
+              "otherName": "string",
+              "nameTypeCd": "string",
+              "oid": "string",
+              "contactPreferenceCd": "string",
+              "displayValue": "string",
+              "relationShipToInsuredCd": "string",
+              "addresses": [
+                {
+                  "addressLine1": "string",
+                  "addressLine2": "string",
+                  "addressLine3": "string",
+                  "city": "string",
+                  "county": "string",
+                  "countryCd": "string",
+                  "postalCode": "string",
+                  "stateProvCd": "string",
+                  "latitude": 0,
+                  "longitude": 0,
+                  "componentName": "string",
+                  "addressTypeCd": "string",
+                  "displayValue": "string"
+                }
+              ],
+              "componentName": "string",
+              "extension": {},
+              "emails": [
+                {
+                  "email": "string",
+                  "emailTypeCd": "string"
+                }
+              ],
+              "phones": [
+                {
+                  "phoneTypeCd": "string",
+                  "phone": "string"
+                }
+              ],
+              "roles": [
+                {
+                  "claimsPartyRoleCd": "string",
+                  "claimsPartySubRoleCd": "string",
+                  "extension": {},
+                  "connectedTo": "string",
+                  "instanceName": "string"
+                }
+              ],
+              "birthDt": "2023-04-19T22:34:52.917Z",
+              "partyNumber": "string",
+              "companyNumber": "string",
+              "externalId": "string",
+              "preferredPaymentMethod": "string",
+              "bankAccountInfo": "string",
+              "bankName": "string",
+              "bankAccountNumber": "string",
+              "accountHolderName": "string",
+              "bankTransitNumber": "string",
+              "bankCd": "string",
+              "bankBranchCd": "string",
+              "bankAccountType": "string",
+              "additionalNameInd": true,
+              "additionalName": "string",
+              "instanceName": "string",
+              "type": "string",
+              "partyRoles": [
+                "string"
+              ],
+              "externalPartyInd": true,
+              "suffix": "string"
+            }
+          }
+        ],
+        "party": {
+          "namePrefix": "string",
+          "firstName": "string",
+          "middleName": "string",
+          "lastName": "string",
+          "otherName": "string",
+          "nameTypeCd": "string",
+          "oid": "string",
+          "contactPreferenceCd": "string",
+          "displayValue": "string",
+          "relationShipToInsuredCd": "string",
+          "addresses": [
+            {
+              "addressLine1": "string",
+              "addressLine2": "string",
+              "addressLine3": "string",
+              "city": "string",
+              "county": "string",
+              "countryCd": "string",
+              "postalCode": "string",
+              "stateProvCd": "string",
+              "latitude": 0,
+              "longitude": 0,
+              "componentName": "string",
+              "addressTypeCd": "string",
+              "displayValue": "string"
+            }
+          ],
+          "componentName": "string",
+          "extension": {},
+          "emails": [
+            {
+              "email": "string",
+              "emailTypeCd": "string"
+            }
+          ],
+          "phones": [
+            {
+              "phoneTypeCd": "string",
+              "phone": "string"
+            }
+          ],
+          "roles": [
+            {
+              "claimsPartyRoleCd": "string",
+              "claimsPartySubRoleCd": "string",
+              "extension": {},
+              "connectedTo": "string",
+              "instanceName": "string"
+            }
+          ],
+          "birthDt": "2023-04-19T22:34:52.918Z",
+          "partyNumber": "string",
+          "companyNumber": "string",
+          "externalId": "string",
+          "preferredPaymentMethod": "string",
+          "bankAccountInfo": "string",
+          "bankName": "string",
+          "bankAccountNumber": "string",
+          "accountHolderName": "string",
+          "bankTransitNumber": "string",
+          "bankCd": "string",
+          "bankBranchCd": "string",
+          "bankAccountType": "string",
+          "additionalNameInd": true,
+          "additionalName": "string",
+          "instanceName": "string",
+          "type": "string",
+          "partyRoles": [
+            "string"
+          ],
+          "externalPartyInd": true,
+          "suffix": "string"
+        },
+        "reportedRiskItemName": "string",
+        "extension": {}
+      }
+    ],
+    "parties": [
+      {
+        "namePrefix": "string",
+        "firstName": "string",
+        "middleName": "string",
+        "lastName": "string",
+        "otherName": "string",
+        "nameTypeCd": "string",
+        "oid": "string",
+        "contactPreferenceCd": "string",
+        "displayValue": "string",
+        "relationShipToInsuredCd": "string",
+        "addresses": [
+          {
+            "addressLine1": "string",
+            "addressLine2": "string",
+            "addressLine3": "string",
+            "city": "string",
+            "county": "string",
+            "countryCd": "string",
+            "postalCode": "string",
+            "stateProvCd": "string",
+            "latitude": 0,
+            "longitude": 0,
+            "componentName": "string",
+            "addressTypeCd": "string",
+            "displayValue": "string"
+          }
+        ],
+        "componentName": "string",
+        "extension": {},
+        "emails": [
+          {
+            "email": "string",
+            "emailTypeCd": "string"
+          }
+        ],
+        "phones": [
+          {
+            "phoneTypeCd": "string",
+            "phone": "string"
+          }
+        ],
+        "roles": [
+          {
+            "claimsPartyRoleCd": "string",
+            "claimsPartySubRoleCd": "string",
+            "extension": {},
+            "connectedTo": "string",
+            "instanceName": "string"
+          }
+        ],
+        "birthDt": "2023-04-19T22:34:52.918Z",
+        "partyNumber": "string",
+        "companyNumber": "string",
+        "externalId": "string",
+        "preferredPaymentMethod": "string",
+        "bankAccountInfo": "string",
+        "bankName": "string",
+        "bankAccountNumber": "string",
+        "accountHolderName": "string",
+        "bankTransitNumber": "string",
+        "bankCd": "string",
+        "bankBranchCd": "string",
+        "bankAccountType": "string",
+        "additionalNameInd": true,
+        "additionalName": "string",
+        "instanceName": "string",
+        "type": "string",
+        "partyRoles": [
+          "string"
+        ],
+        "externalPartyInd": true,
+        "suffix": "string"
+      }
+    ],
+    "policyNumber": "string",
+    "productCd": "string",
+    "productVersion": 0,
+    "verified": true,
+    "policyStatus": "ACTIVE",
+    "policyLOB": "string",
+    "policyBLOB": "string",
+    "reportedPolicyNumber": "string"
+  },
+  "claimNumber": "string",
+  "additionalClaimNumber": "string",
+  "claimStatusCd": "string",
+  "lossDt": "2023-04-19T22:34:52.918Z",
+  "lossDesc": "string",
+  "customerNumber": "string",
+  "reportedDt": "2023-04-19T22:34:52.918Z",
+  "policyNumber": "string",
+  "policyProductCd": "string",
+  "knownTimeInd": true,
+  "lineOfBusinessCd": "string",
+  "productVersion": 0,
+  "causeOfLossCd": "string",
+  "lossLocationDesc": "string",
+  "lossLocation": "string",
+  "secondaryLossCauseCd": "string",
+  "reportingMethod": "string",
+  "parties": [
+    {
+      "namePrefix": "string",
+      "firstName": "string",
+      "middleName": "string",
+      "lastName": "string",
+      "otherName": "string",
+      "nameTypeCd": "string",
+      "oid": "string",
+      "contactPreferenceCd": "string",
+      "displayValue": "string",
+      "relationShipToInsuredCd": "string",
+      "addresses": [
+        {
+          "addressLine1": "string",
+          "addressLine2": "string",
+          "addressLine3": "string",
+          "city": "string",
+          "county": "string",
+          "countryCd": "string",
+          "postalCode": "string",
+          "stateProvCd": "string",
+          "latitude": 0,
+          "longitude": 0,
+          "componentName": "string",
+          "addressTypeCd": "string",
+          "displayValue": "string"
+        }
+      ],
+      "componentName": "string",
+      "extension": {},
+      "emails": [
+        {
+          "email": "string",
+          "emailTypeCd": "string"
+        }
+      ],
+      "phones": [
+        {
+          "phoneTypeCd": "string",
+          "phone": "string"
+        }
+      ],
+      "roles": [
+        {
+          "claimsPartyRoleCd": "string",
+          "claimsPartySubRoleCd": "string",
+          "extension": {},
+          "connectedTo": "string",
+          "instanceName": "string"
+        }
+      ],
+      "birthDt": "2023-04-19T22:34:52.918Z",
+      "partyNumber": "string",
+      "companyNumber": "string",
+      "externalId": "string",
+      "preferredPaymentMethod": "string",
+      "bankAccountInfo": "string",
+      "bankName": "string",
+      "bankAccountNumber": "string",
+      "accountHolderName": "string",
+      "bankTransitNumber": "string",
+      "bankCd": "string",
+      "bankBranchCd": "string",
+      "bankAccountType": "string",
+      "additionalNameInd": true,
+      "additionalName": "string",
+      "instanceName": "string",
+      "type": "string",
+      "partyRoles": [
+        "string"
+      ],
+      "externalPartyInd": true,
+      "suffix": "string"
+    }
+  ],
+  "addresses": [
+    {
+      "addressLine1": "string",
+      "addressLine2": "string",
+      "addressLine3": "string",
+      "city": "string",
+      "county": "string",
+      "countryCd": "string",
+      "postalCode": "string",
+      "stateProvCd": "string",
+      "latitude": 0,
+      "longitude": 0,
+      "componentName": "string",
+      "addressTypeCd": "string",
+      "displayValue": "string"
+    }
+  ],
+  "componentName": "string",
+  "policyProductVersion": 0,
+  "totalIncurred": {
+    "amount": 0,
+    "currencyCd": "string"
+  },
+  "fileOwner": {
+    "typeCd": "internalUser",
+    "refId": "string",
+    "displayValue": "string"
+  },
+  "claimsPolicyStatus": "string",
+  "extension": {},
+  "selectedRiskItemOids": [
+    "string"
+  ],
+  "currencyCd": "string",
+  "productCd": "string"
+}
+
+@endjson

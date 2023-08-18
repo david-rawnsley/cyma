@@ -1,0 +1,29 @@
+@startuml Availability API Container
+
+title Availability API Container
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include style/sprites.puml
+!include style/brand.puml
+
+'Style
+'LAYOUT_AS_SKETCH()
+'LAYOUT_LANDSCAPE()
+
+System_Boundary(sb1, "Azure Integration Services") {
+    System_Boundary(sb2, "API Management") {
+        System(sys_availability_svc, "Availability API", "Provides Workforce Availability, enables the identification of available resources", $tags="new")
+    }
+}
+
+System_Boundary(sb3, "Azure Compute Services") {
+    System(sys_aks_svc, "Azure Kubernetes Services", "Deploy and scale containers on managed Kubernetes")
+}
+
+System_Ext(sys_calabrio, "Calabrio", "Provides the Workforce Management solution to handle availablity and skills", $sprite="clock")
+
+Rel(sys_availability_svc, sys_calabrio, "Makes SDK calls", "TCP")
+Rel(sys_availability_svc, sys_aks_svc, "Makes API calls", "JSON/HTTP")
+
+SHOW_FLOATING_LEGEND()
+
+@enduml

@@ -1,0 +1,82 @@
+@startjson
+
+!include style/brand_json.puml
+
+#highlight "0" / "damageType"
+#highlight "1" / "damageType"
+#highlight "0" / "loss" / "damageDesc"
+#highlight "1" / "loss" / "damageDesc"
+
+[
+{
+    "damageType": "ClaimsInjury",
+    "loss": {
+        "damageDesc": "Broken leg",
+        "oid": "rjObX9q30VowTWcuLBtDGQ",
+        "parties": [
+        {
+            "firstName": "Peter",
+            "lastName": "Peterson",
+            "nameTypeCd": "IND",
+            "oid": "pgMdLFVAdvb9lDxjiItIrA",
+            "displayValue": "Peter Peterson",
+            "addresses": [
+            {
+                "addressLine1": "Short 12",
+                "city": "Beverly Hills",
+                "county": "CA",
+                "countryCd": "US",
+                "postalCode": "90210",
+                "stateProvCd": "CA",
+                "addressTypeCd": "contact",
+                "displayValue": "Short 12, Beverly Hills, CA, 90210, US"
+            }
+            ],
+            "componentName": "ClaimsInjuryParty",
+            "associatedRiskItemOid" : "hJ7dVuIiwkyBwqU2ARZBVQ",
+            "riskItemOid" : "udTQJg2TUU1rI5oX-aJDHw"
+        }
+        ]
+    }
+    ,
+    "itemizedLosses": [
+    {
+        "item": "Item",
+        "componentName": "ClaimsLossItems",
+        "estimatedValue": 70,
+        "extension": {},
+        "associatedScheduledItemOid": null
+    }
+    ],
+    "damageNumber": "1",
+    "displayValue": "Broken leg",
+    "oid": "tACehdPzqh1t4Vk6DDZMkw"
+}
+,
+{
+    "damageType": "PropertyDamage",
+    "loss": {
+        "damageDesc": "Broken window",
+        "oid": "tHjco50MKvQFfdleubtJDQ",
+        "partyType": "FIRST",
+        "addresses": [
+        {
+            "addressLine1": "Big str. 1001",
+            "city": "Beverly Hills",
+            "countryCd": "US",
+            "postalCode": "90210",
+            "stateProvCd": "CA",
+            "addressTypeCd": "contact",
+            "displayValue": "Big str. 1001, Beverly Hills, CA, 90210, US"
+        }
+        ]
+    }
+    ,
+    "itemizedLosses": [],
+    "damageNumber": "2",
+    "displayValue": "Broken window",
+    "oid": "kWm1V6DpdsA5sYO-9ZFOtg"
+}
+]
+
+@endjson

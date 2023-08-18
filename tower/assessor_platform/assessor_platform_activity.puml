@@ -1,0 +1,24 @@
+@startuml
+
+skinparam style strictuml
+skinparam defaultFontName Raleway
+|EIS (Claim Management)|
+start
+:Lodge Claim;
+
+if (LoB) then (motor)
+    :Assign Repairer;
+else (house & contents)
+endif
+:send to platform;
+
+if (LoB) then (motor)
+    |Motor Platform|
+    :Assign Assessor;
+else (house & contents)
+    |House & Contents Platform|
+    :Assign Assessor;
+endif
+
+stop
+@enduml

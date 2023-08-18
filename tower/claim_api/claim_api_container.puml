@@ -1,0 +1,29 @@
+@startuml Claim API Container
+
+title Claim API Container
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include style/sprites.puml
+!include style/brand.puml
+
+'Style
+'LAYOUT_AS_SKETCH()
+'LAYOUT_LANDSCAPE()
+
+'System_Boundary(sb0, "NIMS") {
+'    System(sys_nims, "vNIMS", "Tower core insurance system with Policy, Claim and Billing management functionality.", $sprite="blur_on", $tags="sunset")
+'    System(sys_cnlt, "CNLT", "Claims Notification and Lodgement Tool enables lodging and tracking of claims.", $sprite="blur_on", $tags="sunset")
+'}
+
+System(sys_eis, "EIS", "Tower core insurance system with Policy, Claim and Billing management functionality.", $sprite="blur_on")
+System_Boundary(sb1, "Azure Integration Services") {
+    System_Boundary(sb2, "API Management") {
+        System(sys_claim_api, "Claim API", "Service that provides business logic for the domain defined by the API", $tags="new")
+    }
+}
+
+'Rel(sys_claim_api, sys_cnlt, "Makes SQL calls to", "JDBC")
+Rel(sys_claim_api, sys_eis, "Makes API calls", "JSON/HTTP")
+
+SHOW_FLOATING_LEGEND()
+
+@enduml

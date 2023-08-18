@@ -1,0 +1,53 @@
+@startuml QA Platform Container
+
+'title Reserve Estimation Service Integration Container
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include style/sprites.puml
+!include style/brand.puml
+
+'Style
+'LAYOUT_AS_SKETCH()
+'LAYOUT_LANDSCAPE()
+
+Person(p_qa_dtaadmin, "QA Data Admin", "Performs data loading functions within the QA Solution", $sprite="user")
+
+System_Boundary(sb1, "Data Services") {
+    System(sys_qareport_svc, "QA Extract", "Provides the data to support the business requirements for QA analysis.", $sprite="code", $tags="new")
+    System(sys_talend_svc, "Talend", "Provides the data extration and trnsformation service, and schedules output")
+}
+System(sys_sharepoint, "SharePoint", "Provides storage mechanism to extract and manage the data extracts for the QA solution", $sprite="cloud_sharepoint_online")
+System(sys_qaplatform, "Claim Audit Platform", "Provides the ability ti manage the Claim Audit process.", $tags="new")
+
+Rel(p_qa_dtaadmin, sys_sharepoint, "Retrieves file", "Visits pages")
+Rel(sys_talend_svc, sys_sharepoint, "Makes API calls", "JSON/HTTP")
+Rel(sys_talend_svc, sys_qareport_svc, "Runs Job", "")
+Rel(p_qa_dtaadmin, sys_qaplatform, "Loads QA data using", "Visits pages")
+
+@enduml
+
+
+@startuml QA Platform Container
+
+'title Reserve Estimation Service Integration Container
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include style/sprites.puml
+!include style/brand.puml
+
+'Style
+'LAYOUT_AS_SKETCH()
+'LAYOUT_LANDSCAPE()
+
+Person(p_qa_dtaadmin, "QA Data Admin", "Performs data loading functions within the QA Solution", $sprite="user")
+
+System(sys_qaplatform, "Claim Audit Platform", "Provides the ability ti manage the Claim Audit process.", $tags="new")
+
+System_Boundary(sb1, "Data Services") {
+    System(sys_qareport_svc, "QA Extract Report", "Provides the data to support the business requirements for QA analysis.", $sprite="code", $tags="new")
+}
+
+Rel(p_qa_dtaadmin, sys_qaplatform, "Loads QA data using", "Visits pages")
+Rel(p_qa_dtaadmin, sys_qareport_svc, "Runs Report", "PowerBI")
+
+@enduml

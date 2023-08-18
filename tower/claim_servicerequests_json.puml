@@ -1,0 +1,142 @@
+@startjson
+!include style/brand_json.puml
+
+#highlight "0" / "damageOid"
+#highlight "0" / "coverageOid"
+#highlight "0" / "vendors"
+#highlight "0" / "vendors" / "0" / "profile"
+#highlight "0" / "vendors" / "0" / "profile" / "preferredPaymentMethod"
+#highlight "0" / "vendors" / "0" / "profile" / "bankAccountInfo"
+#highlight "0" / "vendors" / "0" / "profile" / "bankName"
+#highlight "0" / "vendors" / "0" / "profile" / "bankAccountNumber"
+#highlight "0" / "vendors" / "0" / "profile" / "accountHolderName"
+#highlight "0" / "vendors" / "0" / "profile" / "bankTransitNumber"
+#highlight "0" / "vendors" / "0" / "profile" / "bankCd"
+#highlight "0" / "vendors" / "0" / "profile" / "bankBranchCd"
+#highlight "0" / "vendors" / "0" / "profile" / "bankAccountType"
+
+[
+  {
+    "oid": "mvGkYRcloVzw4y4zfStEFg",
+    "damageOid": "kpPgFOj7QFtJ5cb9cIlNgw",
+    "serviceCd": "C_COMMUNICATIONS",
+    "coverageOid": "owf_qYJEdb7NvAknIO9Ogw",
+    "componentName": "ClaimsServiceRequest",
+    "extension": null,
+    "vendors": [
+      {
+        "ratingCd": "GOLD",
+        "statusCd": "ACTIVE",
+        "profile": {
+          "namePrefix": null,
+          "firstName": null,
+          "middleName": null,
+          "lastName": null,
+          "otherName": "Noel Leeming",
+          "nameTypeCd": null,
+          "oid": "30225949",
+          "contactPreferenceCd": null,
+          "displayValue": "Noel Leeming",
+          "relationShipToInsuredCd": null,
+          "addresses": [
+            {
+              "addressLine1": "The Warehouse Way",
+              "addressLine2": "26",
+              "addressLine3": "",
+              "city": "Auckland",
+              "county": null,
+              "countryCd": "NZ",
+              "postalCode": "0627",
+              "stateProvCd": "Northcote",
+              "latitude": null,
+              "longitude": null,
+              "componentName": null,
+              "addressTypeCd": null,
+              "displayValue": "26, The Warehouse Way, Northcote, Auckland, 0627"
+            }
+          ],
+          "componentName": null,
+          "extension": {
+            "vendorProfileId": 30225949
+          },
+          "emails": null,
+          "phones": null,
+          "roles": null,
+          "birthDt": null,
+          "partyNumber": null,
+          "companyNumber": "88-640-667",
+          "externalId": null,
+          "preferredPaymentMethod": null,
+          "bankAccountInfo": null,
+          "bankName": null,
+          "bankAccountNumber": null,
+          "accountHolderName": null,
+          "bankTransitNumber": null,
+          "bankCd": null,
+          "bankBranchCd": null,
+          "bankAccountType": null,
+          "additionalNameInd": null,
+          "additionalName": null,
+          "instanceName": null,
+          "type": null,
+          "partyRoles": null,
+          "externalPartyInd": false,
+          "suffix": null
+        },
+        "contacts": [
+          {
+            "namePrefix": null,
+            "firstName": "",
+            "middleName": null,
+            "lastName": "",
+            "otherName": null,
+            "nameTypeCd": null,
+            "oid": null,
+            "contactPreferenceCd": "EMAIL",
+            "displayValue": null,
+            "relationShipToInsuredCd": null,
+            "addresses": null,
+            "componentName": null,
+            "extension": {},
+            "emails": [
+              {
+                "email": "CCCC83C68@nlg.co.nz",
+                "emailTypeCd": null
+              }
+            ],
+            "phones": [
+              {
+                "phoneTypeCd": "workPhone",
+                "phone": "6177858452"
+              }
+            ],
+            "roles": null,
+            "birthDt": null,
+            "partyNumber": null,
+            "companyNumber": null,
+            "externalId": null,
+            "preferredPaymentMethod": null,
+            "bankAccountInfo": null,
+            "bankName": null,
+            "bankAccountNumber": null,
+            "accountHolderName": null,
+            "bankTransitNumber": null,
+            "bankCd": null,
+            "bankBranchCd": null,
+            "bankAccountType": null,
+            "additionalNameInd": null,
+            "additionalName": null,
+            "instanceName": null,
+            "type": null,
+            "partyRoles": null,
+            "externalPartyInd": false,
+            "suffix": null
+          }
+        ]
+      }
+    ],
+    "parties": null
+  }
+]
+
+@endjson

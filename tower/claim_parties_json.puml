@@ -1,0 +1,222 @@
+@startjson
+
+[
+  {
+    "namePrefix": null,
+    "firstName": "QA",
+    "middleName": "",
+    "lastName": "QA user",
+    "otherName": null,
+    "nameTypeCd": "IND",
+    "oid": "8481984075",
+    "contactPreferenceCd": null,
+    "displayValue": "QA QA user",
+    "relationShipToInsuredCd": null,
+    "addresses": [
+      {
+        "addressLine1": null,
+        "addressLine2": null,
+        "addressLine3": null,
+        "city": null,
+        "county": null,
+        "countryCd": null,
+        "postalCode": null,
+        "stateProvCd": null,
+        "latitude": null,
+        "longitude": null,
+        "componentName": null,
+        "addressTypeCd": null,
+        "displayValue": ""
+      }
+    ],
+    "componentName": null,
+    "extension": {},
+    "emails": [],
+    "phones": [],
+    "roles": [
+      {
+        "claimsPartyRoleCd": "ClaimsWoPolicyInsuranceAgent",
+        "claimsPartySubRoleCd": null,
+        "extension": {},
+        "connectedTo": "pPy4CkUjpQi6X8r9Nc9IGA",
+        "instanceName": "nXnGrqFDKhOcNbGG_xZJ3A"
+      }
+    ],
+    "birthDt": null,
+    "partyNumber": null,
+    "companyNumber": null,
+    "externalId": null,
+    "preferredPaymentMethod": null,
+    "bankAccountInfo": null,
+    "bankName": null,
+    "bankAccountNumber": null,
+    "accountHolderName": null,
+    "bankTransitNumber": null,
+    "bankCd": null,
+    "bankBranchCd": null,
+    "bankAccountType": null,
+    "additionalNameInd": null,
+    "additionalName": null,
+    "instanceName": null,
+    "type": null,
+    "partyRoles": [],
+    "externalPartyInd": false,
+    "suffix": null
+  },
+  {
+    "namePrefix": null,
+    "firstName": "Snoop",
+    "middleName": "",
+    "lastName": "Dogg",
+    "otherName": "",
+    "nameTypeCd": "IND",
+    "oid": "K93424460163",
+    "contactPreferenceCd": "EMAIL",
+    "displayValue": "Snoop Dogg",
+    "relationShipToInsuredCd": null,
+    "addresses": [
+      {
+        "addressLine1": "Porritt Avenue",
+        "addressLine2": "27",
+        "addressLine3": "",
+        "city": "Auckland",
+        "county": "",
+        "countryCd": "NZ",
+        "postalCode": "0626",
+        "stateProvCd": "",
+        "latitude": null,
+        "longitude": null,
+        "componentName": null,
+        "addressTypeCd": "postalPhysical",
+        "displayValue": "27, Porritt Avenue, Auckland, 0626"
+      }
+    ],
+    "componentName": null,
+    "extension": {
+      "mainInsured": null
+    },
+    "emails": [
+      {
+        "email": "snoop@dogg.com",
+        "emailTypeCd": null
+      }
+    ],
+    "phones": [],
+    "roles": [
+      {
+        "claimsPartyRoleCd": "ClaimsWoPolicyInsured",
+        "claimsPartySubRoleCd": null,
+        "extension": {},
+        "connectedTo": "pPy4CkUjpQi6X8r9Nc9IGA",
+        "instanceName": "lKbhzNzPvdQUpDwtfVVAGg"
+      },
+      {
+        "claimsPartyRoleCd": "AutoOccupant",
+        "claimsPartySubRoleCd": "DRIVER_AND_OWNER",
+        "extension": {
+          "ownerInd": null
+        },
+        "connectedTo": "gMMQQz9q4zxvh4QojwdN6A",
+        "instanceName": "ldQfBL_9ZiV13jrzbWZJSg"
+      },
+      {
+        "claimsPartyRoleCd": "ClaimsWoPolicyDriver",
+        "claimsPartySubRoleCd": null,
+        "extension": {},
+        "connectedTo": "pPy4CkUjpQi6X8r9Nc9IGA",
+        "instanceName": "vzz9WVOGjspUDimdRY5BGQ"
+      },
+      {
+        "claimsPartyRoleCd": "CUSTOMER",
+        "claimsPartySubRoleCd": null,
+        "extension": {},
+        "connectedTo": null,
+        "instanceName": null
+      },
+      {
+        "claimsPartyRoleCd": "ReportingParty",
+        "claimsPartySubRoleCd": null,
+        "extension": {},
+        "connectedTo": "pPy4CkUjpQi6X8r9Nc9IGA",
+        "instanceName": "koIl6R6e9e0OHPFSfgBETg"
+      }
+    ],
+    "birthDt": "1964-12-31T12:00:00Z",
+    "partyNumber": "",
+    "companyNumber": null,
+    "externalId": null,
+    "preferredPaymentMethod": null,
+    "bankAccountInfo": null,
+    "bankName": null,
+    "bankAccountNumber": null,
+    "accountHolderName": null,
+    "bankTransitNumber": null,
+    "bankCd": null,
+    "bankBranchCd": null,
+    "bankAccountType": null,
+    "additionalNameInd": null,
+    "additionalName": null,
+    "instanceName": null,
+    "type": null,
+    "partyRoles": [],
+    "externalPartyInd": false,
+    "suffix": null
+  },
+  {
+    "namePrefix": null,
+    "firstName": "Tupac",
+    "middleName": "",
+    "lastName": "Shakur",
+    "otherName": "",
+    "nameTypeCd": "IND",
+    "oid": "m6A-jOxd1ROxjX-ySh1FoQ",
+    "contactPreferenceCd": null,
+    "displayValue": "Tupac Shakur",
+    "relationShipToInsuredCd": null,
+    "addresses": [],
+    "componentName": null,
+    "extension": {},
+    "emails": [],
+    "phones": [
+      {
+        "phoneTypeCd": null,
+        "phone": "021666666"
+      },
+      {
+        "phoneTypeCd": "mobilePhone",
+        "phone": ""
+      }
+    ],
+    "roles": [
+      {
+        "claimsPartyRoleCd": "Twr3rdPartyAutoOccupant",
+        "claimsPartySubRoleCd": "DRIVER",
+        "extension": {},
+        "connectedTo": "iSkQ8qI-S7Y81EgxzOlKIQ",
+        "instanceName": "r5RjdxZpfyUmqzmvhzBAZQ"
+      }
+    ],
+    "birthDt": null,
+    "partyNumber": null,
+    "companyNumber": null,
+    "externalId": null,
+    "preferredPaymentMethod": null,
+    "bankAccountInfo": null,
+    "bankName": null,
+    "bankAccountNumber": null,
+    "accountHolderName": null,
+    "bankTransitNumber": null,
+    "bankCd": null,
+    "bankBranchCd": null,
+    "bankAccountType": null,
+    "additionalNameInd": null,
+    "additionalName": null,
+    "instanceName": null,
+    "type": null,
+    "partyRoles": [],
+    "externalPartyInd": true,
+    "suffix": null
+  }
+]
+
+@endjson

@@ -1,0 +1,31 @@
+@startyaml
+
+!include style/brand_json.puml
+
+type: object
+properties:
+  statusCd:
+    type: string
+    description: The code representing the status of the claim.
+  statusDescription:
+    type: string
+    description: A description of the status of the claim.
+  subStatusCd:
+    type: string
+    description: The code representing the sub-status of the claim.
+  subStatusDescription:
+    type: string
+    description: A description of the sub-status of the claim.    
+  statusDateTime:
+    type: string
+    description: The date and time the status was recorded.
+  changeBy:
+    type: string
+    description: The name or identifier of the user who changed the status of the claim.
+required:
+  - statusCd
+  - statusDescription
+  - statusDate
+  - changeBy
+
+@endyaml

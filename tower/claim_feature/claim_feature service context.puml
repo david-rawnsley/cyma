@@ -1,0 +1,29 @@
+@startuml Claim Feature Service
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include style/sprites.puml
+!include style/brand.puml
+
+'Style
+'LAYOUT_AS_SKETCH()
+'LAYOUT_LANDSCAPE()
+
+Person_Ext(p_t_customer, "Customer", "Any customer interacting with customer services", $sprite="user")
+Person(p_claims_consultant, "Claims Consultant", "Performs administrative functions within the IVR solution", $sprite="user")
+System(sys_feature_svc, "Claim Feature Service", "Provides the automation of a feature to be added to the claim.", $tags="new")
+'System(sys_claim_api, "Claim API", "Service that provides business logic for the domain defined by the API", $tags="new")
+System(sys_eis, "EIS", "Tower core insurance system with Policy, Claim and Billing management functionality.", $sprite="blur_on")
+System(sys_mytower, "My Tower", "Provides customers the ability to digitally interact with Tower services.", $sprite="web_asset")
+'System(sys_resesti_svc, "Claim Reserve Estimation Service", "Provides the calulation to define the claim reserve.", $sprite="calculator*.75", $tags="new")
+
+Rel(p_claims_consultant, sys_eis, "Manages claims using", "Visits pages")
+Rel(p_t_customer, p_claims_consultant, "Submits claims using", "PSTN")
+Rel(p_t_customer, sys_mytower, "Manages claims using", "Visits pages")
+Rel(sys_eis, sys_feature_svc, "Makes API calls", "JSON/HTTP")
+'Rel(sys_feature_svc, sys_claim_api, "Makes API calls", "JSON/HTTP")
+'Rel(sys_claim_api, sys_eis, "Makes API calls", "JSON/HTTP")
+Rel(sys_mytower, sys_eis, "Makes API calls to submit claim", "JSON/HTTP")
+'Rel_R(sys_feature_svc, sys_resesti_svc, "Makes API calls", "JSON/HTTP")
+
+SHOW_FLOATING_LEGEND()
+@enduml

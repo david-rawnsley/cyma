@@ -1,0 +1,224 @@
+@startjson
+!include style/brand_json.puml
+[
+  {
+    "damageNumber": "1",
+    "displayValue": "2000, Toyota, Corolla",
+    "damageType": "Twr3rdPartyAutoLoss",
+    "loss": {
+      "associatedRiskItemOid": "nlxv3dFcGhJ-cUVTo05EtA",
+      "riskItemOid": "OTHER",
+      "damageDesc": "Damaged back",
+      "partyType": "THIRD",
+      "parties": [
+        {
+          "namePrefix": null,
+          "firstName": "Jack",
+          "middleName": "",
+          "lastName": "Atfault",
+          "otherName": "",
+          "nameTypeCd": "IND",
+          "oid": "2696629730898169411PersonParty",
+          "contactPreferenceCd": "EMAIL",
+          "displayValue": "Jack Atfault",
+          "relationShipToInsuredCd": null,
+          "addresses": [
+            {
+              "addressLine1": "Jackson street",
+              "addressLine2": "",
+              "addressLine3": "",
+              "city": "Auckland",
+              "county": "",
+              "countryCd": "NZ",
+              "postalCode": "0933",
+              "stateProvCd": "",
+              "latitude": null,
+              "longitude": null,
+              "componentName": null,
+              "addressTypeCd": "postalPhysical",
+              "displayValue": "Jackson street, Auckland, 0933"
+            }
+          ],
+          "componentName": "Twr3rdPartyAutoOccupant",
+          "extension": {},
+          "emails": [
+            {
+              "email": "test@tower.co.nz",
+              "emailTypeCd": null
+            }
+          ],
+          "phones": [],
+          "roles": null,
+          "birthDt": "1975-01-10T11:00:00Z",
+          "partyNumber": null,
+          "companyNumber": null,
+          "externalId": null,
+          "preferredPaymentMethod": null,
+          "bankAccountInfo": null,
+          "bankName": null,
+          "bankAccountNumber": null,
+          "accountHolderName": null,
+          "bankTransitNumber": null,
+          "bankCd": null,
+          "bankBranchCd": null,
+          "bankAccountType": null,
+          "additionalNameInd": null,
+          "additionalName": null,
+          "instanceName": "tCg-zIlXsNmOGOwCu9ZG_A",
+          "type": null,
+          "partyRoles": [],
+          "externalPartyInd": false,
+          "suffix": null
+        }
+      ],
+      "addresses": null,
+      "componentName": "Twr3rdPartyAutoLoss",
+      "instanceName": "mb-OSA0MvWOUn8VtYXtLKA",
+      "extension": {
+        "thirdPartyAtFaultCd": "NO"
+      },
+      "oid": "gYglikOy9ITY7A3-eDlKIA",
+      "severityCd": null,
+      "lossDesc": null
+    },
+    "itemizedLosses": [],
+    "componentName": "ClaimsDamage",
+    "instanceName": "p0BbwX_om95oThofMp5GlQ",
+    "oid": "i9hhxqxRFsfBuZzw4PlBHg",
+    "features": null
+  },
+  {
+    "damageNumber": "2",
+    "displayValue": "3rd Party Property",
+    "damageType": "TwrPropertyDamage",
+    "loss": {
+      "associatedRiskItemOid": "nlxv3dFcGhJ-cUVTo05EtA",
+      "riskItemOid": "",
+      "damageDesc": "Fence",
+      "partyType": "THIRD",
+      "parties": [
+        {
+          "namePrefix": null,
+          "firstName": "Bob",
+          "middleName": "",
+          "lastName": "Brown",
+          "otherName": "",
+          "nameTypeCd": "IND",
+          "oid": "oVa3uVtV4sJoo-x1NqVOaw",
+          "contactPreferenceCd": "EMAIL",
+          "displayValue": "Bob Brown",
+          "relationShipToInsuredCd": null,
+          "addresses": null,
+          "componentName": "PropertyDamageParty",
+          "extension": {},
+          "emails": [
+            {
+              "email": "bob@tower.co.nz",
+              "emailTypeCd": null
+            }
+          ],
+          "phones": [],
+          "roles": null,
+          "birthDt": null,
+          "partyNumber": null,
+          "companyNumber": null,
+          "externalId": null,
+          "preferredPaymentMethod": null,
+          "bankAccountInfo": null,
+          "bankName": null,
+          "bankAccountNumber": null,
+          "accountHolderName": null,
+          "bankTransitNumber": null,
+          "bankCd": null,
+          "bankBranchCd": null,
+          "bankAccountType": null,
+          "additionalNameInd": null,
+          "additionalName": null,
+          "instanceName": "oZtHnFYyOJBSB_s0IkZN0Q",
+          "type": null,
+          "partyRoles": [],
+          "externalPartyInd": true,
+          "suffix": null
+        }
+      ],
+      "addresses": null,
+      "componentName": "TwrPropertyDamage",
+      "instanceName": "veK30FXNgOmcxOVToCxKiw",
+      "extension": {
+        "thirdPartyAtFaultCd": null
+      },
+      "oid": "qhCxn9tBLOK1Oq-pzWJMXQ",
+      "severityCd": null,
+      "lossDesc": null
+    },
+    "itemizedLosses": [],
+    "componentName": "ClaimsDamage",
+    "instanceName": "mzdq5oNIBNbp-qMxLKxBPQ",
+    "oid": "u9smAwxiaFWWnc0vnYFHzw",
+    "features": null
+  }
+]
+
+@endjson
+
+@startyaml
+!include style/brand_json.puml
+required:
+  - resourceType
+  - resourceId
+  - followUp
+  - unit
+  - availability
+  - phoneNumber
+properties:
+  resourceType:
+    type: string
+    enum: [group, user]   
+    description: A string indicating the type of the allocated resource.
+  email:
+    type: string
+    description: A string representing the email address of the claim manager.
+  resourceId:
+    type: string
+    description: A string indicating the ID of the allocated resource.
+  followUp:
+    type: integer
+    description: An integer indicating the follow-up status of the claim manager.
+  followUpUnit:
+    type: string
+    enum: [hour, day, week, month, year]
+    description: A string representing the unit of measure to be used. Valid values are hour, day, week, month, year
+  availability:
+    type: array
+    items:
+      type: object
+      required:
+        - day
+        - starttime
+        - endtime
+      properties:
+        day:
+          type: integer
+          minimum: 0
+          maximum: 6
+          description: An integer indicating the day of the week, where 0 is Sunday and 6 is Saturday.
+        starttime:
+          type: string
+          format: time
+          description: A string indicating the start time of the resource's availability.
+        endtime:
+          type: string
+          format: time
+          description: A string indicating the end time of the resource's availability.
+  phoneNumber:
+    type: string
+    description: A string indicating the phone number of the resource.
+  DDI:
+    type: string
+    description: An optional string indicating the direct dial-in (DDI) number of the resource.
+  extension:
+    type: string
+    description: An optional string indicating the extension number of the resource.
+
+
+@endyaml

@@ -1,0 +1,61 @@
+@startuml Vendor Invoice Sequence
+'!theme sketchy-outline
+
+title Vendor Invoice Sequence
+
+'Style
+hide footbox
+skinparam TitleBorderThickness 0
+skinparam responseMessageBelowArrow true
+skinparam shadowing false
+skinparam defaultFontName Raleway
+autonumber
+
+participant Vendor
+participant invoices@tower
+participant invoiceProcessor
+participant EIS
+participant "Claims Manager" as claimManager
+participant Westpac as westpac
+
+Vendor -> invoices@tower: postInvoice()
+invoiceProcessor -> invoices@tower: getInvoice()
+
+note over invoiceProcessor,EIS: Need to identify the payee refId \nfrom EIS for the payee
+invoiceProcessor -> invoiceProcessor: identifyVendor()
+invoiceProcessor -> EIS: getPartieNonindividuals(vendor)
+
+invoiceProcessor -> invoiceProcessor: transformInvoice()
+
+loop for each invoice line item
+    invoiceProcessor -> EIS: getClaim(claimNumber)
+    alt if claim status Closed
+        note over invoiceProcessor,EIS: Closed claims cannot have payments applied \nrequires manual intervention
+        invoiceProcessor -> invoiceProcessor: error(claimClosed)
+    else
+        note over invoiceProcessor,EIS: Identify recorded payments against \nclaim in case manual payment recorded
+        invoiceProcessor -> EIS: getClaimPayments(claimNumber)
+        invoiceProcessor -> invoiceProcessor: enumPayments()
+
+        alt if vendor refId + invoiceRef payment exists
+        note over invoiceProcessor,EIS: Claims cannot have payments applied due \nto  existing payment requires manual \nintervention.
+            invoiceProcessor -> invoiceProcessor: error(paymentExists)
+        else
+            note over invoiceProcessor,EIS: Need to confirm linkage between feature\nthis will enable us to add the payment to the \ncorrect feature
+            invoiceProcessor -> EIS: getClaimFeatures(claimNumber)
+            invoiceProcessor -> invoiceProcessor: enumFeatures()
+
+            alt if payee refId NOT exists
+                note over invoiceProcessor,EIS: Do not add invoice to claim where feature\n does not have a related payee refId\n requires manual intervention.
+                invoiceProcessor -> invoiceProcessor: error(payeeDoesNotExist)
+            else
+            note over invoiceProcessor,EIS #OrangeRed: Requires understanding on how to apply invoices \nto the relevant feature and cost type
+                invoiceProcessor -> EIS: postClaimPayment(refId, featureId)
+                end alt
+
+                end alt
+
+                end loop
+
+                end alt
+                @enduml

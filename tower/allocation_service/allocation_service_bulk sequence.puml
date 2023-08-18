@@ -1,0 +1,46 @@
+@startuml allocation_service sequence
+'!theme sketchy-outline
+
+title Allocation Service Sequence
+
+'Style
+hide footbox
+skinparam TitleBorderThickness 0
+skinparam BoxPadding 10
+skinparam responseMessageBelowArrow true
+skinparam roundcorner 10
+skinparam defaultFontName Raleway
+autonumber
+
+
+participant "Senior Claims Manager" as SCM
+participant "Claims Squad" as CS
+
+box "XXX Squad" #7A87C8
+participant "Claim API" as CAPI
+participant "Bulk Allocation Service" as BAS
+box 
+participant "Allocation Service" as AAS
+end box
+
+SCM -> CS: sendFile()
+activate CS
+CS -> CS: reviewFile()
+
+CS -> BAS: sendFile()
+activate BAS
+
+loop for each claimNumber in file
+BAS -> AAS: POST /allocation/claimManager(claimNumber, forceAlloc, resourceType, resourceId)
+activate AAS
+return response()
+
+BAS -> CAPI: POST fileOwner(claimNumber)
+activate CAPI
+return response()
+end loop
+
+return response()
+return Response()
+
+@enduml

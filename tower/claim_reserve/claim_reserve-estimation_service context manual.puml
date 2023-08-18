@@ -1,0 +1,36 @@
+@startuml Reserve Estimation Service - Context (Alt)
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include style/sprites.puml
+!include style/brand.puml
+
+'Style
+'LAYOUT_AS_SKETCH()
+'LAYOUT_LANDSCAPE()
+
+Person_Ext(p_t_customer, "Customer", "Any customer interacting with customer services", $sprite="user")
+Person(p_claims_consultant, "Claims Consultant", "Performs administrative functions within the IVR solution", $sprite="user")
+Person(p_actuary, "Actuary", "Performs actuarial functions within Tower Insurance", $sprite="user")
+System(sys_data_services, "Data Services", "Provides Integration services for Towers systems.", $sprite="snowflake")
+System(sys_mytower, "My Tower", "Provides customers the ability to digitally interact with Tower services.", $sprite="web_asset")
+
+System_Boundary(sb1, "EIS") {
+    System(sys_eis, "EIS", "Tower core insurance system with Policy, Claim and Billing management functionality.", $sprite="blur_on")
+}
+System(sys_eisautores_svc, "EIS OpenL Service", "Provides an OpenL module to enable the definition of reserves based on rules.")
+
+System_Boundary(sb2, "Azure Integration Services") {
+    System(sys_resesti_svc, "Reserve Estimation Service", "Provides the calulation engine to define the reserveon the claim.", $sprite="calculator*.5", $tags="new")
+}
+
+Rel(p_claims_consultant, sys_eis, "Manages claims using", "Visits pages")
+Rel(p_t_customer, p_claims_consultant, "Submits claims using", "PSTN")
+Rel(p_t_customer, sys_mytower, "Manages claims using", "Visits pages")
+Rel(sys_eis, sys_resesti_svc, "Makes API calls", "JSON/HTTP")
+Rel(sys_mytower, sys_eis, "Makes API calls to submit claim", "JSON/HTTP")
+Rel(p_actuary, sys_eisautores_svc, "Manages data using", "Visits pages")
+Rel(p_actuary,sys_data_services, "Use reports to generate estimation values", "JSON/HTTP")
+Rel(sys_resesti_svc, sys_eisautores_svc, "Makes API calls", "JSON/HTTP")
+
+SHOW_FLOATING_LEGEND()
+@enduml

@@ -1,0 +1,109 @@
+@startjson
+!include style/brand_json.puml
+
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Azure AD User Schema",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string",
+            "description": "The unique identifier for the user."
+        }
+        ,
+        "displayName": {
+            "type": "string",
+            "description": "The display name for the user."
+        }
+        ,
+        "givenName": {
+            "type": "string",
+            "description": "The given name (first name) for the user."
+        }
+        ,
+        "surname": {
+            "type": "string",
+            "description": "The surname (last name) for the user."
+        }
+        ,
+        "userPrincipalName": {
+            "type": "string",
+            "description": "The user principal name (UPN) for the user."
+        }
+         ,
+        "sAMAccountName": {
+            "type": "string",
+            "description": "The user sAMAccountName for the user."
+        }          ,
+        "mail": {
+            "type": "string",
+            "description": "The email address for the user."
+        }
+        ,
+        "mobilePhone": {
+            "type": "string",
+            "description": "The mobile phone number for the user."
+        }
+        ,
+        "telephoneNumber": {
+            "type": "string",
+            "description": "The telephone number for the user."
+        }
+        ,
+        "telephoneExtension": {
+            "type": "string",
+            "description": "The telephone extension for the user."
+        }
+        ,
+        "employeeID": {
+            "type": "string",
+            "description": "The employee ID for the user."
+        }
+        ,
+        "manager": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier for the user's manager."
+                }
+                ,
+                "displayName": {
+                    "type": "string",
+                    "description": "The display name for the user's manager."
+                }
+                ,
+                "mail": {
+                    "type": "string",
+                    "description": "The email address for the user."
+                }
+                ,
+                "userPrincipalName": {
+                    "type": "string",
+                    "description": "The user principal name (UPN) for the user's manager."
+                }
+            }
+            ,
+            "description": "The manager for the user."
+        }
+        ,
+        "department": {
+            "type": "string",
+            "description": "The department for the user."
+        }
+        ,
+        "jobTitle": {
+            "type": "string",
+            "description": "The job title for the user."
+        }
+    }
+    ,
+    "required": [
+    "id",
+    "displayName",
+    "userPrincipalName"
+    ]
+}
+
+
+@endjson

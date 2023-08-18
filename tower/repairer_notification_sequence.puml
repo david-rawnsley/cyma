@@ -1,0 +1,30 @@
+@startuml allocation_service sequence
+'!theme sketchy-outline
+
+title Repirer ("Heads Up") Notification Sequence
+
+'Style
+hide footbox
+skinparam TitleBorderThickness 0
+' skinparam responseMessageBelowArrow true
+' skinparam shadowing true
+skinparam defaultFontName Raleway
+autonumber
+
+participant EIS
+participant "Notification Service" as NS
+participant "Repairer" as RPR
+
+EIS-> EIS: businessRuleTrigger()
+
+EIS -> NS: postNotification()
+activate EIS
+activate NS
+NS --> EIS: response()
+NS -> RPR: sendNotification()
+deactivate NS
+
+EIS -> EIS: postClaimNote()
+deactivate EIS
+
+@enduml

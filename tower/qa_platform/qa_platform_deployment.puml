@@ -1,0 +1,29 @@
+@startuml Allocation Service Deployment
+
+title QA [GaugeQuality] Deployment
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml
+!include style/sprites.puml
+!include style/brand.puml
+
+'Style
+'LAYOUT_AS_SKETCH()
+'LAYOUT_LANDSCAPE()
+
+Person(p_claims_consultant, "Claims Consultant", "Manages claims through their lifecycle", $sprite="user")
+Person(p_qa_manager, "QA Manager", "Performs QA management functions within the QA solution", $sprite="user")
+
+System_Boundary(sb1, "Athenium Cloud Services") {
+    System(sys_qaplatform, "Claim Audit Platform\n[GaugeQuality]", "Provides the QA services to support the Claims domain within Tower.", $tags="new")
+}
+
+System_Boundary(sb2, "Azure Identity Services") {
+    System(sys_aaad_svc, "Azure Active Directory\n(Azure AD)", "Provide identity and access management for cloud and hybrid environments")
+}
+
+Rel(p_claims_consultant, sys_qaplatform, "Views Audit Results", "HTTP")
+Rel(p_qa_manager, sys_qaplatform, "Manages Audits", "HTTP")
+Rel(sys_qaplatform, sys_aaad_svc, "Accesses SSO services", "SAML2\HTTP")
+
+SHOW_FLOATING_LEGEND()
+
+@enduml

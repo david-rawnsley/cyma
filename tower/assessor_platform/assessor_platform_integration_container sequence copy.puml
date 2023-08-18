@@ -1,0 +1,46 @@
+@startuml Claim Status Managment Service - Sequence
+'!theme sketchy-outline
+
+title Assessor Platform Invoice Integration (Inbound)
+
+'Style
+hide footbox
+skinparam TitleBorderThickness 0
+' skinparam responseMessageBelowArrow true
+' skinparam shadowing true
+skinparam defaultFontName Raleway
+autonumber
+
+participant EIS
+participant messageQueue
+participant "Assessor Platform Service" as APS
+participant "Claim API" as CAPI
+participant "Hello Claims" as APM 
+
+APM -> APM: event occurs()
+
+APM -> APS: POST /aps/webhook(event)
+activate APS
+APS -> messageQueue: POST event()
+APS --> APM: response()
+deactivate APS
+
+messageQueue -> APS: SEND event()
+activate APS
+APS -> APM: GET webhookURL(event)
+activate APM
+APM --> APS: response()
+deactivate APM
+
+APS -> CAPI: POST \v1\claims\{claimNumber}\payments
+activate CAPI
+CAPI --> APS: response()
+deactivate APS
+
+CAPI -> EIS: POST \v1\claims\{claimNumber}\payments
+activate EIS
+EIS --> CAPI: response()
+deactivate EIS
+
+
+@enduml

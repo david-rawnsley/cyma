@@ -1,0 +1,996 @@
+@startjson
+
+{
+  "claim": {
+    "claimSubStatusCd": "AWAITING_ASSESSMENT",
+    "claimNumber": "C90129867",
+    "additionalClaimNumber": "C90129867",
+    "claimStatusCd": "OPEN",
+    "lossDt": "2023-03-01T20:56:00Z",
+    "lossDesc": "Someone crashed into my car whilst pulling out of a driveway",
+    "customerNumber": "K93424460163",
+    "reportedDt": "2023-03-01T20:56:00Z",
+    "policyNumber": "P00004005565",
+    "policyProductCd": "PREC-AU",
+    "knownTimeInd": null,
+    "lineOfBusinessCd": "AUTO",
+    "productVersion": 1,
+    "causeOfLossCd": "ACCIDENT_WHILE_DRIVING",
+    "lossLocationDesc": null,
+    "lossLocation": null,
+    "secondaryLossCauseCd": null,
+    "reportingMethod": null,
+    "parties": [
+      {
+        "namePrefix": null,
+        "firstName": "QA",
+        "middleName": "",
+        "lastName": "QA user",
+        "otherName": null,
+        "nameTypeCd": "IND",
+        "oid": "8481984075",
+        "contactPreferenceCd": null,
+        "displayValue": "QA QA user",
+        "relationShipToInsuredCd": null,
+        "addresses": [
+          {
+            "addressLine1": null,
+            "addressLine2": null,
+            "addressLine3": null,
+            "city": null,
+            "county": null,
+            "countryCd": null,
+            "postalCode": null,
+            "stateProvCd": null,
+            "latitude": null,
+            "longitude": null,
+            "componentName": null,
+            "addressTypeCd": null,
+            "displayValue": ""
+          }
+        ],
+        "componentName": null,
+        "extension": {},
+        "emails": [],
+        "phones": [],
+        "roles": [
+          {
+            "claimsPartyRoleCd": "ClaimsWoPolicyInsuranceAgent",
+            "claimsPartySubRoleCd": null,
+            "extension": {},
+            "connectedTo": "pPy4CkUjpQi6X8r9Nc9IGA",
+            "instanceName": "nXnGrqFDKhOcNbGG_xZJ3A"
+          }
+        ],
+        "birthDt": null,
+        "partyNumber": null,
+        "companyNumber": null,
+        "externalId": null,
+        "preferredPaymentMethod": null,
+        "bankAccountInfo": null,
+        "bankName": null,
+        "bankAccountNumber": null,
+        "accountHolderName": null,
+        "bankTransitNumber": null,
+        "bankCd": null,
+        "bankBranchCd": null,
+        "bankAccountType": null,
+        "additionalNameInd": null,
+        "additionalName": null,
+        "instanceName": null,
+        "type": null,
+        "partyRoles": [],
+        "externalPartyInd": false,
+        "suffix": null
+      },
+      {
+        "namePrefix": null,
+        "firstName": "Snoop",
+        "middleName": "",
+        "lastName": "Dogg",
+        "otherName": "",
+        "nameTypeCd": "IND",
+        "oid": "K93424460163",
+        "contactPreferenceCd": "EMAIL",
+        "displayValue": "Snoop Dogg",
+        "relationShipToInsuredCd": null,
+        "addresses": [
+          {
+            "addressLine1": "Porritt Avenue",
+            "addressLine2": "27",
+            "addressLine3": "",
+            "city": "Auckland",
+            "county": "",
+            "countryCd": "NZ",
+            "postalCode": "0626",
+            "stateProvCd": "",
+            "latitude": null,
+            "longitude": null,
+            "componentName": null,
+            "addressTypeCd": "postalPhysical",
+            "displayValue": "27, Porritt Avenue, Auckland, 0626"
+          }
+        ],
+        "componentName": null,
+        "extension": {
+          "mainInsured": null
+        },
+        "emails": [
+          {
+            "email": "snoop@dogg.com",
+            "emailTypeCd": null
+          }
+        ],
+        "phones": [],
+        "roles": [
+          {
+            "claimsPartyRoleCd": "ClaimsWoPolicyInsured",
+            "claimsPartySubRoleCd": null,
+            "extension": {},
+            "connectedTo": "pPy4CkUjpQi6X8r9Nc9IGA",
+            "instanceName": "lKbhzNzPvdQUpDwtfVVAGg"
+          },
+          {
+            "claimsPartyRoleCd": "AutoOccupant",
+            "claimsPartySubRoleCd": "DRIVER_AND_OWNER",
+            "extension": {
+              "ownerInd": null
+            },
+            "connectedTo": "gMMQQz9q4zxvh4QojwdN6A",
+            "instanceName": "ldQfBL_9ZiV13jrzbWZJSg"
+          },
+          {
+            "claimsPartyRoleCd": "ClaimsWoPolicyDriver",
+            "claimsPartySubRoleCd": null,
+            "extension": {},
+            "connectedTo": "pPy4CkUjpQi6X8r9Nc9IGA",
+            "instanceName": "vzz9WVOGjspUDimdRY5BGQ"
+          },
+          {
+            "claimsPartyRoleCd": "CUSTOMER",
+            "claimsPartySubRoleCd": null,
+            "extension": {},
+            "connectedTo": null,
+            "instanceName": null
+          },
+          {
+            "claimsPartyRoleCd": "ReportingParty",
+            "claimsPartySubRoleCd": null,
+            "extension": {},
+            "connectedTo": "pPy4CkUjpQi6X8r9Nc9IGA",
+            "instanceName": "koIl6R6e9e0OHPFSfgBETg"
+          }
+        ],
+        "birthDt": "1964-12-31T12:00:00Z",
+        "partyNumber": "",
+        "companyNumber": null,
+        "externalId": null,
+        "preferredPaymentMethod": null,
+        "bankAccountInfo": null,
+        "bankName": null,
+        "bankAccountNumber": null,
+        "accountHolderName": null,
+        "bankTransitNumber": null,
+        "bankCd": null,
+        "bankBranchCd": null,
+        "bankAccountType": null,
+        "additionalNameInd": null,
+        "additionalName": null,
+        "instanceName": null,
+        "type": null,
+        "partyRoles": [],
+        "externalPartyInd": false,
+        "suffix": null
+      },
+      {
+        "namePrefix": null,
+        "firstName": "Tupac",
+        "middleName": "",
+        "lastName": "Shakur",
+        "otherName": "",
+        "nameTypeCd": "IND",
+        "oid": "m6A-jOxd1ROxjX-ySh1FoQ",
+        "contactPreferenceCd": null,
+        "displayValue": "Tupac Shakur",
+        "relationShipToInsuredCd": null,
+        "addresses": [],
+        "componentName": null,
+        "extension": {},
+        "emails": [],
+        "phones": [
+          {
+            "phoneTypeCd": null,
+            "phone": "021666666"
+          },
+          {
+            "phoneTypeCd": "mobilePhone",
+            "phone": ""
+          }
+        ],
+        "roles": [
+          {
+            "claimsPartyRoleCd": "Twr3rdPartyAutoOccupant",
+            "claimsPartySubRoleCd": "DRIVER",
+            "extension": {},
+            "connectedTo": "iSkQ8qI-S7Y81EgxzOlKIQ",
+            "instanceName": "r5RjdxZpfyUmqzmvhzBAZQ"
+          }
+        ],
+        "birthDt": null,
+        "partyNumber": null,
+        "companyNumber": null,
+        "externalId": null,
+        "preferredPaymentMethod": null,
+        "bankAccountInfo": null,
+        "bankName": null,
+        "bankAccountNumber": null,
+        "accountHolderName": null,
+        "bankTransitNumber": null,
+        "bankCd": null,
+        "bankBranchCd": null,
+        "bankAccountType": null,
+        "additionalNameInd": null,
+        "additionalName": null,
+        "instanceName": null,
+        "type": null,
+        "partyRoles": [],
+        "externalPartyInd": true,
+        "suffix": null
+      }
+    ],
+    "addresses": [
+      {
+        "addressLine1": "Rosedale Road",
+        "addressLine2": "97A",
+        "addressLine3": null,
+        "city": "Auckland",
+        "county": "",
+        "countryCd": "NZ",
+        "postalCode": "0632",
+        "stateProvCd": "Pinehill",
+        "latitude": 174.724864,
+        "longitude": -36.736078,
+        "componentName": null,
+        "addressTypeCd": "postalPhysical",
+        "displayValue": "97A, Rosedale Road, Pinehill, Auckland, 0632"
+      }
+    ],
+    "componentName": null,
+    "policyProductVersion": 1,
+    "totalIncurred": {
+      "amount": 3335,
+      "currencyCd": "NZD"
+    },
+    "fileOwner": {
+      "typeCd": "internalUser",
+      "refId": "qa",
+      "displayValue": "QA QA user"
+    },
+    "claimsPolicyStatus": "ACTIVE",
+    "extension": {},
+    "selectedRiskItemOids": null,
+    "currencyCd": null,
+    "productCd": "CLAIM_AU"
+  },
+  "damages": [
+    {
+      "damageNumber": "1",
+      "displayValue": "2022, M.G., ZS ZS11 Excite Wagon 5dr Spts Auto 4sp 2WD 1.5i, PLR609",
+      "damageType": "TwrAutoLoss",
+      "loss": {
+        "associatedRiskItemOid": "j3buAhjrIbB0zZjqv-xOaA",
+        "riskItemOid": "j3buAhjrIbB0zZjqv-xOaA",
+        "damageDesc": "Left hand side of vehicle smashed in",
+        "partyType": "FIRST",
+        "parties": [
+          {
+            "displayValue": "Snoop Dogg",
+            "typeCd": "PARTY",
+            "refId": "K93424460163",
+            "instanceName": "ldQfBL_9ZiV13jrzbWZJSg"
+          }
+        ],
+        "addresses": null,
+        "componentName": "TwrAutoLoss",
+        "instanceName": "gMMQQz9q4zxvh4QojwdN6A",
+        "extension": {},
+        "oid": "mgZjsifEmPBK8kj62TRLSA",
+        "severityCd": "MINOR",
+        "lossDesc": null
+      },
+      "itemizedLosses": [],
+      "componentName": "ClaimsDamage",
+      "instanceName": "vUJy5Y4nTy4EUye00q1Nlw",
+      "oid": "tPbbACZBhFVeYDXGTJdPFw",
+      "features": [
+        {
+          "coverageOid": "qMBc8ErDIJMd7mzilSxFhA",
+          "coverageDesc": null,
+          "associatedInsurableRiskOid": "j3buAhjrIbB0zZjqv-xOaA",
+          "oid": "po9m_AaSrHI93k2S2OxIXw",
+          "featureNumber": "1",
+          "featureId": "8497041767",
+          "claimant": {
+            "typeCd": "PARTY",
+            "refId": "K93424460163",
+            "displayValue": "Snoop Dogg"
+          },
+          "associatedInsurableRisk": {
+            "oid": "j3buAhjrIbB0zZjqv-xOaA",
+            "displayValue": "2022, M.G., ZS ZS11 Excite Wagon 5dr Spts Auto 4sp 2WD 1.5i"
+          },
+          "coverage": {
+            "oid": "qMBc8ErDIJMd7mzilSxFhA",
+            "coverageCd": "VehicleVehDamage"
+          },
+          "damage": {
+            "damageNumber": "1",
+            "displayValue": "2022, M.G., ZS ZS11 Excite Wagon 5dr Spts Auto 4sp 2WD 1.5i, PLR609"
+          },
+          "featureIncurred": {
+            "amount": 3335,
+            "currencyCd": "NZD"
+          },
+          "statusCd": "OPEN",
+          "featureOwner": {
+            "typeCd": "internalUser",
+            "refId": null,
+            "displayValue": "QA QA user"
+          },
+          "reserves": [
+            {
+              "amount": {
+                "amount": 3335,
+                "currencyCd": "NZD"
+              },
+              "typeCd": "INDEMNITY"
+            },
+            {
+              "amount": {
+                "amount": 0,
+                "currencyCd": "NZD"
+              },
+              "typeCd": "EXPENSE"
+            },
+            {
+              "amount": {
+                "amount": 0,
+                "currencyCd": "NZD"
+              },
+              "typeCd": "RECOVERY"
+            }
+          ],
+          "extension": {}
+        }
+      ]
+    },
+    {
+      "damageNumber": "2",
+      "displayValue": "2019, Nissan, Qashqai, HAY777",
+      "damageType": "Twr3rdPartyAutoLoss",
+      "loss": {
+        "associatedRiskItemOid": "j3buAhjrIbB0zZjqv-xOaA",
+        "riskItemOid": "OTHER",
+        "damageDesc": "Damage to front of vehicle",
+        "partyType": "THIRD",
+        "parties": [
+          {
+            "displayValue": "Tupac Shakur",
+            "typeCd": "PARTY",
+            "refId": "m6A-jOxd1ROxjX-ySh1FoQ",
+            "instanceName": "r5RjdxZpfyUmqzmvhzBAZQ"
+          }
+        ],
+        "addresses": null,
+        "componentName": "Twr3rdPartyAutoLoss",
+        "instanceName": "iSkQ8qI-S7Y81EgxzOlKIQ",
+        "extension": {},
+        "oid": "i6Z3VWWwC2oOvPiHulhJiQ",
+        "severityCd": null,
+        "lossDesc": null
+      },
+      "itemizedLosses": [],
+      "componentName": "ClaimsDamage",
+      "instanceName": "vV0-pofB2z8Bt9Cv5lRJrA",
+      "oid": "jKqupit-4jCmgO1A9MpL3Q",
+      "features": []
+    }
+  ],
+  "serviceRequests": [
+    {
+      "oid": "qeQMiWTA0nLZCLCUqgZMfQ",
+      "damageOid": "tPbbACZBhFVeYDXGTJdPFw",
+      "serviceCd": null,
+      "coverageOid": "hbXw5e85ExNAS5kPX2hL2Q",
+      "componentName": "ClaimsServiceRequest",
+      "extension": null,
+      "vendors": [
+        {
+          "ratingCd": "GOLD",
+          "statusCd": "ACTIVE",
+          "profile": {
+            "namePrefix": null,
+            "firstName": null,
+            "middleName": null,
+            "lastName": null,
+            "otherName": "Main Autocentre",
+            "nameTypeCd": null,
+            "oid": "567271588",
+            "contactPreferenceCd": null,
+            "displayValue": "Main Autocentre",
+            "relationShipToInsuredCd": null,
+            "addresses": [
+              {
+                "addressLine1": "90 Gavin Street",
+                "addressLine2": "Ellerslie",
+                "addressLine3": "",
+                "city": "Auckland",
+                "county": null,
+                "countryCd": "NZ",
+                "postalCode": "1643",
+                "stateProvCd": "Onehunga",
+                "latitude": null,
+                "longitude": null,
+                "componentName": null,
+                "addressTypeCd": null,
+                "displayValue": "Ellerslie, 90 Gavin Street, Onehunga, Auckland, 1643"
+              }
+            ],
+            "componentName": null,
+            "extension": {
+              "vendorProfileId": 567271588
+            },
+            "emails": null,
+            "phones": null,
+            "roles": null,
+            "birthDt": null,
+            "partyNumber": null,
+            "companyNumber": "92-411-966",
+            "externalId": null,
+            "preferredPaymentMethod": null,
+            "bankAccountInfo": null,
+            "bankName": null,
+            "bankAccountNumber": null,
+            "accountHolderName": null,
+            "bankTransitNumber": null,
+            "bankCd": null,
+            "bankBranchCd": null,
+            "bankAccountType": null,
+            "additionalNameInd": null,
+            "additionalName": null,
+            "instanceName": null,
+            "type": null,
+            "partyRoles": null,
+            "externalPartyInd": false,
+            "suffix": null
+          },
+          "contacts": [
+            {
+              "namePrefix": null,
+              "firstName": "",
+              "middleName": null,
+              "lastName": "",
+              "otherName": null,
+              "nameTypeCd": null,
+              "oid": null,
+              "contactPreferenceCd": null,
+              "displayValue": null,
+              "relationShipToInsuredCd": null,
+              "addresses": null,
+              "componentName": null,
+              "extension": {},
+              "emails": [
+                {
+                  "email": "F612B96D78923B1E@mainautocentre.co.nz",
+                  "emailTypeCd": null
+                }
+              ],
+              "phones": [
+                {
+                  "phoneTypeCd": "workPhone",
+                  "phone": "437946452"
+                }
+              ],
+              "roles": null,
+              "birthDt": null,
+              "partyNumber": null,
+              "companyNumber": null,
+              "externalId": null,
+              "preferredPaymentMethod": null,
+              "bankAccountInfo": null,
+              "bankName": null,
+              "bankAccountNumber": null,
+              "accountHolderName": null,
+              "bankTransitNumber": null,
+              "bankCd": null,
+              "bankBranchCd": null,
+              "bankAccountType": null,
+              "additionalNameInd": null,
+              "additionalName": null,
+              "instanceName": null,
+              "type": null,
+              "partyRoles": null,
+              "externalPartyInd": false,
+              "suffix": null
+            }
+          ]
+        }
+      ],
+      "parties": null
+    }
+  ],
+  "riskItems": [
+    {
+      "oid": "j3buAhjrIbB0zZjqv-xOaA",
+      "displayValue": "2022, M.G., ZS ZS11 Excite Wagon 5dr Spts Auto 4sp 2WD 1.5i",
+      "associatedInsurableRiskOid": null,
+      "componentName": null,
+      "coverages": [
+        {
+          "oid": "hbXw5e85ExNAS5kPX2hL2Q",
+          "coverageCd": "VehicleCombinedLiability",
+          "componentName": null,
+          "deductibleAmount": {
+            "amount": 500,
+            "currencyCd": "NZD"
+          },
+          "coverageDetails": [
+            {
+              "limitLevel": "OCCURRENCE",
+              "limitAmount": {
+                "amount": 25000000,
+                "currencyCd": "NZD"
+              },
+              "componentName": null
+            }
+          ]
+        },
+        {
+          "oid": "kycH2mTuHYR5cU2HSrhNwA",
+          "coverageCd": "VehicleLegalLiability",
+          "componentName": null,
+          "deductibleAmount": {
+            "amount": 500,
+            "currencyCd": "NZD"
+          },
+          "coverageDetails": [
+            {
+              "limitLevel": "OCCURRENCE",
+              "limitAmount": {
+                "amount": 25000000,
+                "currencyCd": "NZD"
+              },
+              "componentName": null
+            }
+          ]
+        },
+        {
+          "oid": "vfpqVXNYycDsYZoC-GxFQw",
+          "coverageCd": "VehicleBodilyInjury",
+          "componentName": null,
+          "deductibleAmount": {
+            "amount": 500,
+            "currencyCd": "NZD"
+          },
+          "coverageDetails": [
+            {
+              "limitLevel": "OCCURRENCE",
+              "limitAmount": {
+                "amount": 1000000,
+                "currencyCd": "NZD"
+              },
+              "componentName": null
+            }
+          ]
+        },
+        {
+          "oid": "vLPPF7lsLnMYTv-aEbpIyQ",
+          "coverageCd": "VehicleLegalExpenses",
+          "componentName": null,
+          "deductibleAmount": {
+            "amount": 500,
+            "currencyCd": "NZD"
+          },
+          "coverageDetails": [
+            {
+              "limitLevel": "OCCURRENCE",
+              "limitAmount": {
+                "amount": 5000,
+                "currencyCd": "NZD"
+              },
+              "componentName": null
+            }
+          ]
+        },
+        {
+          "oid": "u42dHJ2wGF6wentRKvNCIA",
+          "coverageCd": "VehicleMarineLosses",
+          "componentName": null,
+          "deductibleAmount": {
+            "amount": 500,
+            "currencyCd": "NZD"
+          },
+          "coverageDetails": [
+            {
+              "limitLevel": "OCCURRENCE",
+              "limitAmount": {
+                "amount": 25000000,
+                "currencyCd": "NZD"
+              },
+              "componentName": null
+            }
+          ]
+        },
+        {
+          "oid": "k3sfpoplx0S45DNwkKBF2A",
+          "coverageCd": "VehicleReparation",
+          "componentName": null,
+          "deductibleAmount": {
+            "amount": 500,
+            "currencyCd": "NZD"
+          },
+          "coverageDetails": [
+            {
+              "limitLevel": "OCCURRENCE",
+              "limitAmount": {
+                "amount": 1000000,
+                "currencyCd": "NZD"
+              },
+              "componentName": null
+            }
+          ]
+        },
+        {
+          "oid": "qMBc8ErDIJMd7mzilSxFhA",
+          "coverageCd": "VehicleVehDamage",
+          "componentName": null,
+          "deductibleAmount": {
+            "amount": 500,
+            "currencyCd": "NZD"
+          },
+          "coverageDetails": [
+            {
+              "limitLevel": "OCCURRENCE",
+              "limitAmount": {
+                "amount": 23950,
+                "currencyCd": "NZD"
+              },
+              "componentName": null
+            }
+          ]
+        },
+        {
+          "oid": "hceYmyluuBt2GNd0ZF1DiA",
+          "coverageCd": "VehicleFire",
+          "componentName": null,
+          "deductibleAmount": {
+            "amount": 500,
+            "currencyCd": "NZD"
+          },
+          "coverageDetails": [
+            {
+              "limitLevel": "OCCURRENCE",
+              "limitAmount": {
+                "amount": 23950,
+                "currencyCd": "NZD"
+              },
+              "componentName": null
+            }
+          ]
+        },
+        {
+          "oid": "mwnjghflVffe17zxmC5PpA",
+          "coverageCd": "VehicleTheft",
+          "componentName": null,
+          "deductibleAmount": {
+            "amount": 500,
+            "currencyCd": "NZD"
+          },
+          "coverageDetails": [
+            {
+              "limitLevel": "OCCURRENCE",
+              "limitAmount": {
+                "amount": 23950,
+                "currencyCd": "NZD"
+              },
+              "componentName": null
+            }
+          ]
+        },
+        {
+          "oid": "ntOjjiyhyAY9N6wy12VKrQ",
+          "coverageCd": "VehicleStorageCosts",
+          "componentName": null,
+          "deductibleAmount": {
+            "amount": null,
+            "currencyCd": "NZD"
+          },
+          "coverageDetails": [
+            {
+              "limitLevel": "OCCURRENCE",
+              "limitAmount": {
+                "amount": null,
+                "currencyCd": "NZD"
+              },
+              "componentName": null
+            }
+          ]
+        },
+        {
+          "oid": "lBl7Stpk2KxD96sf6tVOKw",
+          "coverageCd": "VehicleTowingCosts",
+          "componentName": null,
+          "deductibleAmount": {
+            "amount": null,
+            "currencyCd": "NZD"
+          },
+          "coverageDetails": [
+            {
+              "limitLevel": "OCCURRENCE",
+              "limitAmount": {
+                "amount": null,
+                "currencyCd": "NZD"
+              },
+              "componentName": null
+            }
+          ]
+        },
+        {
+          "oid": "u5Znsw-FYqOMiH1zJw9KsA",
+          "coverageCd": "RoadWiseCommPMT",
+          "componentName": null,
+          "deductibleAmount": {
+            "amount": null,
+            "currencyCd": "NZD"
+          },
+          "coverageDetails": [
+            {
+              "limitLevel": "OCCURRENCE",
+              "limitAmount": {
+                "amount": null,
+                "currencyCd": "NZD"
+              },
+              "componentName": null
+            }
+          ]
+        },
+        {
+          "oid": "oX1sTNnE8587bs4XuR5B9Q",
+          "coverageCd": "VehicleWindscreenAndWindowGlassExcessBuyOut",
+          "componentName": null,
+          "deductibleAmount": {
+            "amount": null,
+            "currencyCd": "NZD"
+          },
+          "coverageDetails": [
+            {
+              "limitLevel": "OCCURRENCE",
+              "limitAmount": {
+                "amount": null,
+                "currencyCd": "NZD"
+              },
+              "componentName": null
+            }
+          ]
+        },
+        {
+          "oid": "kKK1BuxnaR2TMyXb30RD7g",
+          "coverageCd": "VehicleAdditionalVehicleCover",
+          "componentName": null,
+          "deductibleAmount": {
+            "amount": 500,
+            "currencyCd": "NZD"
+          },
+          "coverageDetails": [
+            {
+              "limitLevel": "OCCURRENCE",
+              "limitAmount": {
+                "amount": 23950,
+                "currencyCd": "NZD"
+              },
+              "componentName": null
+            }
+          ]
+        },
+        {
+          "oid": "uQNGu8s0N8Ic0WiCzotGOA",
+          "coverageCd": "VehicleCarSeats",
+          "componentName": null,
+          "deductibleAmount": {
+            "amount": 500,
+            "currencyCd": "NZD"
+          },
+          "coverageDetails": [
+            {
+              "limitLevel": "OCCURRENCE",
+              "limitAmount": {
+                "amount": 750,
+                "currencyCd": "NZD"
+              },
+              "componentName": null
+            }
+          ]
+        },
+        {
+          "oid": "hmja77t6Qn98Z7WAXZxJ-w",
+          "coverageCd": "VehicleFatalInjury",
+          "componentName": null,
+          "deductibleAmount": {
+            "amount": 500,
+            "currencyCd": "NZD"
+          },
+          "coverageDetails": [
+            {
+              "limitLevel": "OCCURRENCE",
+              "limitAmount": {
+                "amount": 10000,
+                "currencyCd": "NZD"
+              },
+              "componentName": null
+            }
+          ]
+        },
+        {
+          "oid": "gfRTrzfcWze3-U1iHgFJ6A",
+          "coverageCd": "VehicleLostOrStolenKeys",
+          "componentName": null,
+          "deductibleAmount": {
+            "amount": 500,
+            "currencyCd": "NZD"
+          },
+          "coverageDetails": [
+            {
+              "limitLevel": "OCCURRENCE",
+              "limitAmount": {
+                "amount": 1000,
+                "currencyCd": "NZD"
+              },
+              "componentName": null
+            }
+          ]
+        },
+        {
+          "oid": "lkRIiDSkZu1eea3OoCxPAQ",
+          "coverageCd": "VehicleNewVehicleReplacement",
+          "componentName": null,
+          "deductibleAmount": {
+            "amount": 500,
+            "currencyCd": "NZD"
+          },
+          "coverageDetails": [
+            {
+              "limitLevel": "OCCURRENCE",
+              "limitAmount": {
+                "amount": 23950,
+                "currencyCd": "NZD"
+              },
+              "componentName": null
+            }
+          ]
+        },
+        {
+          "oid": "kBuBWM_nBpVCbQW7uZhCYA",
+          "coverageCd": "VehicleRoadClearingCosts",
+          "componentName": null,
+          "deductibleAmount": {
+            "amount": 500,
+            "currencyCd": "NZD"
+          },
+          "coverageDetails": [
+            {
+              "limitLevel": "OCCURRENCE",
+              "limitAmount": {
+                "amount": 1000,
+                "currencyCd": "NZD"
+              },
+              "componentName": null
+            }
+          ]
+        },
+        {
+          "oid": "qw243BFhaSBvQj7aaJJIew",
+          "coverageCd": "VehicleTransportCosts",
+          "componentName": null,
+          "deductibleAmount": {
+            "amount": 500,
+            "currencyCd": "NZD"
+          },
+          "coverageDetails": [
+            {
+              "limitLevel": "OCCURRENCE",
+              "limitAmount": {
+                "amount": 500,
+                "currencyCd": "NZD"
+              },
+              "componentName": null
+            }
+          ]
+        },
+        {
+          "oid": "mtWtDLtx7E6FziMfTu1L7w",
+          "coverageCd": "VehicleWindscreenAndWindowGlass",
+          "componentName": null,
+          "deductibleAmount": {
+            "amount": 0,
+            "currencyCd": "NZD"
+          },
+          "coverageDetails": [
+            {
+              "limitLevel": "OCCURRENCE",
+              "limitAmount": {
+                "amount": 23950,
+                "currencyCd": "NZD"
+              },
+              "componentName": null
+            }
+          ]
+        },
+        {
+          "oid": "hTAFQ7nC3AFigPoIQ35B2Q",
+          "coverageCd": "CommissionPMT",
+          "componentName": null,
+          "deductibleAmount": {
+            "amount": null,
+            "currencyCd": "NZD"
+          },
+          "coverageDetails": [
+            {
+              "limitLevel": "OCCURRENCE",
+              "limitAmount": {
+                "amount": null,
+                "currencyCd": "NZD"
+              },
+              "componentName": null
+            }
+          ]
+        },
+        {
+          "oid": "sudWTnr9mnO4GOQ8OsBMFA",
+          "coverageCd": "RoadWiseCommPMT",
+          "componentName": null,
+          "deductibleAmount": {
+            "amount": null,
+            "currencyCd": "NZD"
+          },
+          "coverageDetails": [
+            {
+              "limitLevel": "OCCURRENCE",
+              "limitAmount": {
+                "amount": null,
+                "currencyCd": "NZD"
+              },
+              "componentName": null
+            }
+          ]
+        },
+        {
+          "oid": "rgeSFD9tf04N9gSDcj9B1Q",
+          "coverageCd": "EXGRATIA",
+          "componentName": null,
+          "deductibleAmount": {
+            "amount": null,
+            "currencyCd": "NZD"
+          },
+          "coverageDetails": []
+        }
+      ],
+      "reportedRiskItemName": "2022, ZS",
+      "extension": {
+        "typeCd": "Wagon",
+        "year": 2022,
+        "vin": "",
+        "model": "ZS",
+        "plateIssuedStateProvCd": null,
+        "plateNumber": "PLR609",
+        "colorCd": null,
+        "make": "M.G."
+      }
+    }
+  ],
+  "payments": [],
+  "paymentSeries": [],
+  "transactionId": "f0bf4ed8-4b59-4bc2-add8-71f8182f792a",
+  "recoveries": []
+}
+
+@endjson

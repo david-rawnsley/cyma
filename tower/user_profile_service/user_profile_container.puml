@@ -1,0 +1,28 @@
+@startuml Claim Allocation Service Context Alt
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include style/sprites.puml
+!include style/brand.puml
+
+'Style
+'LAYOUT_AS_SKETCH()
+'LAYOUT_LANDSCAPE()
+
+System_Boundary(sb1, "Azure Integration Services") {
+    System_Boundary(sb2, "API Management") {
+        System(sys_userprofile_svc, "User Profile Service", "Provides user services for user details recorded in Towers directory services.", $sprite="user", $tags="new")
+    }
+}
+System_Boundary(sb3, "Azure Identity") {
+    System(sys_azuread_svc, "Azure Active Directory", "Synchronize on-premises directories and enable single sign-on")
+}
+
+System_Boundary(sb4, "Azure Compute Services") {
+    System(sys_aks_svc, "Azure Kubernetes Services", "Deploy and scale containers on managed Kubernetes")
+}
+
+Rel(sys_userprofile_svc, sys_azuread_svc, "Makes GraphQL API calls", "JSON/HTTP")
+Rel(sys_userprofile_svc, sys_aks_svc, "Makes API calls", "JSON/HTTP")
+
+SHOW_FLOATING_LEGEND()
+@enduml

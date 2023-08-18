@@ -1,0 +1,28 @@
+@startuml ICS Sequence
+'!theme sketchy-outline
+skinparam defaultFontName Raleway
+
+title AutoIntegrity Integration
+
+participant EIS
+participant "STP Service" as STP
+participant Vendor
+participant LogicApp
+participant AI
+
+EIS-> EIS: businessRuleTrigger()
+
+EIS -> STP: postClaim(notifyVendor)
+activate STP
+
+alt #LightSkyBlue if LoB IS Motor
+    STP -> LogicApp: POST(notification)
+    activate LogicApp
+    LogicApp -> AI: SMTP (claim)
+    deactivate LogicApp
+end
+
+STP -> Vendor: SMTP(notification)
+deactivate STP
+
+@enduml

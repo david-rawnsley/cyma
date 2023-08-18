@@ -1,0 +1,62 @@
+@startuml Claim Status Managment Service - Sequence
+'!theme sketchy-outline
+
+title Assessor Platform Claim Integration
+
+'Style
+hide footbox
+skinparam TitleBorderThickness 0
+' skinparam responseMessageBelowArrow true
+' skinparam shadowing true
+skinparam defaultFontName Raleway
+autonumber
+
+participant EIS
+participant "Assessor Platform Service" as APS
+participant "Claim API" as CAPI
+participant "Assessor Platform" as AP
+
+EIS -> EIS: trigger()
+EIS -> APS: postClaim()
+APS -> CAPI: getClaim()
+activate CAPI
+CAPI --> APS: response()
+deactivate CAPI
+
+APS -> AP: postClaim()
+activate AP
+AP --> APS: response()
+deactivate AP
+
+AP -> AP: trigger(status)
+AP -> APS: POST /aps/webhook()
+activate APS
+APS --> AP: response()
+'deactivate APS
+
+APS -> AP: GET webhookURL()
+activate AP
+AP --> APS: response()
+deactivate AP
+
+' alt if webhook payload = claimUpdate
+
+' else if webhook payload = payment
+
+' APS -> CAPI: POST /v1/claims/{claimNumber}/payments
+' activate CAPI
+' CAPI --> APS: response()
+
+' deactivate APS
+
+' CAPI -> EIS: POST /v1/claims/{claimNumber}/payments
+' activate EIS
+' EIS --> CAPI: response()
+' deactivate EIS
+' deactivate CAPI
+' end
+
+'APS -> APS: enum response()
+
+
+@enduml

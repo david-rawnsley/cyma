@@ -1,0 +1,22 @@
+@startuml Reserve Estimation Service Integration Container
+
+'title Reserve Estimation Service Integration Container
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include style/sprites.puml
+!include style/brand.puml
+
+'Style
+'LAYOUT_AS_SKETCH()
+'LAYOUT_LANDSCAPE()
+
+System_Boundary(sb1, "EIS") {
+    System(sys_eis, "EIS", "Tower core insurance system with Policy, Claim and Billing management functionality.", $sprite="blur_on")
+    System(sys_resesti_svc, "Reserve Estimation Service", "Provides the calulation engine to define the reserveon the claim.", $sprite="calculator*.5", $tags="new")
+}
+
+Rel(sys_eis,sys_resesti_svc, "Makes API calls to calculate model", "JSON/HTTP")
+
+SHOW_FLOATING_LEGEND()
+
+@enduml

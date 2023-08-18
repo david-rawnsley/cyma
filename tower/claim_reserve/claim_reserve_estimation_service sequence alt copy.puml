@@ -1,0 +1,31 @@
+@startuml 
+'!theme sketchy-outline
+
+title Reserve Estimation Service
+autonumber
+
+'Style
+hide footbox
+skinparam TitleBorderThickness 0
+skinparam responseMessageBelowArrow true
+skinparam shadowing false
+skinparam defaultFontName Raleway
+'LAYOUT_AS_SKETCH()
+
+participant AFS as "Claim Feature Service"
+participant "Reserve Estimation Service" as RES
+participant "EIS Reserve Feature" AS EISRF
+
+AFS-> RES: postEstimation(claimNumber, $parameters)
+
+activate RES
+
+RES -> EISRF: getReserveCalculation()
+activate EISRF
+EISRF --> RES: response()
+deactivate EISRF
+
+RES --> AFS: response()
+deactivate RES
+
+@enduml

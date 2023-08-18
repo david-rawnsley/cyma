@@ -1,0 +1,35 @@
+@startuml Allocation Integration Container
+
+title Allocation Integration Container
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include style/sprites.puml
+!include style/brand.puml
+
+'Style
+'LAYOUT_AS_SKETCH()
+'LAYOUT_LANDSCAPE()
+
+'System(sys_cnlt, "CNLT", "Claims Notification and Lodgement Tool enables lodging and tracking of claims.", $sprite="blur_on", $tags="sunset")
+'System(sys_eis, "EIS", "Tower core insurance system with Policy, Claim and Billing management functionality.", $sprite="blur_on")
+'System_Ext(sys_azuread_svc, "Azure Active Directory", "Synchronize on-premises directories and enable single sign-on")
+'System_Ext(sys_calabrio, "Calabrio", "Provides the Workforce Management solution to handle availablity and skills", $sprite="clock")
+System_Boundary(sb1, "Azure Integration Services") {
+    System_Boundary(sb2, "API Management") {
+        System(sys_allocation_svc, "Allocation Service", "Provides the business rules to allocate the claims management resource.", $sprite="hands_helping", $tags="new")
+        System(sys_availability_svc, "Availability API", "Provides Workforce Availability, enables the identification of available resources", $tags="new")
+        System(sys_claim_api, "Claim API", "Service that provides business logic for the domain defined by the API", $tags="new")
+        System(sys_userprofile_svc, "User Profile API", "Provides user services for user details recorded in Towers directory services.", $sprite="user", $tags="new")
+    }
+}
+
+Rel(sys_allocation_svc, sys_availability_svc, "Makes API calls", "JSON/HTTP")
+Rel(sys_allocation_svc, sys_claim_api, "Makes API calls", "JSON/HTTP")
+Rel(sys_allocation_svc, sys_userprofile_svc, "Makes API calls", "JSON/HTTP")
+'Rel(sys_availability_svc, sys_calabrio, "Makes API calls", "JSON/HTTP")
+'Rel(sys_claim_api, sys_cnlt, "Makes SQL calls to", "JDBC")
+'Rel(sys_claim_api, sys_eis, "Makes API calls", "JSON/HTTP")
+'Rel(sys_userprofile_svc, sys_azuread_svc, "Makes API calls", "JSON/HTTP")
+
+SHOW_FLOATING_LEGEND()
+
+@enduml

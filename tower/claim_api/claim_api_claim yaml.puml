@@ -1,0 +1,176 @@
+@startyaml
+
+- claimNumber: "string"
+claimStatusCd: "string"
+claimSubStatusCd: "string"
+additionalClaimNumber: "string"
+lossDt: "!<tag:yaml.org,2002:timestamp> 'YYYY-MM-DDTHH:MM:SSZ'"
+customerNumber: "string"
+reportedDt: "!<tag:yaml.org,2002:timestamp> 'YYYY-MM-DDTHH:MM:SSZ'"
+policyNumber: "string"
+policyProductCd: "string"
+knownTimeInd: "boolean"
+lineOfBusinessCd: "string"
+causeOfLossCd: "string"
+secondaryLossCauseCd: "string"
+reportingMethod: "string"
+
+@endyaml
+
+@startyaml
+
+#highlight "claimNumber"
+#highlight "policy" / "employeePolicy"
+#highlight "policy" / "policyLOB"
+#highlight "policy" / "productCd"
+#highlight "causeOfLossCd"
+#highlight "secondaryLossCauseCd"
+#highlight "lossLocation" / "countryCd"
+#highlight "totalLoss"
+
+policy:
+  termEffectiveDate: "2023-02-14T21:23:17.615Z"
+  termExpirationDate: "2023-02-14T21:23:17.615Z"
+  inceptionDate: "2023-02-14T21:23:17.615Z"
+  policyNumber: "string"
+  productCd: "string"
+  productVersion: number
+  verified: boolean
+  policyStatus: "string"
+  policyLOB: "string"
+  policyBLOB: "string"
+  reportedPolicyNumber: "string"
+  employeePolicy: "boolean"
+claimNumber: "string"
+additionalClaimNumber: "string"
+claimStatusCd: "string"
+claimSubStatusCd: "string"
+lossDt: "2023-02-14T21:23:17.615Z"
+lossDesc: "string"
+customerNumber: "string"
+reportedDt: "2023-02-14T21:23:17.615Z"
+'policyNumber: "string"
+knownTimeInd: boolean
+causeOfLossCd: "string"
+secondaryLossCauseCd: "string"
+lossLocation:
+    addressId: "string"
+    unitFloorNumber: "string"
+    streetNumber: "string"
+    streetName: "string"
+    postCode: "string"
+    suburb: "string"
+    city: "string"
+    country: "string"
+    countryCd: "string"
+    addressType: "string"
+    longitude: number
+    latitude: number
+lossLocationDesc: "string"
+reportingMethod: "string"
+parties:
+  - oid: "string"
+    displayValue: "string"
+    namePrefix: "string"
+    firstName: "string"
+    middleName: "string"
+    lastName: "string"
+    otherName: "string"
+    nameTypeCd: "string"
+    additionalNameInd: boolean
+    additionalName: "string"
+    contactPreferenceCd: "string"
+    relationShipToInsuredCd: "string"
+    addresses:
+      - addressId: "string"
+        unitFloorNumber: "string"
+        streetNumber: "string"
+        streetName: "string"
+        postCode: "string"
+        suburb: "string"
+        city: "string"
+        country: "string"
+        countryCd: "string"
+        addressType: "string"
+        longitude: number
+        latitude: number
+    emails:
+      - email: "string"
+        emailTypeCd: "string"
+    phones:
+      - phoneTypeCd: "string"
+        phone: "string"
+    roles:
+      - claimsPartyRoleCd: "string"
+        claimsPartySubRoleCd: "string"
+        connectedTo: "string"
+    birthDt: "2023-02-14T21:23:17.615Z"
+    partyNumber: "string"
+    companyNumber: "string"
+    externalId: "string"
+    type: "string"
+    partyRoles:
+      - "string"
+    externalPartyInd: boolean
+    suffix: "string"
+totalIncurred:
+  amount: number
+  currencyCd: "string"
+claimManager:
+  resourceType: "string"
+  resourceId: "string"
+currencyCd: "string"
+catastropheCd: "string"
+vulnerableCustomer: "boolean"
+totalLoss: "boolean"
+excess:
+  - oid: "string"
+    excessName: "string"
+    excessValue: "decimal"
+    excessDescription: "string"
+
+@endyaml
+
+@startyaml
+
+
+- itemNumber: "1"
+  displayValue: "2021, Nissan, Qashqai J11 ST-L Hatchback 5dr Xtronic 1sp 2.0i, NLF753"
+  damageType: "TwrAutoLoss"
+  itemizedLosses:
+    - oid: "abcd"
+        itemType: "C-Keys and Locks"
+  componentName: "ClaimsDamage"
+  oid: "mc0yOQ5aJ2gxjm1eJpdE3Q"
+  extension:
+    airbagsDeployed: "TRUE"
+    knockForKnock: "TRUE"
+  generalAreaOfDamage:
+    - area: "Door - front drivers side"
+  features:
+    - oid: "pgXq-Bc8Cm7-bmEnu9NF9g"
+      featureNumber: "1"
+      featureId: "8266408109"
+      coverage:
+        oid: "hEAnA1gRhBl3asFeavFHDw"
+        coverageCd: "VehicleVehDamage"
+      featureIncurred:
+        amount:
+          amount: 2000
+          currencyCd: "NZD"
+      statusCd: "OPEN"
+      reserves:
+        - amount:
+            amount: 2000
+            currencyCd: "NZD"
+          typeCd: "INDEMNITY"
+        - amount:
+            amount: 0
+            currencyCd: "NZD"
+          typeCd: "EXPENSE"
+        - amount:
+            amount: 0
+            currencyCd: "NZD"
+          typeCd: "RECOVERY"
+
+@endyaml
