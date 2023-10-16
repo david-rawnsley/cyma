@@ -1,7 +1,7 @@
 {
   "type": "excalidraw",
   "version": 2,
-  "source": "https://excalidraw.com",
+  "source": "https://marketplace.visualstudio.com/items?itemName=pomdtr.excalidraw-editor",
   "elements": [
     {
       "type": "rectangle",
@@ -39,8 +39,8 @@
     },
     {
       "type": "text",
-      "version": 426,
-      "versionNonce": 1331349928,
+      "version": 428,
+      "versionNonce": 1843064268,
       "isDeleted": false,
       "id": "UgqX8V8VuJhypnGYB5PWP",
       "fillStyle": "hachure",
@@ -60,7 +60,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1695081761329,
+      "updated": 1696465630397,
       "link": null,
       "locked": false,
       "fontSize": 20,
@@ -71,12 +71,12 @@
       "containerId": "hcpj0wasuesFI8kThUV7g",
       "originalText": "Security by design is an approach to software \nand hardware development that seeks to make \nsystems as free of vulnerabilities and impervious \nto attack as possible through such measures as \ncontinuous testing, authentication safeguards and \nadherence to best programming practices.",
       "lineHeight": 1.25,
-      "baseline": 143
+      "baseline": 146
     },
     {
       "type": "text",
-      "version": 728,
-      "versionNonce": 836089512,
+      "version": 778,
+      "versionNonce": 706349121,
       "isDeleted": false,
       "id": "3SUwtVgONBozkxH2BT_MS",
       "fillStyle": "hachure",
@@ -85,8 +85,8 @@
       "roughness": 1,
       "opacity": 100,
       "angle": 0,
-      "x": 279.29452775989233,
-      "y": -155.0188093691636,
+      "x": 259.98219221670064,
+      "y": -152.2599042915648,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
       "width": 296.4958801269531,
@@ -98,7 +98,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1695081761329,
+      "updated": 1697406636443,
       "link": null,
       "locked": false,
       "fontSize": 36,
@@ -113,8 +113,8 @@
     },
     {
       "type": "ellipse",
-      "version": 779,
-      "versionNonce": 1216636888,
+      "version": 825,
+      "versionNonce": 1701686188,
       "isDeleted": false,
       "id": "XByy5Uuqo_Zu8Cu31wlnU",
       "fillStyle": "hachure",
@@ -123,8 +123,8 @@
       "roughness": 1,
       "opacity": 100,
       "angle": 0,
-      "x": 203.89776271700566,
-      "y": -355.132893714668,
+      "x": 184.58542717381397,
+      "y": -352.3739886370692,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
       "width": 447.28941021272647,
@@ -138,14 +138,14 @@
         "type": 2
       },
       "boundElements": [],
-      "updated": 1695081761329,
+      "updated": 1695174622246,
       "link": null,
       "locked": false
     },
     {
       "type": "text",
-      "version": 474,
-      "versionNonce": 1043898792,
+      "version": 478,
+      "versionNonce": 580540495,
       "isDeleted": false,
       "id": "oXeOXJrlYhiKmbnOobvcv",
       "fillStyle": "hachure",
@@ -167,7 +167,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1695081761329,
+      "updated": 1697406636446,
       "link": null,
       "locked": false,
       "fontSize": 36,
@@ -218,8 +218,8 @@
     },
     {
       "type": "text",
-      "version": 567,
-      "versionNonce": 889597096,
+      "version": 571,
+      "versionNonce": 756111393,
       "isDeleted": false,
       "id": "FzCCmYbnZ3gPRmtWOV8_q",
       "fillStyle": "hachure",
@@ -241,7 +241,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1695081761329,
+      "updated": 1697406636448,
       "link": null,
       "locked": false,
       "fontSize": 36,
@@ -300,8 +300,8 @@
     },
     {
       "type": "text",
-      "version": 623,
-      "versionNonce": 803887016,
+      "version": 627,
+      "versionNonce": 1768453743,
       "isDeleted": false,
       "id": "g2o_u5w7YFrB7gRbq7eov",
       "fillStyle": "hachure",
@@ -323,7 +323,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1695081761329,
+      "updated": 1697406636452,
       "link": null,
       "locked": false,
       "fontSize": 36,
@@ -378,8 +378,8 @@
     },
     {
       "type": "text",
-      "version": 602,
-      "versionNonce": 856761000,
+      "version": 606,
+      "versionNonce": 408136705,
       "isDeleted": false,
       "id": "QKlWL63ROfnlboVFjfTNd",
       "fillStyle": "hachure",
@@ -401,7 +401,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1695081761329,
+      "updated": 1697406636455,
       "link": null,
       "locked": false,
       "fontSize": 36,
@@ -460,8 +460,8 @@
     },
     {
       "type": "text",
-      "version": 684,
-      "versionNonce": 1562807720,
+      "version": 688,
+      "versionNonce": 151900303,
       "isDeleted": false,
       "id": "9y2KR-8QRhIRrgtYwJZsb",
       "fillStyle": "hachure",
@@ -483,7 +483,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1695081761329,
+      "updated": 1697406636458,
       "link": null,
       "locked": false,
       "fontSize": 36,
@@ -498,8 +498,8 @@
     },
     {
       "type": "ellipse",
-      "version": 914,
-      "versionNonce": 1485865176,
+      "version": 915,
+      "versionNonce": 1150345260,
       "isDeleted": false,
       "id": "Cq1hExg9K_-96C5J8mB8a",
       "fillStyle": "hachure",
@@ -524,10 +524,6 @@
       },
       "boundElements": [
         {
-          "id": "vrTGr92HMX-O0sGIrm0JO",
-          "type": "arrow"
-        },
-        {
           "id": "iS8HbaPMMXaaKgOGle-UV",
           "type": "arrow"
         },
@@ -540,14 +536,14 @@
           "type": "arrow"
         }
       ],
-      "updated": 1695081761329,
+      "updated": 1695179164006,
       "link": null,
       "locked": false
     },
     {
       "type": "text",
-      "version": 393,
-      "versionNonce": 391551144,
+      "version": 397,
+      "versionNonce": 870351841,
       "isDeleted": false,
       "id": "gR66lF5taRn0jAyoOzPfH",
       "fillStyle": "hachure",
@@ -569,7 +565,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1695081761329,
+      "updated": 1697406636459,
       "link": null,
       "locked": false,
       "fontSize": 36,
@@ -611,80 +607,6 @@
       "boundElements": [
         {
           "id": "ewzWwHzZb3QYEHEJw3a7v",
-          "type": "arrow"
-        }
-      ],
-      "updated": 1695081761329,
-      "link": null,
-      "locked": false
-    },
-    {
-      "type": "text",
-      "version": 437,
-      "versionNonce": 1162691496,
-      "isDeleted": false,
-      "id": "_cz-X4E8LO5bJU_-idi2j",
-      "fillStyle": "hachure",
-      "strokeWidth": 4,
-      "strokeStyle": "solid",
-      "roughness": 1,
-      "opacity": 100,
-      "angle": 0,
-      "x": 416.4439940850427,
-      "y": 801.5210337876797,
-      "strokeColor": "#1e1e1e",
-      "backgroundColor": "transparent",
-      "width": 156.38389587402344,
-      "height": 135,
-      "seed": 1505728728,
-      "groupIds": [
-        "rN41DfhtbexnXGjfGG7v8"
-      ],
-      "frameId": null,
-      "roundness": null,
-      "boundElements": [],
-      "updated": 1695081761329,
-      "link": null,
-      "locked": false,
-      "fontSize": 36,
-      "fontFamily": 1,
-      "text": "Principles\nbased\ndesigns",
-      "textAlign": "center",
-      "verticalAlign": "top",
-      "containerId": null,
-      "originalText": "Principles\nbased\ndesigns",
-      "lineHeight": 1.25,
-      "baseline": 122
-    },
-    {
-      "type": "ellipse",
-      "version": 710,
-      "versionNonce": 1943546584,
-      "isDeleted": false,
-      "id": "kK4VTNxWCN7r649Dz29qo",
-      "fillStyle": "hachure",
-      "strokeWidth": 4,
-      "strokeStyle": "solid",
-      "roughness": 1,
-      "opacity": 100,
-      "angle": 0,
-      "x": 270.99123691569116,
-      "y": 646.4069494421753,
-      "strokeColor": "#1e1e1e",
-      "backgroundColor": "transparent",
-      "width": 447.28941021272647,
-      "height": 445.2281686910088,
-      "seed": 1805294040,
-      "groupIds": [
-        "rN41DfhtbexnXGjfGG7v8"
-      ],
-      "frameId": null,
-      "roundness": {
-        "type": 2
-      },
-      "boundElements": [
-        {
-          "id": "vrTGr92HMX-O0sGIrm0JO",
           "type": "arrow"
         }
       ],
@@ -787,8 +709,8 @@
     },
     {
       "type": "text",
-      "version": 674,
-      "versionNonce": 135333032,
+      "version": 678,
+      "versionNonce": 1531111087,
       "isDeleted": false,
       "id": "sgwPeNTCkw8-t6sonRXQm",
       "fillStyle": "cross-hatch",
@@ -810,7 +732,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1695081761329,
+      "updated": 1697406636462,
       "link": null,
       "locked": false,
       "fontSize": 51.330871130108164,
@@ -825,8 +747,8 @@
     },
     {
       "type": "text",
-      "version": 788,
-      "versionNonce": 1822563032,
+      "version": 792,
+      "versionNonce": 466051009,
       "isDeleted": false,
       "id": "o-gzUYODw8SchrhrFuDPB",
       "fillStyle": "cross-hatch",
@@ -848,7 +770,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1695081805690,
+      "updated": 1697406636465,
       "link": null,
       "locked": false,
       "fontSize": 51.330871130108164,
@@ -863,8 +785,8 @@
     },
     {
       "type": "text",
-      "version": 876,
-      "versionNonce": 198848424,
+      "version": 880,
+      "versionNonce": 1857042639,
       "isDeleted": false,
       "id": "z2mvcfDR_apAINNKGbS8_",
       "fillStyle": "cross-hatch",
@@ -886,7 +808,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1695081761329,
+      "updated": 1697406636471,
       "link": null,
       "locked": false,
       "fontSize": 51.330871130108164,
@@ -968,8 +890,8 @@
     },
     {
       "type": "text",
-      "version": 1095,
-      "versionNonce": 822109608,
+      "version": 1097,
+      "versionNonce": 857934964,
       "isDeleted": false,
       "id": "DRiP4xhCwVP4ZKr2C_GcE",
       "fillStyle": "hachure",
@@ -989,7 +911,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1695081761329,
+      "updated": 1696465630410,
       "link": null,
       "locked": false,
       "fontSize": 28,
@@ -1000,7 +922,7 @@
       "containerId": "V2acnUrX0-4808dyT4WVg",
       "originalText": "Name​",
       "lineHeight": 1.25,
-      "baseline": 25
+      "baseline": 29
     },
     {
       "type": "rectangle",
@@ -1036,8 +958,8 @@
     },
     {
       "type": "text",
-      "version": 1065,
-      "versionNonce": 37056680,
+      "version": 1067,
+      "versionNonce": 1303979212,
       "isDeleted": false,
       "id": "JP9CJOdbi_AeSm4udK9u3",
       "fillStyle": "hachure",
@@ -1057,7 +979,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1695081761329,
+      "updated": 1696465630412,
       "link": null,
       "locked": false,
       "fontSize": 28,
@@ -1068,7 +990,7 @@
       "containerId": "uq07OaREdZkDVyS_byBLx",
       "originalText": "Should both represent the essence of the rule as well as be easy to remember. Specific technology platforms should not be mentioned in the name or statement of a principle. Avoid ambiguous words in the Name and in the Statement such as: \"support\", \"open\", \"consider\", and for lack of good measure the word \"avoid\", itself, be careful with \"manage(ment)\", and look for unnecessary adjectives and adverbs (fluff).​",
       "lineHeight": 1.25,
-      "baseline": 235
+      "baseline": 239
     },
     {
       "type": "rectangle",
@@ -1104,8 +1026,8 @@
     },
     {
       "type": "text",
-      "version": 1022,
-      "versionNonce": 512826280,
+      "version": 1024,
+      "versionNonce": 1634819572,
       "isDeleted": false,
       "id": "uf27Y8Lg7UVPpc-ZXBogy",
       "fillStyle": "hachure",
@@ -1125,7 +1047,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1695081761329,
+      "updated": 1696465630412,
       "link": null,
       "locked": false,
       "fontSize": 28,
@@ -1136,7 +1058,7 @@
       "containerId": "DI-C5syytdHbX-prGXSma",
       "originalText": "Statement​",
       "lineHeight": 1.25,
-      "baseline": 25
+      "baseline": 29
     },
     {
       "type": "rectangle",
@@ -1172,8 +1094,8 @@
     },
     {
       "type": "text",
-      "version": 1045,
-      "versionNonce": 675243688,
+      "version": 1047,
+      "versionNonce": 793946956,
       "isDeleted": false,
       "id": "R-sbPNAMbqBBynA-PJsa_",
       "fillStyle": "hachure",
@@ -1193,7 +1115,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1695081761329,
+      "updated": 1696465630413,
       "link": null,
       "locked": false,
       "fontSize": 28,
@@ -1204,7 +1126,7 @@
       "containerId": "LfNNv05MLEGtZfjbb1aNj",
       "originalText": "Should succinctly and unambiguously communicate the fundamental rule. For the most part, the principles statements for managing information are similar from one organisation to the next. It is vital that the principles statement be unambiguous.​",
       "lineHeight": 1.25,
-      "baseline": 130
+      "baseline": 134
     },
     {
       "type": "rectangle",
@@ -1240,8 +1162,8 @@
     },
     {
       "type": "text",
-      "version": 953,
-      "versionNonce": 468472232,
+      "version": 955,
+      "versionNonce": 620330868,
       "isDeleted": false,
       "id": "nn_IyA93kzkGHVL_ubcvS",
       "fillStyle": "hachure",
@@ -1261,7 +1183,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1695081761329,
+      "updated": 1696465630413,
       "link": null,
       "locked": false,
       "fontSize": 28,
@@ -1272,7 +1194,7 @@
       "containerId": "5mfrb4QFr4FUKkzgH_i1f",
       "originalText": "Rationale ​",
       "lineHeight": 1.25,
-      "baseline": 25
+      "baseline": 29
     },
     {
       "type": "rectangle",
@@ -1308,8 +1230,8 @@
     },
     {
       "type": "text",
-      "version": 1079,
-      "versionNonce": 12836008,
+      "version": 1081,
+      "versionNonce": 1626825164,
       "isDeleted": false,
       "id": "J5SL6Wk4Pye7cMRbjzPPP",
       "fillStyle": "hachure",
@@ -1329,7 +1251,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1695081761329,
+      "updated": 1696465630414,
       "link": null,
       "locked": false,
       "fontSize": 28,
@@ -1340,7 +1262,7 @@
       "containerId": "Jbzbtn4wO-vHT7DMYzwJW",
       "originalText": "Should highlight the business benefits of adhering to the principle, using business terminology. Point to the similarity of information and technology principles to the principles governing business operations. Also describe the relationship to other principles, and the intentions regarding a balanced interpretation. Describe situations where one principle would be given precedence or carry more weight than another for making a decision.​",
       "lineHeight": 1.25,
-      "baseline": 235
+      "baseline": 239
     },
     {
       "type": "rectangle",
@@ -1376,8 +1298,8 @@
     },
     {
       "type": "text",
-      "version": 1029,
-      "versionNonce": 410126248,
+      "version": 1031,
+      "versionNonce": 1442935028,
       "isDeleted": false,
       "id": "QM6WuNWsQJKGH8DJkT3g8",
       "fillStyle": "hachure",
@@ -1397,7 +1319,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1695081761329,
+      "updated": 1696465630415,
       "link": null,
       "locked": false,
       "fontSize": 28,
@@ -1408,7 +1330,7 @@
       "containerId": "PoGlrd94kennCKh4ibyky",
       "originalText": "Implications​",
       "lineHeight": 1.25,
-      "baseline": 25
+      "baseline": 29
     },
     {
       "type": "rectangle",
@@ -1444,8 +1366,8 @@
     },
     {
       "type": "text",
-      "version": 1555,
-      "versionNonce": 253940392,
+      "version": 1557,
+      "versionNonce": 432097356,
       "isDeleted": false,
       "id": "BU08ksCe0TbU_vidG5euq",
       "fillStyle": "hachure",
@@ -1465,7 +1387,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1695081761329,
+      "updated": 1696465630418,
       "link": null,
       "locked": false,
       "fontSize": 28,
@@ -1476,57 +1398,7 @@
       "containerId": "XHwMme6bCOkc-WJ01sImM",
       "originalText": "Should highlight the requirements, both for the business and IT, for carrying out the principle - in terms of resources, costs, and activities/tasks. It will often be apparent that current systems, standards, or practices would be incongruent with the principle upon adoption. The impact to the business and consequences of adopting a principle should be clearly stated. The reader should readily discern the answer to: \"How does this affect me?\" It is important not to oversimplify, trivialize, or judge the merit of the impact. Some of the implications will be identified as potential impacts only and may be speculative rather than fully analysed.​",
       "lineHeight": 1.25,
-      "baseline": 340
-    },
-    {
-      "type": "arrow",
-      "version": 929,
-      "versionNonce": 1693130920,
-      "isDeleted": false,
-      "id": "vrTGr92HMX-O0sGIrm0JO",
-      "fillStyle": "hachure",
-      "strokeWidth": 4,
-      "strokeStyle": "solid",
-      "roughness": 0,
-      "opacity": 100,
-      "angle": 0,
-      "x": 379.36046938477455,
-      "y": 534.0973675440481,
-      "strokeColor": "#1e1e1e",
-      "backgroundColor": "transparent",
-      "width": 55.30311129632831,
-      "height": 113.40658961278018,
-      "seed": 325282216,
-      "groupIds": [],
-      "frameId": null,
-      "roundness": null,
-      "boundElements": [],
-      "updated": 1695081761329,
-      "link": null,
-      "locked": false,
-      "startBinding": {
-        "elementId": "Cq1hExg9K_-96C5J8mB8a",
-        "focus": -0.2569226476487411,
-        "gap": 9.155682268563197
-      },
-      "endBinding": {
-        "elementId": "kK4VTNxWCN7r649Dz29qo",
-        "focus": 0.20541727806277685,
-        "gap": 12.785675995185414
-      },
-      "lastCommittedPoint": null,
-      "startArrowhead": null,
-      "endArrowhead": "arrow",
-      "points": [
-        [
-          0,
-          0
-        ],
-        [
-          55.30311129632831,
-          113.40658961278018
-        ]
-      ]
+      "baseline": 344
     },
     {
       "type": "arrow",
@@ -1730,8 +1602,8 @@
     },
     {
       "type": "text",
-      "version": 507,
-      "versionNonce": 1145045416,
+      "version": 511,
+      "versionNonce": 1042792353,
       "isDeleted": false,
       "id": "btQHdOJMcHjs67YgBRd24",
       "fillStyle": "hachure",
@@ -1753,7 +1625,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1695081761329,
+      "updated": 1697406636473,
       "link": null,
       "locked": false,
       "fontSize": 36,
@@ -1906,76 +1778,6 @@
     },
     {
       "type": "rectangle",
-      "version": 314,
-      "versionNonce": 597276584,
-      "isDeleted": false,
-      "id": "Xsn2B8ApxmbIEMN_a2qXb",
-      "fillStyle": "hachure",
-      "strokeWidth": 4,
-      "strokeStyle": "solid",
-      "roughness": 1,
-      "opacity": 100,
-      "angle": 0,
-      "x": 246.6793870399713,
-      "y": 1110.7658252846654,
-      "strokeColor": "#e03131",
-      "backgroundColor": "transparent",
-      "width": 496,
-      "height": 199,
-      "seed": 89636824,
-      "groupIds": [],
-      "frameId": null,
-      "roundness": {
-        "type": 3
-      },
-      "boundElements": [
-        {
-          "id": "sAjFeFnkRTT3u1x2VYuJh",
-          "type": "text"
-        }
-      ],
-      "updated": 1695081761329,
-      "link": null,
-      "locked": false
-    },
-    {
-      "type": "text",
-      "version": 891,
-      "versionNonce": 1170011864,
-      "isDeleted": false,
-      "id": "sAjFeFnkRTT3u1x2VYuJh",
-      "fillStyle": "hachure",
-      "strokeWidth": 4,
-      "strokeStyle": "solid",
-      "roughness": 1,
-      "opacity": 100,
-      "angle": 0,
-      "x": 254.58960432512754,
-      "y": 1172.7658252846654,
-      "strokeColor": "#1e1e1e",
-      "backgroundColor": "transparent",
-      "width": 480.1795654296875,
-      "height": 75,
-      "seed": 564090840,
-      "groupIds": [],
-      "frameId": null,
-      "roundness": null,
-      "boundElements": [],
-      "updated": 1695081761329,
-      "link": null,
-      "locked": false,
-      "fontSize": 20,
-      "fontFamily": 1,
-      "text": "This inherently is similar to a circular argument \nand we should avoid documenting this as a \nprinciple",
-      "textAlign": "center",
-      "verticalAlign": "middle",
-      "containerId": "Xsn2B8ApxmbIEMN_a2qXb",
-      "originalText": "This inherently is similar to a circular argument and we should avoid documenting this as a principle",
-      "lineHeight": 1.25,
-      "baseline": 68
-    },
-    {
-      "type": "rectangle",
       "version": 381,
       "versionNonce": 1571314648,
       "isDeleted": false,
@@ -2010,8 +1812,8 @@
     },
     {
       "type": "text",
-      "version": 1166,
-      "versionNonce": 1954409896,
+      "version": 1168,
+      "versionNonce": 495607500,
       "isDeleted": false,
       "id": "esMsz14Jc41dc6L-JNQYQ",
       "fillStyle": "hachure",
@@ -2031,7 +1833,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1695081761329,
+      "updated": 1696465630421,
       "link": null,
       "locked": false,
       "fontSize": 20,
@@ -2042,7 +1844,7 @@
       "containerId": "hm_chWWfI437V1beZQceQ",
       "originalText": "So what is our underlying principle that indicates whether we should buy or build .. in many instances buying may not enable us to innovate or differentiate ourselves from the market for example",
       "lineHeight": 1.25,
-      "baseline": 118
+      "baseline": 121
     },
     {
       "type": "rectangle",
@@ -2080,8 +1882,8 @@
     },
     {
       "type": "text",
-      "version": 1518,
-      "versionNonce": 214038696,
+      "version": 1520,
+      "versionNonce": 501793780,
       "isDeleted": false,
       "id": "odaSMQvQ3jmIzLXs1DcPs",
       "fillStyle": "hachure",
@@ -2101,7 +1903,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1695081761329,
+      "updated": 1696465630423,
       "link": null,
       "locked": false,
       "fontSize": 20,
@@ -2112,7 +1914,7 @@
       "containerId": "y9QCh6Sljb6i9pU1BcSIw",
       "originalText": "This should be a given but of course is required to be stated .. all solutions, design, proposals should be done with an enterprise view in mind i.e. what is best for the enterprise. This gives us the ability to clearly identify when a proposal IS NOT best for the enterprise but may well be accepted regardless.",
       "lineHeight": 1.25,
-      "baseline": 168
+      "baseline": 171
     },
     {
       "type": "rectangle",
@@ -2150,8 +1952,8 @@
     },
     {
       "type": "text",
-      "version": 1158,
-      "versionNonce": 910992296,
+      "version": 1160,
+      "versionNonce": 619488588,
       "isDeleted": false,
       "id": "7ORhgol65CHRuCsdgeeeo",
       "fillStyle": "hachure",
@@ -2171,7 +1973,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1695081761329,
+      "updated": 1696465630427,
       "link": null,
       "locked": false,
       "fontSize": 20,
@@ -2182,7 +1984,7 @@
       "containerId": "_UO87VFYyNAY5z_4aymlp",
       "originalText": "I prefer to use PRODUCT here, for me a product is something that can be sold or traded for value. Whereas using the term \"asset\" tends to remind me of something that is being maintained i.e. a building",
       "lineHeight": 1.25,
-      "baseline": 118
+      "baseline": 121
     },
     {
       "type": "arrow",
@@ -2243,8 +2045,8 @@
     },
     {
       "type": "text",
-      "version": 69,
-      "versionNonce": 1330245288,
+      "version": 72,
+      "versionNonce": 1771316596,
       "isDeleted": false,
       "id": "sN4RKEbfGO9wQUYv6sfPP",
       "fillStyle": "cross-hatch",
@@ -2253,29 +2055,29 @@
       "roughness": 0,
       "opacity": 100,
       "angle": 0,
-      "x": 426.815819017439,
-      "y": 186.75009687002137,
+      "x": 503.8557970447828,
+      "y": 164.25009687002137,
       "strokeColor": "#1e1e1e",
       "backgroundColor": "transparent",
-      "width": 309.52789306640625,
-      "height": 45,
+      "width": 155.44793701171875,
+      "height": 90,
       "seed": 609067432,
       "groupIds": [],
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1695081761329,
+      "updated": 1696465630429,
       "link": null,
       "locked": false,
       "fontSize": 36,
       "fontFamily": 1,
-      "text": "Process Alignment",
+      "text": "Process \nAlignment",
       "textAlign": "center",
       "verticalAlign": "middle",
       "containerId": "bHa8sjV7-eIAEq03JOYvc",
       "originalText": "Process Alignment",
       "lineHeight": 1.25,
-      "baseline": 32
+      "baseline": 82
     },
     {
       "type": "rectangle",
@@ -2313,8 +2115,8 @@
     },
     {
       "type": "text",
-      "version": 1767,
-      "versionNonce": 275110312,
+      "version": 1769,
+      "versionNonce": 1161960396,
       "isDeleted": false,
       "id": "NMx6i_-JRmH6Pa9RBwYPt",
       "fillStyle": "hachure",
@@ -2334,7 +2136,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1695081761329,
+      "updated": 1696465630431,
       "link": null,
       "locked": false,
       "fontSize": 20,
@@ -2345,7 +2147,7 @@
       "containerId": "k42mFLFvNw0iiNKrJEWw5",
       "originalText": "Is this potentially a method of embodying \"Service above Self\"",
       "lineHeight": 1.25,
-      "baseline": 43
+      "baseline": 46
     },
     {
       "type": "rectangle",
@@ -2383,8 +2185,8 @@
     },
     {
       "type": "text",
-      "version": 1264,
-      "versionNonce": 1020028072,
+      "version": 1266,
+      "versionNonce": 1012356852,
       "isDeleted": false,
       "id": "oU9M5FBhBjhIzpuiOtrrX",
       "fillStyle": "hachure",
@@ -2404,7 +2206,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1695081761329,
+      "updated": 1696465630432,
       "link": null,
       "locked": false,
       "fontSize": 20,
@@ -2415,7 +2217,7 @@
       "containerId": "B9BKign--wclKG0PYlCou",
       "originalText": "What is driving the definitaiton of cost effective? ",
       "lineHeight": 1.25,
-      "baseline": 43
+      "baseline": 46
     }
   ],
   "appState": {
