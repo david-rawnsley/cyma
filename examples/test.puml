@@ -1,0 +1,100 @@
+@startuml
+
+skinparam defaultFontName Raleway
+skinparam roundcorner 10
+
+skinparam sequence {
+    ArrowColor #53534A
+    ArrowFontColor #53534A
+    LifeLineBorderColor #53534A
+    LifeLineBackgroundColor #53534A
+
+    ParticipantBackgroundColor #53534A
+    ParticipantFontSize 14
+    ParticipantFontColor White
+    ParticipantFontStyle bold
+}
+
+title Cyma Project Delivery Process
+
+participant sbd as "Sales/Business Development"
+participant el as "Engagement Lead"
+participant cc as "Cyma Consultant"
+participant PE as "Head of Practice Excellence"
+participant repo as "Cyma Practice Repository"
+participant slack as "Cyma Slack Channel - Practice"
+participant client as "Client"
+
+ref over sbd, el
+Cyma Proposals and Statements of Work Process
+end ref
+
+activate el
+el->cc: Assign Work
+deactivate el
+
+activate cc
+cc->cc: Analyse Project
+cc->repo: Identify Practice Resources
+
+cc->cc: Research, Analyze, Collaborate
+activate cc
+cc->slack: Collaboration
+activate slack
+slack-->cc
+deactivate slack
+deactivate cc
+
+cc->cc: Generate Deliverable(s)
+
+ref over cc, slack
+Cyma Peer Review Process
+end ref
+
+cc->client: "Deliver to Client"
+
+ref over cc, PE
+Cyma Practice Contribution Repository Process
+end ref
+
+@enduml
+
+@startuml
+
+skinparam defaultFontName Raleway
+skinparam roundcorner 10
+
+skinparam sequence {
+    ArrowColor #53534A
+    ArrowFontColor #53534A
+    LifeLineBorderColor #53534A
+    LifeLineBackgroundColor #53534A
+
+    ParticipantBackgroundColor #53534A
+    ParticipantFontSize 14
+    ParticipantFontColor White
+    ParticipantFontStyle bold
+}
+
+participant cc as "Contributor"
+participant pe as "Head of Practice Excellence"
+participant repo as "Cyma Practice Repository"
+
+cc->pe: Submits Cyma Practice artefact
+
+ activate pe
+ alt Artefact does not meet standard.
+    pe --> cc: Provides feedback to the Contributor
+    else Artefact does meet standard.
+    pe --> cc: Provides repository location to the Contributor
+    deactivate pe
+    cc->repo: Submits endorsed artefact with storage location
+    activate cc
+    activate repo
+    repo-->cc:
+    deactivate repo
+    cc->pe: Confirms artefact storage
+    deactivate cc
+ end
+
+@enduml

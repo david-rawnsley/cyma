@@ -1,0 +1,60 @@
+@startuml
+
+Title Cyma Artefact Review Process
+skinparam defaultFontName Raleway
+skinparam roundcorner 10
+'skinparam shadowing true
+
+skinparam sequence {
+    ArrowColor #53534A
+    ArrowFontColor #53534A
+    LifeLineBorderColor #53534A
+    LifeLineBackgroundColor #53534A
+
+    ParticipantBackgroundColor #53534A
+    ParticipantFontSize 14
+    ParticipantFontColor White
+    ParticipantFontStyle bold
+}
+
+participant sbd as "Sales/Business Development"
+participant EL as "Engagement Lead"
+participant PE as "Head of Practice Excellence"
+participant A as "Artefact Author"
+participant R as "Reviewer"
+participant C as "Customer"
+
+ref over sbd, EL
+Statement of Work Process
+end ref
+
+sbd->EL: SoW Reviewer Request
+activate EL
+EL->PE: Request a Reviewer
+activate PE
+PE->PE: Assign available Reviewer
+activate PE
+PE->R: Advise Reviewer
+activate R
+R-->PE:
+deactivate R
+deactivate PE
+PE-->EL: Advise Engagement Lead
+deactivate PE
+
+EL->A: Advise Author
+deactivate EL
+activate A
+loop While Artefact is being prepared
+A->R: Submit Artefact for review
+activate R
+R->A: Submit review
+deactivate R
+
+A->A: Address feedback
+end
+
+A->C: Submit Artefact
+deactivate A
+
+@enduml
