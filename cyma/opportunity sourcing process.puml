@@ -1,0 +1,49 @@
+@startuml
+
+Title Cyma EDM Process
+skinparam defaultFontName Raleway
+skinparam roundcorner 10
+'skinparam shadowing true
+autonumber
+skinparam sequence {
+    ArrowColor #53534A
+    ArrowFontColor #53534A
+    LifeLineBorderColor #53534A
+    LifeLineBackgroundColor #53534A
+
+    ParticipantBackgroundColor #53534A
+    ParticipantFontSize 14
+    ParticipantFontColor White
+    ParticipantFontStyle bold
+}
+
+participant au as "Accelo User"
+participant acc as "Accelo"
+participant mc as "MailChimp"
+participant ma as "Marketing Actor"
+participant c as "Contact"
+
+au -> acc: Activates Client
+activate acc
+acc -> mc: Sends client contact(s)
+deactivate acc
+
+ma -> mc: Creates segment
+ma -> mc: Creates campaign
+activate mc
+mc -> c: Sends campaign
+activate c
+c --> mc: Sends NDR
+' deactivate mc
+deactivate c
+
+mc -> mc: Classifies NDR
+deactivate mc
+
+mc -> n8n: sends hard_bounce event
+activate n8n
+
+n8n -> acc: patch /api/v0/contacts/contactId [email = null]
+deactivate n8n
+
+@enduml

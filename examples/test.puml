@@ -20,7 +20,7 @@ title Cyma Project Delivery Process
 participant sbd as "Sales/Business Development"
 participant el as "Engagement Lead"
 participant cc as "Cyma Consultant"
-participant PE as "Head of Practice Excellence"
+'participant PE as "Head of Practice Excellence"
 participant repo as "Cyma Practice Repository"
 participant slack as "Cyma Slack Channel - Practice"
 participant client as "Client"
@@ -37,7 +37,7 @@ activate cc
 cc->cc: Analyse Project
 cc->repo: Identify Practice Resources
 
-cc->cc: Research, Analyze, Collaborate
+cc->cc: Research, Analyse and Store
 activate cc
 cc->slack: Collaboration
 activate slack
@@ -47,13 +47,13 @@ deactivate cc
 
 cc->cc: Generate Deliverable(s)
 
-ref over cc, slack
+ref over cc, el
 Cyma Peer Review Process
 end ref
 
-cc->client: "Deliver to Client"
+cc->client: Deliver to the Client
 
-ref over cc, PE
+ref over cc, repo
 Cyma Practice Contribution Repository Process
 end ref
 

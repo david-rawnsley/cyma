@@ -1,6 +1,6 @@
 @startuml
 
-Title Cyma Artefact Review Process
+Title Cyma QA Review Process
 skinparam defaultFontName Raleway
 skinparam roundcorner 10
 'skinparam shadowing true
@@ -48,13 +48,136 @@ activate A
 loop While Artefact is being prepared
 A->R: Submit Artefact for review
 activate R
-R->A: Submit review
+R-->A: Feedback
 deactivate R
 
 A->A: Address feedback
 end
 
-A->C: Submit Artefact
+A->EL: Submit Artefact
 deactivate A
+activate EL
+
+EL -> C: Submit Artefact
+deactivate EL
+
+@enduml
+
+@startuml
+
+skinparam defaultFontName Raleway
+skinparam roundcorner 10
+
+skinparam sequence {
+    ArrowColor #53534A
+    ArrowFontColor #53534A
+    LifeLineBorderColor #53534A
+    LifeLineBackgroundColor #53534A
+
+    ParticipantBackgroundColor #53534A
+    ParticipantFontSize 14
+    ParticipantFontColor White
+    ParticipantFontStyle bold
+}
+
+participant "Pre-Sales Support" as pss
+participant "Engagement Lead" as el
+participant "SoW Approval Process" as sow
+participant "Client" as xyz
+
+ref over pss
+Sales Process
+end ref
+
+pss->el: Notify of Project
+deactivate pss
+activate el
+el->el: Develop SoW
+activate el
+
+
+deactivate el
+
+el->sow: Present SoW
+activate sow
+
+ref over sow
+    Cyma SoW Approval Process
+end ref
+
+sow-->el:
+deactivate sow
+
+el->xyz: Present SoW
+activate xyz
+
+xyz-->el: Accept SoW
+deactivate xyz
+
+el->pss: Notify
+deactivate el
+activate pss
+pss-> el : Project initiated
+deactivate pss
+activate el
+
+deactivate el
+
+ref over el, xyz
+Project Delivery
+end ref
+
+
+'end opt
+@enduml
+
+@startuml
+
+@startuml
+
+skinparam defaultFontName Raleway
+skinparam roundcorner 10
+
+skinparam sequence {
+    ArrowColor #53534A
+    ArrowFontColor #53534A
+    LifeLineBorderColor #53534A
+    LifeLineBackgroundColor #53534A
+
+    ParticipantBackgroundColor #53534A
+    ParticipantFontSize 14
+    ParticipantFontColor White
+    ParticipantFontStyle bold
+}
+
+Title "Partners Life IcePanel Approval/Merge Process"
+
+participant "IcePanel \nEditor" as Editor
+participant "Architecture\nReview" as Architect
+participant IcePanel
+
+Editor->IcePanel: Creates draft diagram \nwithin IcePanel
+activate IcePanel
+Editor->IcePanel: Iterates draft diagram
+deactivate IcePanel
+Editor->Architect: Initiates architecture review\nof diagram.
+activate Architect
+alt All reviewers approve (Approve)
+    Architect->Editor: Informs approval
+    Editor->IcePanel: Implements merge
+    activate IcePanel
+    opt Freeze IcePanel view [Optional]
+    Editor->IcePanel: Freezes/Versions [Domain]|[App]
+    end
+    IcePanel->IcePanel: Merges diagram \ninto latest model.
+    IcePanel-->Editor
+    deactivate IcePanel
+    Editor->Architect: Advises merge complete.
+else Any reviewer rejects (Reject)
+    Architect->Editor: Informs rejection with all comments
+    Editor->Architect: Revises diagram resubmits \nto approval process
+end
+
+deactivate Architect
 
 @enduml
