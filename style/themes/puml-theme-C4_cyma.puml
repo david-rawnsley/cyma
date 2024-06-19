@@ -1,5 +1,10 @@
 !$THEME = "C4_cyma"
 
+!ifndef $FONT_NAME
+  !$FONT_NAME = "Raleway"
+!endif
+
+
 !$ELEMENT_FONT_COLOR ?= "#FFFFFF"
 
 !$PERSON_FONT_COLOR ?= $ELEMENT_FONT_COLOR 
