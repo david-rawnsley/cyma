@@ -2,7 +2,7 @@
 
 Title Cyma EDM Process
 skinparam defaultFontName Raleway
-skinparam roundcorner 10
+skinparam roundcorner 5
 'skinparam shadowing true
 autonumber
 skinparam sequence {
@@ -14,7 +14,6 @@ skinparam sequence {
     ParticipantBackgroundColor #53534A
     ParticipantFontSize 14
     ParticipantFontColor White
-    ParticipantFontStyle bold
 }
 
 participant au as "Accelo User"
@@ -44,6 +43,98 @@ mc -> n8n: sends hard_bounce event
 activate n8n
 
 n8n -> acc: patch /api/v0/contacts/contactId [email = null]
+deactivate n8n
+
+@enduml
+
+@startuml
+
+Title Accelo:JobAdder Integration [MVP]
+skinparam defaultFontName Raleway
+skinparam roundcorner 5
+'skinparam shadowing true
+autonumber
+skinparam sequence {
+    ArrowColor #53534A
+    ArrowFontColor #53534A
+    LifeLineBorderColor #53534A
+    LifeLineBackgroundColor #53534A
+
+    ParticipantBackgroundColor #53534A
+    ParticipantFontSize 14
+    ParticipantFontColor White
+}
+
+participant acc as "accelo"
+participant accAf as "accelo:affiliation"
+participant accCo as "accelo:company"
+participant accPr as "accelo:prospect"
+participant accRt as "accelo:rates"
+participant accTk as "accelo:tasks"
+participant accUs as "accelo:user"
+participant n8nwh as "n8n:accelo"
+participant n8n as "n8n"
+participant ja as "jobadder"
+participant jaCo as "jobadder:company"
+participant jaUs as "jobadder:hiringmanager"
+participant ns as "Notification Service"
+
+acc -> n8nwh: POST event(publishQuote)
+activate n8nwh
+n8nwh -> n8n: POST event(publishQuote)
+deactivate n8nwh
+activate n8n
+n8n -> n8n: process event(publishQuote(id))
+
+n8n -> accTk: GET tasks(id)
+activate accTk
+accTk --> n8n: response()
+deactivate accTk
+
+n8n -> accRt: GET rates(id)
+activate accRt
+accRt --> n8n: response()
+deactivate accRt
+
+n8n -> accPr: GET prospect(against_id)
+activate accPr
+accPr --> n8n: response()
+deactivate accPr
+
+n8n -> accAf: GET affiliation(affiliation_id)
+activate accAf
+accAf --> n8n: response()
+deactivate accAf
+
+n8n -> accPr: GET company()
+activate accPr
+accPr --> n8n: response()
+deactivate accPr
+
+/' n8n -> accUs: GET manager(manager_id)
+activate accUs
+accUs --> n8n: response()
+deactivate accUs '/
+
+n8n -> jaCo: GET company()
+activate jaCo
+jaCo --> n8n: response()
+deactivate jaCo
+
+n8n -> jaCo: POST company(id)
+
+/' n8n -> jaUs: GET hiringmanager()
+activate jaUs
+jaUs --> n8n: response()
+deactivate jaUs
+n8n -> jaUs: POST hiringmanager(id) '/
+
+n8n -> ja: POST job()
+activate ja
+ja --> n8n: response()
+deactivate ja
+
+n8n -> ns: notifyJAJobPost()
 deactivate n8n
 
 @enduml

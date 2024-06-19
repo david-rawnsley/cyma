@@ -2,19 +2,19 @@
 
 Title Cyma EDM Process
 skinparam defaultFontName Raleway
-skinparam roundcorner 10
+skinparam roundcorner 5
 'skinparam shadowing true
 autonumber
 skinparam sequence {
     ArrowColor #53534A
     ArrowFontColor #53534A
     LifeLineBorderColor #53534A
-    LifeLineBackgroundColor #53534A
+    LifeLineBackgroundColor #9E9C9A
 
-    ParticipantBackgroundColor #53534A
+    ParticipantBackgroundColor #9E9C9A
     ParticipantFontSize 14
     ParticipantFontColor White
-    ParticipantFontStyle bold
+    'ParticipantFontStyle bold
 }
 
 participant au as "Accelo User"
@@ -39,11 +39,11 @@ deactivate c
 
 mc -> mc: Classifies NDR
 deactivate mc
-
+opt
 mc -> n8n: sends hard_bounce event
 activate n8n
 
 n8n -> acc: patch /api/v0/contacts/contactId [email = null]
 deactivate n8n
-
+end
 @enduml
