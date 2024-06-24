@@ -1,5 +1,5 @@
 @startuml PPS Integration Landscape
-
+'skinparam monochrome true
 
 !theme C4_cyma from https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/themes/
 '!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
@@ -28,11 +28,9 @@ System_Boundary(sb_underwriting, "Underwriting"){
     System(sys_quirc, "hr|QUIRC", "Hr | QUIRC is an automated underwriting system specifically designed for the life insurance industry")
 }
 
-System_Boundary(sb_oos, "Out Of Scope"){
 System(sys_databricks, "DataBricks", "Databricks is a cloud-based platform that unifies data, analytics, and artificial intelligence (AI) for businesses.")
-}
 
-System_Boundary(sb_proposedmanual, "Proposed Manual"){
+System_Boundary(sb_proposedmanual, "Proposed Manual Process"){
 System(sys_sanction, "Sanctions Screening Tool", "Solution that holds the OFAC & UN lists.")
 }
 
@@ -42,12 +40,12 @@ System(sys_sapiens, "Sapiens", "Sapiens Insurance Platform is an AI-powered soft
 }
 
 Rel(p_advisor, sys_difftech, "Accesses underwriting services", "https")
-Rel(p_advisor, sys_konnect, "GET medical data", "https")
+Rel(p_advisor, sys_konnect, "Accesses medical data", "https")
 Rel(p_advisor, sys_sapiens, "Accesses advisor portal", "https")
 Rel(p_compliance, sys_sanction, "Accesses sanction service", "https")
 Rel(p_compliance, sys_sapiens, "Accesses Sapiens services", "https")
 Rel(p_member, sys_sapiens, "Accesses member portal", "https")
-Rel(p_operations, sys_sanction, "Upload and process New Business", "https")
+Rel(p_operations, sys_sanction, "Process New Business", "https")
 Rel(p_operations, sys_sapiens, "Accesses Sapiens service", "https")
 Rel(p_underwriter, sys_difftech, "Accesses underwriting service", "https")
 Rel(p_underwriter, sys_sapiens, "Accesses Sapiens service", "https")
