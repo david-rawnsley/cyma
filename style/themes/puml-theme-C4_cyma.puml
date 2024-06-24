@@ -4,6 +4,8 @@
   !$FONT_NAME = "Raleway"
 !endif
 
+!$STEREOTYPE_FONT_SIZE ?= 12
+!$TECHN_FONT_SIZE ?= 10
 
 !$ELEMENT_FONT_COLOR ?= "#FFFFFF"
 
