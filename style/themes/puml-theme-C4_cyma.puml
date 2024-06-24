@@ -44,11 +44,11 @@
 ' If skinparams and styles are defined with concrete values no variables are required 
 !$BOUNDARY_BG_COLOR ?= "transparent"
 !$BOUNDARY_COLOR ?= "#7C7C6F"
-!$BOUNDARY_BORDER_STYLE ?= "solid"
+!$BOUNDARY_BORDER_STYLE ?= "dashed"
 
 !$ENTERPRISE_BOUNDARY_COLOR ?= "#E4701E"
-!$ENTERPRISE_BOUNDARY_BG_COLOR ?= $BOUNDARY_BG_COLOR
-' !$ENTERPRISE_BOUNDARY_BORDER_STYLE ?= "dashed"
+!$ENTERPRISE_BOUNDARY_BG_COLOR ?= "#f2b88f"
+!$ENTERPRISE_BOUNDARY_BORDER_STYLE ?= "solid"
 
 !$ARROW_COLOR ?= "#53534A"
 !$ARROW_FONT_COLOR ?= $ARROW_COLOR
