@@ -2,9 +2,10 @@
 
 
 !theme C4_cyma from https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/themes/
+'!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
-!include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/sprites.puml
+'!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+'!include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/sprites.puml
 !include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/brand.puml
 
 'LAYOUT_LANDSCAPE()
@@ -27,10 +28,16 @@ System_Boundary(sb_underwriting, "Underwriting"){
     System(sys_quirc, "hr|QUIRC", "Hr | QUIRC is an automated underwriting system specifically designed for the life insurance industry")
 }
 
+System_Boundary(sb_oos, "Out Of Scope"){
 System(sys_databricks, "DataBricks", "Databricks is a cloud-based platform that unifies data, analytics, and artificial intelligence (AI) for businesses.")
+}
+
+System_Boundary(sb_proposedmanual, "Proposed Manual"){
+System(sys_sanction, "Sanctions Screening Tool", "Solution that holds the OFAC & UN lists.")
+}
+
 System(sys_dms, "Document Management Solution", "Stores and generates documents")
 System(sys_dynamics, "Business Central", "Microsoft Dynamics 365 Business Central is an all-in-one business management solution designed for small and medium-sized businesses (SMBs).")
-System(sys_sanction, "Sanctions Screening Tool", "Solution that holds the OFAC & UN lists.")
 System(sys_sapiens, "Sapiens", "Sapiens Insurance Platform is an AI-powered software solution designed for insurance companies.")
 }
 
