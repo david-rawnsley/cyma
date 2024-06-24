@@ -48,7 +48,7 @@
 !$ENTERPRISE_BOUNDARY_BG_COLOR ?= "#F0B481"
 !$ENTERPRISE_BOUNDARY_BORDER_STYLE ?= "solid"
 
-!$ARROW_COLOR ?= "#7C7C6F"
+!$ARROW_COLOR ?= "#53534A"
 
 ' replace transparent with concrete background that it can be used as font color too
 !if ($BOUNDARY_BG_COLOR == "transparent")
