@@ -2,11 +2,12 @@
 'skinparam monochrome true
 
 !theme C4_cyma from https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/themes/
+
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4.puml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
-'!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+'!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 '!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
-'!include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/sprites.puml
+!include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/sprites.puml
 !include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/brand.puml
 
 'LAYOUT_LANDSCAPE()
@@ -29,7 +30,7 @@ System_Boundary(sb_underwriting, "Underwriting"){
     System(sys_quirc, "hr|QUIRC", "Hr | QUIRC is an automated underwriting system specifically designed for the life insurance industry")
 }
 
-System(sys_databricks, "DataBricks", "Databricks is a cloud-based platform that unifies data, analytics, and artificial intelligence (AI) for businesses.")
+System(sys_dataplatform, "Data Platform [TBC]", "Data Platform is a cloud-based platform that unifies data, analytics, and artificial intelligence (AI) for businesses.")
 
 System_Boundary(sb_proposedmanual, "Proposed Manual Process"){
 System(sys_sanction, "Sanctions Screening Tool", "Solution that holds the OFAC & UN lists.")
@@ -53,12 +54,13 @@ Rel(p_underwriter, sys_sapiens, "Accesses Sapiens service", "https")
 Rel(sys_difftech, sys_quirc, "GET|PUT underwriting data", "https")
 Rel(sys_quirc, sys_dms, "POST medical consent", "https")
 Rel(sys_sapiens, sys_asb, "POST banking payments", "sftp")
-Rel(sys_sapiens, sys_databricks, "ETL actuarial data", "???")
+Rel(sys_sapiens, sys_dataplatform, "ETL Policy Administration data", "???")
 Rel(sys_sapiens, sys_dms, "POST|GET document", "https")
-Rel(sys_sapiens, sys_dynamics, "POST GL data", "https")
-Rel(sys_sapiens, sys_ifrs17, "POST IFRS data", "sftp")
+Rel(sys_dataplatform, sys_dynamics, "POST Sapiens GL data [TBC]", "https")
+Rel(sys_dataplatform, sys_ifrs17, "POST IFRS data", "sftp")
 Rel(sys_sapiens, sys_paymntgty, "POST scheduled payments to payment gateway", "https")
 Rel(sys_sapiens, sys_quirc, "POST quote data", "https")
+Rel(sys_dynamics, sys_dataplatform, "ETL Financial data", "???")
 
 SHOW_FLOATING_LEGEND()
 
