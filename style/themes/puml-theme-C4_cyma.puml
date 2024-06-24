@@ -67,6 +67,7 @@
 hide footbox
 
 skinparam defaultFontName Raleway
+skinparam linetype polyline
 
 ' "C4 styled" default is that lifeline is arrow color
 skinparam SequenceLifelineBorderColor $ARROW_COLOR
