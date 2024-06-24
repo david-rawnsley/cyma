@@ -9,7 +9,7 @@ UpdateElementStyle("person", $shape=RoundedBoxShape(), $shadowing="true", $legen
 UpdateElementStyle("external_person", $shape=RoundedBoxShape(), $shadowing="true", $legendText="external person", $sprite="user")
 UpdateElementStyle("container", $shape=RoundedBoxShape(), $shadowing="true", $legendText="container", $sprite="buffer")
 
-AddSystemTag(api, $shape=EightSidedShape(), $legendText="api", $sprite="code*.5")
+AddSystemTag(api, $shape=EightSidedShape(), $legendText="api", $sprite="code")
 AddSystemTag(sunset,$bgColor="#F38554", $legendText="sunset system")
 AddSystemTag(tbc,$bgColor=DarkRed, $legendText="tbc system")
 AddSystemTag(new,$bgColor=DarkGreen, $legendText="new system", $shadowing="true")
