@@ -45,10 +45,12 @@
 !$BOUNDARY_BORDER_STYLE ?= "dashed"
 
 !$ENTERPRISE_BOUNDARY_COLOR ?= "#E4701E"
-!$ENTERPRISE_BOUNDARY_BG_COLOR ?= "#F0B481"
+!$ENTERPRISE_BOUNDARY_BG_COLOR ?= $BOUNDARY_BG_COLOR
 !$ENTERPRISE_BOUNDARY_BORDER_STYLE ?= "bold"
 
 !$ARROW_COLOR ?= "#53534A"
+!$ARROW_FONT_COLOR ?= $ARROW_COLOR
+!$ARROW_FONT_SIZE ?= 12
 
 ' replace transparent with concrete background that it can be used as font color too
 !if ($BOUNDARY_BG_COLOR == "transparent")
