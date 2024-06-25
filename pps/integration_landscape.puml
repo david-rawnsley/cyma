@@ -1,5 +1,6 @@
 @startuml PPS Integration Landscape
 'skinparam monochrome true
+skinparam linetype polyline
 
 !theme C4_cyma from https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/themes/
 
@@ -10,7 +11,7 @@
 !include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/sprites.puml
 !include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/brand.puml
 
-'LAYOUT_LANDSCAPE()
+LAYOUT_LANDSCAPE()
 
 Person_Ext(p_member, "Member", "A professional who owns a stake in the company and enjoys unique benefits beyond just insurance", $sprite="user")
 Person_Ext(p_advisor, "Advisor", "A qualified financial professional specializing in providing insurance advice to professionals eligible for PPS Mutual membership.", $sprite="user")
@@ -32,9 +33,9 @@ System_Boundary(sb_underwriting, "Underwriting"){
 
 System(sys_dataplatform, "Data Platform [TBC]", "Data Platform is a cloud-based platform that unifies data, analytics, and artificial intelligence (AI) for businesses.")
 
-System_Boundary(sb_proposedmanual, "Proposed Manual Process"){
+'System_Boundary(sb_proposedmanual, "Proposed Manual Process"){
 System(sys_sanction, "Sanctions Screening Tool", "Solution that holds the OFAC & UN lists.")
-}
+'}
 
 System(sys_dms, "Document Management Solution", "Stores and generates documents")
 System(sys_dynamics, "Business Central", "Microsoft Dynamics 365 Business Central is an all-in-one business management solution designed for small and medium-sized businesses (SMBs).")
