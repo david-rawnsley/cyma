@@ -10,10 +10,10 @@ UpdateElementStyle("external_person", $shape=RoundedBoxShape(), $shadowing="true
 UpdateElementStyle("container", $shape=RoundedBoxShape(), $shadowing="true", $legendText="container", $sprite="buffer")
 UpdateElementStyle("enterprise_boundary", $borderStyle="solid", $borderThickness=2, $shadowing="false", $shape = RoundedBoxShape())
 
-AddSystemTag(api, $shape=EightSidedShape(), $legendText="api", $sprite="code")
-AddSystemTag(sunset,$bgColor="#F38554", $legendText="sunset system")
-AddSystemTag(tbc,$bgColor=DarkRed, $legendText="tbc system")
-AddSystemTag(new,$bgColor=DarkGreen, $legendText="new system", $shadowing="true")
-AddSystemTag(ret,$bgColor=Black, $legendText="contained system", $shadowing="true")
+AddSystemTag(api, $shape=EightSidedShape(), $bgColor="#F38554", $legendText="service", $sprite="code")
+AddSystemTag(sunset, $bgColor="#F38554", $legendText="sunset system")
+AddSystemTag(tbc, $bgColor=DarkRed, $legendText="tbc system")
+AddSystemTag(new, $bgColor=DarkGreen, $legendText="new system", $shadowing="true")
+AddSystemTag(ret, $bgColor=Black, $legendText="contained system", $shadowing="true")
 
 @enduml
