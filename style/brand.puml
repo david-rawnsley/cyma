@@ -1,7 +1,7 @@
 @startuml
 
 'Style
-skinparam defaultFontName Raleway
+skinparam arrow_thickness 2
 
 UpdateElementStyle("system", $shape=RoundedBoxShape(), $shadowing="true", $legendText="system", $sprite="blur_on")
 UpdateElementStyle("external_system", $shape=RoundedBoxShape(), $shadowing="true", $legendText="external system", $sprite="blur_on")

@@ -1,11 +1,11 @@
 @startuml PPS Integration Landscape
 'skinparam monochrome true
-skinparam linetype polyline
+'skinparam linetype polyline
+skinparam arrow_thickness 2
 
 !theme C4_cyma from https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/themes/
 
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4.puml
-'!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 '!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
 !include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/sprites.puml
@@ -13,6 +13,7 @@ skinparam linetype polyline
 
 LAYOUT_LANDSCAPE()
 
+Person_Ext(p_lead, "Lead", "Professional seeking PPS Mutual services")
 Person_Ext(p_member, "Member", "A professional who owns a stake in the company and enjoys unique benefits beyond just insurance", $sprite="user")
 Person_Ext(p_advisor, "Advisor", "A qualified financial professional specializing in providing insurance advice to professionals eligible for PPS Mutual membership.", $sprite="user")
 
@@ -21,7 +22,7 @@ System_Ext(sys_ifrs17, "PWC 17Slved", "Creation of IFRS17 compliant accounts.")
 System_Ext(sys_konnect, "KonnectNET", "The trusted connection between insurance and healthcare.")
 System_Ext(sys_paymntgty, "WorldLine", "Provide secure and efficient payment processing solutions for insurance companies, streamlining the way customers pay their premiums.")
 
-Enterprise_Boundary(e0, "PPS Mutual"){
+Enterprise_Boundary(e0, "PPS Mutual", $tags="repository"){
 Person(p_compliance, "Compliance Officer", "Ensures PPS Mutual adheres to all relevant regulations and industry standards.", $sprite="user")
 Person(p_operations, "Operations", "Provide essential support to various departments within PPS Mutual, ensuring smooth day-to-day functioning.", $sprite="users")
 Person(p_underwriter, "Underwriter", "Assesses the risk of approving applications for insurance.", $sprite="user")
@@ -40,8 +41,10 @@ System(sys_sanction, "Sanctions Screening Tool", "Solution that holds the OFAC &
 System(sys_dms, "Document Management Solution", "Stores and generates documents")
 System(sys_dynamics, "Business Central", "Microsoft Dynamics 365 Business Central is an all-in-one business management solution designed for small and medium-sized businesses (SMBs).")
 System(sys_sapiens, "Sapiens", "Sapiens Insurance Platform is an AI-powered software solution designed for insurance companies.")
+System(sys_telephony, "Operational Telephony", "Spark/Voyager/3CX")
 }
 
+Rel(p_advisor, p_lead, "Engages with lead")
 Rel(p_advisor, sys_difftech, "Accesses underwriting services", "https")
 Rel(p_advisor, sys_konnect, "Accesses medical data", "https")
 Rel(p_advisor, sys_sapiens, "Accesses advisor portal", "https")
@@ -50,18 +53,19 @@ Rel(p_compliance, sys_sapiens, "Accesses Sapiens services", "https")
 Rel(p_member, sys_sapiens, "Accesses member portal", "https")
 Rel(p_operations, sys_sanction, "Process New Business", "https")
 Rel(p_operations, sys_sapiens, "Accesses Sapiens service", "https")
+Rel(p_operations, sys_telephony, "Accesses to manage calls", "pstn")
 Rel(p_underwriter, sys_difftech, "Accesses underwriting service", "https")
 Rel(p_underwriter, sys_sapiens, "Accesses Sapiens service", "https")
+Rel(sys_dataplatform, sys_dynamics, "POST Sapiens GL data [TBC]", "https")
+Rel(sys_dataplatform, sys_ifrs17, "POST IFRS data", "sftp")
 Rel(sys_difftech, sys_quirc, "GET|PUT underwriting data", "https")
+Rel(sys_dynamics, sys_dataplatform, "ETL Financial data", "???")
 Rel(sys_quirc, sys_dms, "POST medical consent", "https")
 Rel(sys_sapiens, sys_asb, "POST banking payments", "sftp")
 Rel(sys_sapiens, sys_dataplatform, "ETL Policy Administration data", "???")
 Rel(sys_sapiens, sys_dms, "POST|GET document", "https")
-Rel(sys_dataplatform, sys_dynamics, "POST Sapiens GL data [TBC]", "https")
-Rel(sys_dataplatform, sys_ifrs17, "POST IFRS data", "sftp")
 Rel(sys_sapiens, sys_paymntgty, "POST scheduled payments to payment gateway", "https")
 Rel(sys_sapiens, sys_quirc, "POST quote data", "https")
-Rel(sys_dynamics, sys_dataplatform, "ETL Financial data", "???")
 
 SHOW_FLOATING_LEGEND()
 
