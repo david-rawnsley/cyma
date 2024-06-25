@@ -8,7 +8,7 @@ UpdateElementStyle("external_system", $shape=RoundedBoxShape(), $shadowing="true
 UpdateElementStyle("person", $shape=RoundedBoxShape(), $shadowing="true", $legendText="person", $sprite="user")
 UpdateElementStyle("external_person", $shape=RoundedBoxShape(), $shadowing="true", $legendText="external person", $sprite="user")
 UpdateElementStyle("container", $shape=RoundedBoxShape(), $shadowing="true", $legendText="container", $sprite="buffer")
-UpdateElementStyle("enterprise_boundary", $borderStyle="solid", $shadowing="false", $shape = RoundedBoxShape())
+UpdateElementStyle("enterprise_boundary", $borderStyle="solid", $borderThickness=2, $shadowing="false", $shape = RoundedBoxShape())
 
 AddSystemTag(api, $shape=EightSidedShape(), $legendText="api", $sprite="code")
 AddSystemTag(sunset,$bgColor="#F38554", $legendText="sunset system")
