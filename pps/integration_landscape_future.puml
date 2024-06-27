@@ -18,21 +18,22 @@ Person_Ext(p_advisor, "Advisor", "A qualified financial professional specializin
 
 System_Ext(sys_asb, "ASB", "ASB Banking Services")
 'System_Ext(sys_ifrs17, "PWC 17Slved", "Creation of IFRS17 compliant accounts.")
-System_Ext(sys_konnect, "KonnectNET", "The trusted connection between insurance and healthcare.")
+'System_Ext(sys_konnect, "KonnectNET", "The trusted connection between insurance and healthcare.")
 System_Ext(sys_paymntgty, "WorldLine", "Provide secure and efficient payment processing solutions for insurance companies, streamlining the way customers pay their premiums.")
 
 Enterprise_Boundary(e0, "PPS Mutual"){
-Person(p_compliance, "Compliance Officer", "Ensures PPS Mutual adheres to all relevant regulations and industry standards.", $sprite="user")
+/' Person(p_compliance, "Compliance Officer", "Ensures PPS Mutual adheres to all relevant regulations and industry standards.", $sprite="user")
 Person(p_operations, "Operations", "Provide essential support to various departments within PPS Mutual, ensuring smooth day-to-day functioning.", $sprite="users")
 Person(p_underwriter, "Underwriter", "Assesses the risk of approving applications for insurance.", $sprite="user")
-
+ '/
 System_Boundary(sb_processapi, "Process API"){
 System(sys_documentsvc, "Document Service", "Provides document services", $tags="api")
-System(sys_mediasvc, "Media Service", "Provides media services to support capturing and storing media.", $tags="api")
+System(sys_mediasvc, "Media Service", "Provides media services to support storing and retrieval media.", $tags="api")
 System(sys_notifysvc, "Notification Service", "Provides Notification Services", $tags="api")
 System(sys_policysvc, "Policy Service", "Provides Policy Services", $tags="api")
 System(sys_pymntsvc, "Payment Service", "Provides abstraction for payment services", $tags="api")
 System(sys_quotesvc, "Quote Service", "Provides Quote Services", $tags="api")
+System(sys_sanctionsvc, "Sanctions Service", "Solution that holds the OFAC & UN lists.", $tags="api")
 }
 
 System_Boundary(sb_underwriting, "Underwriting"){
@@ -51,7 +52,7 @@ System(sys_telephony, "Operational Telephony", "Spark/Voyager/3CX")
 }
 
 Rel(p_advisor, p_lead, "Engages with lead")
-Rel(p_advisor, sys_difftech, "Accesses underwriting services", "https")
+/' Rel(p_advisor, sys_difftech, "Accesses underwriting services", "https")
 Rel(p_advisor, sys_konnect, "Accesses medical data", "https")
 Rel(p_advisor, sys_sapiens, "Accesses advisor portal", "https")
 Rel(p_compliance, sys_amlhub, "Accesses AML service", "https")
@@ -62,13 +63,13 @@ Rel(p_operations, sys_sanction, "Process New Business", "https")
 Rel(p_operations, sys_sapiens, "Accesses Sapiens service", "https")
 Rel(p_operations, sys_telephony, "Accesses to manage calls", "pstn")
 Rel(p_underwriter, sys_difftech, "Accesses underwriting service", "https")
-Rel(p_underwriter, sys_sapiens, "Accesses Sapiens service", "https")
+Rel(p_underwriter, sys_sapiens, "Accesses Sapiens service", "https") '/
+Rel(sys_dataplatform, sys_sapiens, "ETL Policy Administration data", "???")
 Rel(sys_difftech, sys_quirc, "GET|PUT underwriting data", "https")
 Rel(sys_documentsvc, sys_dms, "POST|GET document", "https")
 Rel(sys_dynamics, sys_dataplatform, "ETL Financial data", "???")
 Rel(sys_glextract, sys_dynamics, "POST GL data", "https")
 Rel(sys_policysvc, sys_documentsvc, "POST|GET policy document", "https")
-Rel(sys_policysvc, sys_pymntsvc, "POST payment event", "https")
 Rel(sys_policysvc, sys_notifysvc, "POST notification", "https")
 Rel(sys_pymntsvc, sys_asb, "POST banking payments", "sftp")
 Rel(sys_pymntsvc, sys_paymntgty, "POST scheduled payments to payment gateway", "https")
@@ -76,10 +77,11 @@ Rel(sys_quirc, sys_documentsvc, "POST underwriting documentation", "https")
 Rel(sys_quotesvc, sys_documentsvc, "POST|GET quote document", "https")
 Rel(sys_quotesvc, sys_notifysvc, "POST notification", "https")
 Rel(sys_quotesvc, sys_quirc, "POST quote data", "https")
-Rel(sys_quotesvc, sys_sanction, "GET sanction response", "https")
-Rel(sys_sapiens, sys_dataplatform, "ETL Policy Administration data", "???")
+Rel(sys_sanctionsvc, sys_sanction, "POST sanction request", "https")
 Rel(sys_sapiens, sys_policysvc, "POST business event", "https")
+Rel(sys_sapiens, sys_pymntsvc, "POST payment event", "https")
 Rel(sys_sapiens, sys_quotesvc, "POST business event", "https")
+Rel(sys_sapiens, sys_sanctionsvc, "GET sanction response", "https")
 Rel(sys_telephony, sys_mediasvc, "POST media", "https")
 Rel_L(sys_glextract, sys_sapiens, "GET GL data", "https")
 Rel_L(sys_notifysvc, p_lead, "SEND notification", "smtp")

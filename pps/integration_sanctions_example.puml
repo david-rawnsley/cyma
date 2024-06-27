@@ -1,0 +1,34 @@
+@startuml PPS Integration Landscape
+'skinparam monochrome true
+skinparam linetype polyline
+
+Title "PPS Sanctions Service - Example"
+
+!theme C4_cyma from https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/themes/
+
+'!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+'!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+!include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/sprites.puml
+!include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/brand.puml
+
+LAYOUT_LANDSCAPE()
+
+Enterprise_Boundary(e0, "PPS Mutual", $tags="repository"){
+Person(p_compliance, "Compliance Officer", "Ensures PPS Mutual adheres to all relevant regulations and industry standards.", $sprite="user")
+Person(p_operations, "Operations", "Provide essential support to various departments within PPS Mutual, ensuring smooth day-to-day functioning.", $sprite="users")
+
+System(sys_sanctionsvc, "Sanctions Service", "Solution that holds the OFAC & UN lists.")
+System(sys_sapiens, "Sapiens", "Sapiens Insurance Platform is an AI-powered software solution designed for insurance companies.")
+}
+
+System_Ext(sys_opensancsvc, "Open Sanctions API", "OpenSanctions helps investigators find leads, allows companies to manage risk and enables technologists to build data-driven products.")
+
+Rel(p_compliance, sys_sapiens, "Accesses Sapiens services", "https")
+Rel(p_operations, sys_sapiens, "Accesses Sapiens service", "https")
+Rel(sys_sanctionsvc, sys_opensancsvc, "POST data", "https")
+Rel(sys_sapiens, sys_sanctionsvc, "POST event", "https")
+
+SHOW_FLOATING_LEGEND()
+
+@enduml
