@@ -12,7 +12,7 @@ skinparam linetype polyline
 !include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/sprites.puml
 !include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/brand.puml
 
-LAYOUT_LANDSCAPE()
+'LAYOUT_LANDSCAPE()
 
 Person_Ext(P_client, "Client", "Professional seeking PPS Mutual services")
 Person_Ext(p_member, "Member", "A professional who owns a stake in the company and enjoys unique benefits beyond just insurance", $sprite="user")
@@ -45,7 +45,7 @@ System(sys_telephony, "Operational Telephony", "Spark/Voyager/3CX")
 Rel(p_advisor, P_client, "Engages with lead")
 Rel(P_client, sys_difftech, "Accesses underwriting services", "https")
 Rel(p_advisor, sys_difftech, "Accesses underwriting service", "https")
-Rel_L(p_advisor, sys_konnect, "Accesses medical practice data and e-Consent", "https")
+Rel_L(p_advisor, sys_konnect, "Accesses medical practice data", "https")
 Rel(p_advisor, sys_sapiens, "Accesses advisor portal", "https")
 Rel(p_compliance, sys_sanction, "Accesses sanction service", "https")
 Rel(p_compliance, sys_sapiens, "Accesses policy administration service", "https")
