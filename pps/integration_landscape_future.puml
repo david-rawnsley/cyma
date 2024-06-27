@@ -1,6 +1,6 @@
 @startuml PPS Integration Landscape
 'skinparam monochrome true
-skinparam linetype polyline
+'skinparam linetype polyline
 
 !theme C4_cyma from https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/themes/
 
@@ -10,9 +10,11 @@ skinparam linetype polyline
 !include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/sprites.puml
 !include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/brand.puml
 
-LAYOUT_LANDSCAPE()
+'LAYOUT_LANDSCAPE()
+LAYOUT_LEFT_RIGHT()
+LAYOUT_AS_SKETCH()
 
-Person_Ext(p_lead, "Lead", "Professional seeking PPS Mutual services")
+Person_Ext(p_lead, "Client", "Professional seeking PPS Mutual services")
 Person_Ext(p_member, "Member", "A professional who owns a stake in the company and enjoys unique benefits beyond just insurance", $sprite="user")
 Person_Ext(p_advisor, "Advisor", "A qualified financial professional specializing in providing insurance advice to professionals eligible for PPS Mutual membership.", $sprite="user")
 
@@ -48,7 +50,7 @@ System(sys_dynamics, "Business Central", "Microsoft Dynamics 365 Business Centra
 System(sys_glextract, "GL Service", "Provides Daily GL extracts from Sapiens et al.,", $tags="api")
 System(sys_sanction, "Sanctions Screening Tool", "Solution that holds the OFAC & UN lists.")
 System(sys_sapiens, "Sapiens", "Sapiens Insurance Platform is an AI-powered software solution designed for insurance companies.")
-System(sys_telephony, "Operational Telephony", "Spark/Voyager/3CX")
+System(sys_telephony, "Operational Telephony", "A phone system for various purposes such as supporting advisors with policy inquiries and servicing member needs.")
 }
 
 Rel(p_advisor, p_lead, "Engages with lead")

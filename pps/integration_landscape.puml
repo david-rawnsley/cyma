@@ -1,6 +1,6 @@
 @startuml PPS Integration Landscape
 'skinparam monochrome true
-skinparam linetype polyline
+'skinparam linetype polyline
 
 'Title "PPS Mutual Application Landscape"
 
@@ -13,6 +13,8 @@ skinparam linetype polyline
 !include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/brand.puml
 
 'LAYOUT_LANDSCAPE()
+LAYOUT_LEFT_RIGHT()
+'LAYOUT_AS_SKETCH()
 
 Person_Ext(P_client, "Client", "Professional seeking PPS Mutual services")
 Person_Ext(p_member, "Member", "A professional who owns a stake in the company and enjoys unique benefits beyond just insurance", $sprite="user")
@@ -39,7 +41,7 @@ System(sys_sanction, "Sanctions Screening Tool", "Solution that holds the OFAC &
 System(sys_dms, "Document Management Solution", "Stores and generates documents")
 System(sys_dynamics, "Business Central", "Microsoft Dynamics 365 Business Central is an all-in-one business management solution designed for small and medium-sized businesses (SMBs).")
 System(sys_sapiens, "Sapiens", "Sapiens Insurance Platform is an AI-powered software solution designed for insurance companies.")
-System(sys_telephony, "Operational Telephony", "Spark/Voyager/3CX")
+System(sys_telephony, "Operational Telephony", "A phone system for various purposes such as supporting advisors with policy inquiries and servicing member needs.")
 }
 
 Rel(p_advisor, P_client, "Engages with lead")
