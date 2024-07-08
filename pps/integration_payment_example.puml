@@ -1,0 +1,40 @@
+@startuml PPS Integration Landscape
+'skinparam monochrome true
+'skinparam linetype polyline
+
+'Title "PPS Mutual Application Landscape"
+
+!theme C4_cyma from https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/themes/
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/sprites.puml
+!include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/brand.puml
+
+LAYOUT_LANDSCAPE()
+LAYOUT_LEFT_RIGHT()
+'LAYOUT_AS_SKETCH()
+
+Person_Ext(p_member, "Member", "A professional who owns a stake in the company and enjoys unique benefits beyond just insurance", $sprite="user")
+Person_Ext(p_advisor, "Advisor", "A qualified financial professional specializing in providing insurance advice to professionals eligible for PPS Mutual membership.", $sprite="user")
+
+System_Ext(sys_asb, "ASB FastNet", "ASB Banking Services")
+System_Ext(sys_paymntgty, "WorldLine", "Provide secure and efficient payment processing solutions for insurance companies, streamlining the way customers pay their premiums.")
+
+Enterprise_Boundary(e0, "PPS Mutual", $tags="repository"){
+System(sys_sapiens, "Sapiens", "Sapiens Insurance Platform is an AI-powered software solution designed for insurance companies.")
+
+System_Boundary(sb0, "Integration Layer"){
+    System(sys_paymentsvc, "Payments Service", "Solution that enables the ability to transact with payment services.", $tags="api")
+}
+
+}
+
+Rel(p_advisor, sys_sapiens, "Accesses advisor portal", "https")
+Rel(p_member, sys_sapiens, "Accesses member portal", "https")
+Rel(sys_paymentsvc, sys_asb, "POST direct debit request", "sftp")
+Rel(sys_paymentsvc, sys_paymntgty, "POST tokenised payments request", "https")
+Rel(sys_sapiens, sys_paymentsvc, "POST payment request", "http")
+
+SHOW_FLOATING_LEGEND()
+
+@enduml

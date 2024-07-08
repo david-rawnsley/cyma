@@ -12,61 +12,66 @@
 !include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/sprites.puml
 !include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/brand.puml
 
-'LAYOUT_LANDSCAPE()
+LAYOUT_LANDSCAPE()
 LAYOUT_LEFT_RIGHT()
 'LAYOUT_AS_SKETCH()
 
-Person_Ext(P_client, "Client", "Professional seeking PPS Mutual services")
+Person_Ext(p_client, "Client", "Professional seeking PPS Mutual services")
 Person_Ext(p_member, "Member", "A professional who owns a stake in the company and enjoys unique benefits beyond just insurance", $sprite="user")
 Person_Ext(p_advisor, "Advisor", "A qualified financial professional specializing in providing insurance advice to professionals eligible for PPS Mutual membership.", $sprite="user")
 
 System_Ext(sys_asb, "ASB FastNet", "ASB Banking Services")
-System_Ext(sys_ifrs17, "PWC 17Slved", "Creation of IFRS17 compliant accounts.")
+'System_Ext(sys_ifrs17, "PWC 17Slved", "Creation of IFRS17 compliant accounts.")
 System_Ext(sys_konnect, "KonnectNET", "Enables access to medical provider details for insurance products.")
 System_Ext(sys_paymntgty, "WorldLine", "Provide secure and efficient payment processing solutions for insurance companies, streamlining the way customers pay their premiums.")
 
-Enterprise_Boundary(e0, "PPS Mutual", $tags="repository"){
-Person(p_compliance, "Compliance Officer", "Ensures PPS Mutual adheres to all relevant regulations and industry standards.", $sprite="user")
-Person(p_operations, "Operations", "Provide essential support to various departments within PPS Mutual, ensuring smooth day-to-day functioning.", $sprite="users")
+Enterprise_Boundary(e0, "PPS Mutual"){
+'Person(p_compliance, "Compliance Officer", "Ensures PPS Mutual adheres to all relevant regulations and industry standards.", $sprite="user")
+Person(p_operations, "Operations Team", "Provide essential support to various departments within PPS Mutual, ensuring smooth day-to-day functioning.", $sprite="users")
 Person(p_underwriter, "Underwriter", "Assesses the risk of approving applications for insurance.", $sprite="user")
 
-System_Boundary(sb_underwriting, "Underwriting"){
+System(sys_underwriting, "Underwriting Solution", "Integrated digital sales process including automated underwriting (QUIRC Core), dynamic pricing and digital policy initiation.")
+
+/' System_Boundary(sb_underwriting, "Underwriting Solution"){
     System(sys_difftech, "DifferentTechnology", "Integrated digital sales process including automated underwriting (QUIRC Core), dynamic pricing and digital policy initiation.")
     System(sys_quirc, "hr|QUIRC Core", "Hr | QUIRC is an underwriting system specifically designed for the life insurance industry.")
-}
+} '/
 
-System(sys_dataplatform, "Data Platform [TBC]", "Data Platform is a cloud-based platform that unifies data, analytics, and artificial intelligence (AI) for businesses.")
+'System(sys_dataplatform, "Data Platform [TBC]", "Data Platform is a cloud-based platform that unifies data, analytics, and artificial intelligence (AI) for businesses.")
 System(sys_sanction, "Sanctions Screening Tool", "Solution that holds the OFAC & UN lists.")
 
-System(sys_dms, "Document Management Solution", "Stores and generates documents")
+System(sys_dms, "Document Management Solution", "Stores and generates documents", $sprite="cloud_sharepoint_online")
 System(sys_dynamics, "Business Central", "Microsoft Dynamics 365 Business Central is an all-in-one business management solution designed for small and medium-sized businesses (SMBs).")
 System(sys_sapiens, "Sapiens", "Sapiens Insurance Platform is an AI-powered software solution designed for insurance companies.")
 System(sys_telephony, "Operational Telephony", "A phone system for various purposes such as supporting advisors with policy inquiries and servicing member needs.")
 }
 
-Rel(p_advisor, P_client, "Engages with lead")
-Rel(P_client, sys_difftech, "Accesses underwriting services", "https")
-Rel(p_advisor, sys_difftech, "Accesses underwriting service", "https")
-Rel_L(p_advisor, sys_konnect, "Accesses medical practice data", "https")
+'Rel(p_advisor, p_client, "Engages with client")
+Rel(p_advisor, sys_underwriting, "Accesses underwriting solution", "https")
 Rel(p_advisor, sys_sapiens, "Accesses advisor portal", "https")
-Rel(p_compliance, sys_sanction, "Accesses sanction service", "https")
-Rel(p_compliance, sys_sapiens, "Accesses policy administration service", "https")
+Rel(p_client, sys_underwriting, "Accesses underwriting solution", "https")
+'Rel(p_compliance, p_advisor, "Feedback provided when sanctioned actor found", "https")
+'Rel(p_compliance, sys_sanction, "Accesses sanction service", "https")
+'Rel(p_compliance, sys_sapiens, "Accesses policy administration service", "https")
 Rel(p_member, sys_sapiens, "Accesses member portal", "https")
 Rel(p_operations, sys_sanction, "Identify sanctioned member", "https")
 Rel(p_operations, sys_sapiens, "Accesses policy adminstration service", "https")
 Rel(p_operations, sys_telephony, "Accesses to manage calls", "pstn")
-Rel(p_underwriter, sys_difftech, "Accesses underwriting service", "https")
+Rel(p_underwriter, sys_underwriting, "Accesses underwriting service", "https")
 Rel(p_underwriter, sys_sapiens, "Accesses policy administration service", "https")
-Rel(sys_dataplatform, sys_ifrs17, "ETL IFRS data", "???")
-Rel(sys_difftech, sys_quirc, "GET|PUT underwriting data", "https")
-Rel_L(sys_dataplatform, sys_dynamics, "ETL Financial data", "???")
-Rel(sys_quirc, sys_dms, "POST medical consent", "https")
-Rel(sys_sapiens, sys_asb, "POST direct debit request", "sftp")
+'Rel_L(sys_dataplatform, sys_dynamics, "ETL Financial data", "???")
+'Rel_L(sys_dataplatform, sys_ifrs17, "ETL IFRS data", "???")
+'Rel_L(sys_dataplatform, sys_sapiens, "ETL Policy Administration data", "???")
+'Rel(sys_difftech, sys_quirc, "GET|PUT underwriting data", "https")
+Rel(sys_underwriting, sys_dms, "POST medical consent", "https")
+Rel(sys_underwriting, sys_sapiens, "POST terms of offer", "https")
+'Rel(sys_sapiens, p_client, "Notification", "smtp")
+'Rel(sys_sapiens, p_member, "Notification", "smtp")
 Rel(sys_sapiens, sys_dms, "POST|GET document", "https")
 Rel(sys_sapiens, sys_dynamics, "POST Sapiens GL data [TBC]", "https")
+Rel(sys_sapiens, sys_konnect, "Accesses medical practice data", "https")
+Rel(sys_sapiens, sys_asb, "POST direct debit request", "sftp")
 Rel(sys_sapiens, sys_paymntgty, "POST tokenised payments request", "https")
-Rel(sys_sapiens, sys_quirc, "??POST quote data??", "https")
-Rel_L(sys_dataplatform, sys_sapiens, "ETL Policy Administration data", "???")
 
 SHOW_FLOATING_LEGEND()
 

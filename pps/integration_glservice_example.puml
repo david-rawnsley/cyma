@@ -1,0 +1,37 @@
+@startuml PPS Integration Landscape
+'skinparam monochrome true
+'skinparam linetype polyline
+
+'Title "PPS Mutual Application Landscape"
+
+!theme C4_cyma from https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/themes/
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+'!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+'!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+!include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/sprites.puml
+!include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/brand.puml
+
+LAYOUT_LANDSCAPE()
+LAYOUT_LEFT_RIGHT()
+'LAYOUT_AS_SKETCH()
+
+Enterprise_Boundary(e0, "PPS Mutual", $tags="repository"){
+Person(p_finance, "Finance Manager", "Manages financial transactions")
+
+System(sys_dynamics, "Business Central", "Microsoft Dynamics 365 Business Central is an all-in-one business management solution designed for small and medium-sized businesses (SMBs).")
+System(sys_sapiens, "Sapiens", "Sapiens Insurance Platform is an AI-powered software solution designed for insurance companies.")
+
+System_Boundary(sb0, "Integration Layer"){
+    System(sys_gledgersvc, "GL Service", "Provides a scheduled service to extract transform and transmit data to the finance solution.", $tags="api")
+}
+
+}
+
+Rel(p_finance, sys_dynamics, "Manages finance transactions")
+Rel(sys_gledgersvc, sys_dynamics, "POST Sapiens GL data [TBC]", "https")
+Rel_L(sys_gledgersvc, sys_sapiens, "GET Sapiens GL data [TBC]", "https")
+
+SHOW_FLOATING_LEGEND()
+
+@enduml

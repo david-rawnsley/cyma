@@ -1,0 +1,51 @@
+@startuml PPS Integration Landscape
+'skinparam monochrome true
+'skinparam linetype polyline
+
+'Title "PPS Mutual Application Landscape"
+
+!theme C4_cyma from https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/themes/
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/sprites.puml
+!include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/brand.puml
+
+LAYOUT_LANDSCAPE()
+LAYOUT_LEFT_RIGHT()
+'LAYOUT_AS_SKETCH()
+
+Person_Ext(p_advisor, "Advisor", "A qualified financial professional specializing in providing insurance advice to professionals eligible for PPS Mutual membership.", $sprite="user")
+Person_Ext(p_member, "Member", "A professional who owns a stake in the company and enjoys unique benefits beyond just insurance", $sprite="user")
+
+System_Ext(sys_konnect, "KonnectNET", "Enables access to medical provider details for insurance products.")
+System_Ext(sys_surely, "Surely.nz", "Surely.nz is a secure online service in New Zealand that helps share health information between patients, doctors, hospitals, and insurance companies.")
+
+Enterprise_Boundary(e0, "PPS Mutual"){
+Person(p_underwriter, "Underwriter", "Assesses the risk of approving applications for insurance.", $sprite="user")
+System_Boundary(sb_underwriting, "Underwriting Solution"){
+    System(sys_difftech, "DifferentTechnology", "Integrated digital sales process including automated underwriting (QUIRC Core), dynamic pricing and digital policy initiation.")
+    System(sys_quirc, "hr|QUIRC Core", "Hr | QUIRC is an underwriting system specifically designed for the life insurance industry.")
+}
+System(sys_dms, "Document Management Solution", "Stores and generates documents", $sprite="cloud_sharepoint_online")
+System(sys_sapiens, "Sapiens", "Sapiens Insurance Platform is an AI-powered software solution designed for insurance companies.")
+
+System_Boundary(sb0, "Integration Layer"){
+    System(sys_underwritingsvc, "Underwriting Service", "Solution that enables the ability to transact with underwriting services.", $tags="api")
+}
+
+}
+
+Rel(p_advisor, sys_difftech, "Accesses underwriting service", "https")
+Rel(p_member, sys_sapiens, "Accesses member portal", "https")
+Rel(p_underwriter, sys_quirc, "Accesses underwriting service", "https")
+Rel(sys_quirc, sys_underwritingsvc, "POST event", "https")
+Rel(sys_sapiens, sys_underwritingsvc, "POST event", "https")
+Rel(sys_underwritingsvc, sys_konnect, "POST eConsent", "https")
+Rel(sys_underwritingsvc, sys_quirc, "GET|POST data", "https")
+Rel(sys_underwritingsvc, sys_sapiens, "GET|POST data", "https")
+Rel(sys_underwritingsvc, sys_surely, "GET data", "https")
+Rel_U(sys_underwritingsvc, sys_dms, "POST medical consent", "https")
+
+SHOW_FLOATING_LEGEND()
+
+@enduml
