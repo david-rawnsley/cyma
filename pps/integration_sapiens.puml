@@ -1,0 +1,57 @@
+@startuml PPS Integration Landscape
+'skinparam monochrome true
+'skinparam linetype polyline
+
+'Title "PPS Mutual Sapiens Container"
+
+!theme C4_cyma from https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/themes/
+
+'!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+'!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+!include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/sprites.puml
+!include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/brand.puml
+
+LAYOUT_LANDSCAPE()
+LAYOUT_LEFT_RIGHT()
+'LAYOUT_AS_SKETCH()
+
+Person_Ext(p_member, "Member", "A professional who owns a stake in the company and enjoys unique benefits beyond just insurance", $sprite="user")
+Person_Ext(p_advisor, "Advisor", "A qualified financial professional specializing in providing insurance advice to professionals eligible for PPS Mutual membership.", $sprite="user")
+
+System_Ext(sys_asb, "ASB FastNet", "ASB Banking Services")
+System_Ext(sys_konnect, "KonnectNET", "Enables access to medical provider details for insurance products.")
+System_Ext(sys_paymntgty, "WorldLine", "Provide secure and efficient payment processing solutions for insurance companies, streamlining the way customers pay their premiums.")
+
+Person(p_operations, "Operations Team", "Provide essential support to various departments within PPS Mutual, ensuring smooth day-to-day functioning.", $sprite="users")
+Person(p_underwriter, "Underwriter", "Assesses the risk of approving applications for insurance.", $sprite="user")
+
+System(sys_quirc, "hr|QUIRC Core", "Hr | QUIRC is an underwriting system specifically designed for the life insurance industry.")
+
+System_Boundary(sys_sapiens, "Sapiens"){
+    System(sys_advisorportal, "Advisor Portal", "Advisor portal for self service and management")
+    System(sys_memberportal, "Member Portal", "Member Portal for self service and management")
+    System(sys_sapiencore, "Sapiens Core", "Core Sapiens Application")
+    System(sys_sapienint, "Sapiens Integration Service", "Integration services that provide integration to various external solutions")
+}
+
+System(sys_dms, "Document Management Solution", "Stores and generates documents", $sprite="cloud_sharepoint_online")
+System(sys_dynamics, "Business Central", "Microsoft Dynamics 365 Business Central is an all-in-one business management solution designed for small and medium-sized businesses (SMBs).")
+
+Rel(p_advisor, sys_advisorportal, "Accesses advisor portal", "https")
+Rel(p_member, sys_memberportal, "Accesses member portal", "https")
+Rel(p_operations, sys_sapiencore, "Accesses policy adminstration service", "https")
+Rel(p_underwriter, sys_sapiencore, "Accesses policy administration service", "https")
+Rel(sys_advisorportal, sys_sapiencore, "Connects to")
+Rel(sys_memberportal, sys_sapiencore, "Connects to")
+Rel(sys_sapiencore, sys_konnect, "Accesses medical practice data", "https")
+Rel(sys_sapienint, sys_asb, "POST direct debit request", "sftp")
+Rel(sys_sapienint, sys_dms, "POST|GET document", "https")
+Rel(sys_sapienint, sys_dynamics, "POST Sapiens GL data [TBC]", "https")
+Rel(sys_sapienint, sys_paymntgty, "POST tokenised payments request", "https")
+Rel(sys_sapienint, sys_quirc, "Send request", "https")
+Rel_L(sys_sapienint, sys_sapiencore, "Connects to")
+
+SHOW_FLOATING_LEGEND()
+
+@enduml

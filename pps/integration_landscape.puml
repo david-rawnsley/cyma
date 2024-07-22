@@ -64,7 +64,7 @@ Rel(p_underwriter, sys_sapiens, "Accesses policy administration service", "https
 'Rel_L(sys_dataplatform, sys_sapiens, "ETL Policy Administration data", "???")
 'Rel(sys_difftech, sys_quirc, "GET|PUT underwriting data", "https")
 Rel(sys_underwriting, sys_dms, "POST medical consent", "https")
-Rel(sys_underwriting, sys_sapiens, "POST terms of offer", "https")
+Rel(sys_sapiens, sys_underwriting, "Send request", "https")
 'Rel(sys_sapiens, p_client, "Notification", "smtp")
 'Rel(sys_sapiens, p_member, "Notification", "smtp")
 Rel(sys_sapiens, sys_dms, "POST|GET document", "https")

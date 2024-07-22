@@ -19,7 +19,6 @@ LAYOUT_LANDSCAPE()
 Person_Ext(p_client, "Client", "Professional seeking PPS Mutual services")
 Person_Ext(p_advisor, "Advisor", "A qualified financial professional specializing in providing insurance advice to professionals eligible for PPS Mutual membership.", $sprite="user")
 
-'Enterprise_Boundary(e0, "PPS Mutual", $tags="repository"){
 Person(p_underwriter, "Underwriter", "Assesses the risk of approving applications for insurance.", $sprite="user")
 
 System_Boundary(sb_underwriting, "Underwriting Solution"){
@@ -27,16 +26,15 @@ System_Boundary(sb_underwriting, "Underwriting Solution"){
     System(sys_quirc, "hr|QUIRC Core", "Hr | QUIRC is an underwriting system specifically designed for the life insurance industry.")
 }
 
-System(sys_dms, "Document Management Solution", "Stores and generates documents", $sprite="cloud_sharepoint_online")
+'System(sys_dms, "Document Management Solution", "Stores and generates documents", $sprite="cloud_sharepoint_online")
 System(sys_sapiens, "Sapiens", "Sapiens Insurance Platform is an AI-powered software solution designed for insurance companies.")
-'}
 
 Rel(p_advisor, sys_difftech, "Accesses underwriting service", "https")
 Rel(p_client, sys_difftech, "Accesses underwriting services", "https")
-Rel(p_underwriter, sys_quirc, "Accesses underwriting service", "https")
-Rel(sys_difftech, sys_quirc, "GET|PUT underwriting data", "https")
-Rel(sys_quirc, sys_dms, "POST medical consent", "https")
-Rel(sys_quirc, sys_sapiens, "POST terms of offer", "https")
+Rel_D(p_underwriter, sys_quirc, "Accesses underwriting service", "https")
+Rel(sys_difftech, sys_quirc, "Enrich underwriting data", "https")
+'Rel(sys_sapiens, sys_dms, "POST medical consent", "https")
+Rel(sys_sapiens, sys_quirc, "POST person, application", "https")
 
 SHOW_FLOATING_LEGEND()
 
