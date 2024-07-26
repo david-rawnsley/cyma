@@ -1,0 +1,31 @@
+@startuml PPS Integration Landscape
+'skinparam monochrome true
+'skinparam linetype polyline
+
+'Title "Education Hub Application Landscape"
+
+!theme C4_cyma from https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/themes/
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/sprites.puml
+!include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/brand.puml
+
+LAYOUT_LANDSCAPE()
+LAYOUT_LEFT_RIGHT()
+'LAYOUT_AS_SKETCH()
+
+Person_Ext(p_client, "Client", "Customer seeking Education Hub services")
+
+Enterprise_Boundary(e0, "Education Hub"){
+
+System(sys_crm, "ZOHO CRM", "Zoho CRM utilizes a multi-tenant, cloud-based architecture with serverless functions for customization and automation.")
+System(sys_mailchimp, "MailChimp", "Mailchimp is an all-in-one marketing platform that helps businesses create, send, and track email campaigns and automate marketing tasks.")
+System(sys_wordpress, "educationhub.org.nz", "educationhub.org.nz provides resources for educators in New Zealand, particularly in the early childhood education space.")
+
+}
+
+Rel(p_client, sys_wordpress, "Consumes educational services", "https")
+Rel(sys_crm, sys_mailchimp, "Sends contact information", "https")
+Rel(sys_mailchimp, p_client, "Sends marketing material", "smtp")
+
+@enduml

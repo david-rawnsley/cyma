@@ -1,11 +1,14 @@
 @startuml eis platform integration container
 
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
-!include style/sprites.puml
-!include style/brand.puml
+!theme C4_cyma from https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/themes/
 
-'LAYOUT_AS_SKETCH()
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/sprites.puml
+!include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/brand.puml
+
 LAYOUT_LANDSCAPE()
+LAYOUT_LEFT_RIGHT()
+'LAYOUT_AS_SKETCH()
 
 Person_Ext(p_t_customer, "Customer", "Any customer interacting with customer services", $sprite="user")
 System_Boundary(sb1, "EIS") {
