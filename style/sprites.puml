@@ -7,6 +7,7 @@
 'https://github.com/plantuml-stdlib/gilbarbara-plantuml-sprites/blob/master/README.md
 !define gilbarbara https://raw.githubusercontent.com/plantuml-stdlib/gilbarbara-plantuml-sprites/v1.0/sprites
 !include gilbarbara/oracle.puml
+!include gilbarbara/salesforce.puml
 
 !define iconURL https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/v2.4.0
 !include iconURL/devicons/database.puml
