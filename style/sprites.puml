@@ -2,11 +2,10 @@
 
 'https://github.com/Roemer/plantuml-office/blob/master/README.md
 !define Office https://raw.githubusercontent.com/Roemer/plantuml-office/master/office2014
-!includeurl Office/Clouds/cloud_sharepoint_online.puml
+!include Office/Clouds/cloud_sharepoint_online.puml
 
 'https://github.com/plantuml-stdlib/gilbarbara-plantuml-sprites/blob/master/README.md
-!define gilbarbara https://raw.githubusercontent.com/plantuml-stdlib/gilbarbara-plantuml-sprites/v1.1/sprites
-'!define gilbarbara https://raw.githubusercontent.com/plantuml-stdlib/gilbarbara-plantuml-sprites/v1.0/sprites
+!define gilbarbara https://raw.githubusercontent.com/plantuml-stdlib/gilbarbara-plantuml-sprites/v1.0/sprites
 !include gilbarbara/oracle.puml
 !include gilbarbara/salesforce.puml
 
