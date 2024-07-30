@@ -2,7 +2,7 @@
 
 'https://github.com/Roemer/plantuml-office/blob/master/README.md
 !define Office https://raw.githubusercontent.com/Roemer/plantuml-office/master/office2014
-!includeurl Office/Clouds/cloud_sharepoint_online.puml
+!include Office/Clouds/cloud_sharepoint_online.puml
 
 'https://github.com/plantuml-stdlib/gilbarbara-plantuml-sprites/blob/master/README.md
 !define gilbarbara https://raw.githubusercontent.com/plantuml-stdlib/gilbarbara-plantuml-sprites/v1.1/sprites
@@ -37,5 +37,9 @@
 !include iconURL/material/error_outline.puml
 !include iconURL/material/list.puml
 !include iconURL/material/web_asset.puml
+
+!define AzurePuml https://raw.githubusercontent.com/plantuml-stdlib/Azure-PlantUML/release/2-2/dist
+!include AzurePuml/AzureCommon.puml
+!include AzurePuml/Databases/all.puml
 
 @enduml
