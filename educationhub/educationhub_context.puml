@@ -14,7 +14,7 @@ LAYOUT_LANDSCAPE()
 LAYOUT_LEFT_RIGHT()
 'LAYOUT_AS_SKETCH()
 
-Person_Ext(p_client, "Client", "Customer seeking Education Hub services")
+Person_Ext(p_customer, "Customer", "Customer seeking Education Hub services")
 
 Enterprise_Boundary(e0, "Education Hub"){
 
@@ -24,8 +24,8 @@ System(sys_wordpress, "educationhub.org.nz", "educationhub.org.nz provides resou
 
 }
 
-Rel(p_client, sys_wordpress, "Consumes educational services", "https")
+Rel(p_customer, sys_wordpress, "Consumes educational services", "https")
 Rel(sys_crm, sys_mailchimp, "Sends contact information", "https")
-Rel(sys_mailchimp, p_client, "Sends marketing material", "smtp")
+Rel(sys_mailchimp, p_customer, "Sends marketing material", "smtp")
 
 @enduml

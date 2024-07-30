@@ -1,0 +1,41 @@
+@startuml The e?ducation Hub Landscape
+'skinparam monochrome true
+skinparam linetype polyline
+
+'Title "Education Hub Application Landscape"
+
+'!theme C4_cyma from https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/themes/
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/sprites.puml
+!include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/brand.puml
+
+'LAYOUT_LANDSCAPE()
+'LAYOUT_LEFT_RIGHT()
+'LAYOUT_AS_SKETCH()
+
+'Person_Ext(p_admin, "Administrator", "Administrates the system")
+Person(customer, Customer, "A customer of the orgnisation, with an account")
+
+System_Boundary(s0, "theeducationhub.org.nz"){
+
+    Container(web_app, "Web Application", "WordPress", "Delivers the static content and the SPA")
+    Container(spa, "Single-Page App", "PHP", "Provides all the functionality to customers via their web browser")
+    ContainerDb(database, "Database", "SQL Database", "Stores user registration information, hashed auth credentials, access logs, etc.")
+    Container(backend_api, "API Application", "Java, Docker Container", "Provides functionality via API")
+
+}
+
+System_Ext(email_system, "E-Mail System", "E-Mail system")
+
+Rel(customer, web_app, "Uses", "HTTPS")
+Rel(customer, spa, "Uses", "HTTPS")
+
+Rel_Neighbor(web_app, spa, "Delivers")
+Rel(spa, backend_api, "Uses", "async, JSON/HTTPS")
+Rel_Back_Neighbor(database, backend_api, "Reads from and writes to", "sync, JDBC")
+
+Rel_Back(customer, email_system, "Sends e-mails to")
+Rel_Back(email_system, backend_api, "Sends e-mails using", "sync, SMTP")
+
+@enduml
