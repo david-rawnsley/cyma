@@ -1,13 +1,15 @@
-@startuml PPS Application Integration Landscape
+@startuml PPS Application Landscape
 'skinparam monochrome true
 'skinparam linetype polyline
 'skinparam linetype ortho
 
-Title "PPS Mutual Application Integration Landscape"
+Title "PPS Mutual Application Landscape"
 
 !theme C4_cyma from https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/themes/
 
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+'!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+'!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
 !include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/sprites.puml
 !include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/brand.puml
 
@@ -15,29 +17,31 @@ Title "PPS Mutual Application Integration Landscape"
 'LAYOUT_LEFT_RIGHT()
 'LAYOUT_AS_SKETCH()
 
+Person_Ext(p_advisor, "Advisor", "A qualified financial professional specializing in providing insurance advice to professionals eligible for PPS Mutual membership.", $sprite="user")
 Person_Ext(p_client, "Client", "Professional seeking PPS Mutual services")
 Person_Ext(p_member, "Member", "A professional who owns a stake in the company and enjoys unique benefits beyond just insurance", $sprite="user")
-Person_Ext(p_advisor, "Advisor", "A qualified financial professional specializing in providing insurance advice to professionals eligible for PPS Mutual membership.", $sprite="user")
 
 System_Ext(sys_asb, "ASB FastNet", "ASB Banking Services")
+System_Ext(sys_ifrs17, "PWC 17Slved", "Creation of IFRS17 compliant accounts.")
 System_Ext(sys_konnect, "KonnectNET", "Enables access to medical provider details for insurance products.")
-System_Ext(sys_paymntgty, "WorldLine", "Provide secure and efficient payment processing solutions for insurance companies, streamlining the way customers pay their premiums.")
 System_Ext(sys_opensancsvc, "Open Sanctions API", "OpenSanctions helps investigators find leads, allows companies to manage risk and enables technologists to build data-driven products.")
+System_Ext(sys_paymntgty, "WorldLine", "Provide secure and efficient payment processing solutions for insurance companies, streamlining the way customers pay their premiums.")
 
 Enterprise_Boundary(e0, "PPS Mutual"){
 Person(p_compliance, "Risk Management Team", "Ensures PPS Mutual adheres to all relevant regulations and industry standards.", $sprite="users")
 Person(p_operations, "Operations Team", "Provide essential support to various departments within PPS Mutual, ensuring smooth day-to-day functioning.", $sprite="users")
 Person(p_underwriter, "Underwriter", "Assesses the risk of approving applications for insurance.", $sprite="user")
 
+System(sys_dataplatform, "Data Platform", "A unified environment for ingesting, storing, processing, analyzing, and delivering data to drive informed decision-making.")
 System(sys_dms, "Document Management Solution", "Stores and generates documents", $sprite="cloud_sharepoint_online")
 System(sys_dynamics, "Business Central", "Microsoft Dynamics 365 Business Central is an all-in-one business management solution designed for small and medium-sized businesses (SMBs).")
 System(sys_folio, "Folio", "Solution that manages Risk and Compliance.")
 System(sys_lexis, "LexisNexis", "Solution that manages Risk and Compliance.")
 System(sys_sanction, "Sanctions Screening Tool", "Solution that holds the OFAC & UN lists.")
+System(sys_sanction, "Sanctions Solution", "Integrated digital sales process including automated underwriting (QUIRC Core), dynamic pricing and digital policy initiation.")
 System(sys_sapiens, "Sapiens", "Sapiens Insurance Platform is an AI-powered software solution designed for insurance companies.")
 System(sys_telephony, "Operational Telephony", "A phone system for various purposes such as supporting advisors with policy inquiries and servicing member needs.")
 System(sys_underwriting, "Underwriting Solution", "Integrated digital sales process including automated underwriting (QUIRC Core), dynamic pricing and digital policy initiation.")
-System(sys_sanction, "Sanctions Solution", "Integrated digital sales process including automated underwriting (QUIRC Core), dynamic pricing and digital policy initiation.")
 }
 
 Rel(p_advisor, sys_sapiens, "Accesses advisor portal", "https")
@@ -51,6 +55,8 @@ Rel(p_operations, sys_sapiens, "Accesses policy adminstration service", "https")
 Rel(p_operations, sys_telephony, "Accesses to manage calls", "pstn")
 Rel(p_underwriter, sys_sapiens, "Accesses policy administration service", "https")
 Rel(p_underwriter, sys_underwriting, "Accesses underwriting service", "https")
+Rel(sys_dataplatform, sys_ifrs17, "Sends IFRS17 data", "ETL")
+Rel(sys_dataplatform, sys_sapiens, "Retrieves Sapiens data", "ETL")
 Rel(sys_lexis, sys_folio, "Connects to", "https")
 Rel(sys_sanction, sys_opensancsvc, "GET Sanctions list", "ETL")
 Rel(sys_sapiens, sys_asb, "POST direct debit request", "sftp")

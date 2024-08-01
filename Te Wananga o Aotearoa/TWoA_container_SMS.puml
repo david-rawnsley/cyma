@@ -1,0 +1,75 @@
+@startuml PPS Integration Landscape
+'skinparam monochrome true
+'skinparam linetype polyline
+
+'Title "Education Hub Application Landscape"
+
+!theme C4_cyma from https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/themes/
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/sprites.puml
+!include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/brand.puml
+
+'LAYOUT_LANDSCAPE()
+'LAYOUT_LEFT_RIGHT()
+'LAYOUT_AS_SKETCH()
+
+Person(p_employee, "Registry Kaimahi (employee)", "supports wananga (enrollment) services")
+Person(p_teacher,"Kaiako (teacher)", "provides wananga (teaching) services")
+Person_Ext(p_student, "tauira (student)", "tauira seeking Te Wananga o Aotearoa services")
+
+System(sys_smc, "Salesforce Marketing Cloud", "provides tools for email marketing, social media management, mobile marketing, SMS, and more.", $sprite="salesforce")
+
+System_Boundary(sb0, "Student Management Application"){
+Container(sys_smsprospect, "Prospects Module", "Microsoft Access 2000", "")
+Container(sys_smssupport, "Student Support Module", "Microsoft Access 2000", "")
+ContainerDb(sys_take2Db, "Take2", "Microsoft SQL 2019", "Student Management System (SMS) it serves as a centralised hub for managing student information, academic records, attendance, and various other aspects of the educational ecosystem.", $sprite="AzureSqlDatabase")
+
+}
+
+System(sys_101, "101 SIIS", "Tairua (student) Information")
+System(sys_applicationportal, "Online Application Portal", "a digital platform that allows prospective students to apply for admission.", $sprite="web_asset")
+System(sys_automation, "Automations", "Automations")
+System(sys_dgp, "Dynamics Great Plains", "Finance System")
+ContainerDb(sys_dwh, "TWoA Data Warehouse", "Microsoft SQL ???", "Data Warehouse", $sprite="AzureSqlDatabase")
+System(sys_eip, "EIP Fin Debt Mails", "Azure Functions")
+System(sys_excel, "Microsoft Excel", "provides reference data.")
+System(sys_glist, "G List", "Graduation List")
+System(sys_iqualify, "Akorau", "Tairua facing Learning Management System (LMS) iQualify")
+System(sys_keep100, "Keep100", "Assessment results for NZQA")
+System(sys_moderation, "Moderation", "Tutor Record Management")
+System(sys_moodle, "iAkoranga", "Tairua facing Learning Management System (LMS) Moodle")
+System(sys_pams, "PAMS", "Unknown", "Provider Admin Management System")
+System(sys_sharepoint, "Rakaunui", "Sharepoint/Intranet")
+System(sys_twoawebsite, "TWoA Website", "provides reference data.")
+System(sys_whatatuarirau, "Whata Tuarirau", "Tairua Resource Ordering")
+
+ContainerDb(sys_ppms, "PPMS", "Microsoft SQL ???", "Microsoft SQL 2019", $sprite="AzureSqlDatabase")
+
+' Relationships
+Rel(p_employee, sb0, "Uses", "Citrix")
+Rel(p_employee, sys_excel, "Uses", "")
+Rel(p_student, sys_applicationportal, "Uses", "https")
+Rel(p_teacher, sb0, "Uses", "Citrix")
+Rel(sys_101, sys_take2Db, "Connects to", "???")
+Rel(sys_applicationportal, sys_take2Db, "Connects to", "JDBC")
+Rel(sys_automation, sys_take2Db, "Connects to", "JDBC")
+Rel_U(sys_dwh, sys_take2Db, "Connects to", "JDBC")
+Rel(sys_eip, sys_take2Db, "Connects to", "???")
+Rel(sys_glist, sys_take2Db, "Connects to", "???")
+Rel(sys_iqualify, sys_take2Db, "Connects to", "???")
+Rel(sys_keep100, sys_take2Db, "Connects to", "???")
+Rel(sys_moderation, sys_take2Db, "Connects to", "???")
+Rel(sys_moodle, sys_take2Db, "Connects to", "???")
+Rel(sys_pams, sys_take2Db, "Connects to", "JDBC")
+'Rel(sys_smc, p_student, "Sends marketing material", "smtp")
+Rel(sys_smc, sys_take2Db, "Connects to", "???")
+Rel(sys_take2Db, sys_dgp, "Connects to", "???")
+Rel(sys_take2Db, sys_ppms, "Connects to", "???")
+Rel(sys_take2Db, sys_sharepoint, "Connects to", "???")
+Rel(sys_twoawebsite, sys_take2Db, "Connects to", "JDBC")
+Rel(sys_whatatuarirau, sys_take2Db, "Connects to", "JDBC")
+Rel_L(sys_smssupport, sys_take2Db, "Connects to", "JDBC")
+Rel_Neighbor(sys_smsprospect, sys_take2Db, "Connects to", "JDBC")
+
+@enduml

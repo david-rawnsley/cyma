@@ -6,37 +6,46 @@
 
 !theme C4_cyma from https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/themes/
 
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
 !include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/sprites.puml
 !include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/brand.puml
 
-LAYOUT_LANDSCAPE()
+'LAYOUT_LANDSCAPE()
 'LAYOUT_LEFT_RIGHT()
 'LAYOUT_AS_SKETCH()
 
-Person_Ext(p_student, "tauira ", "tauira seeking Te Wananga o Aotearoa services")
-Person(p_teacher,"Kaiako", "provides wananga (teaching) services")
-Person(p_employee, "Kaimahi", "supports wananga services")
+Person(p_employee, "Registry Kaimahi (employee)", "supports wananga (enrolment) services")
+Person(p_teacher,"Kaiako (teacher)", "provides wananga (teaching) services")
+Person_Ext(p_student, "Tauira (student)", "tauira seeking Te Wananga o Aotearoa services")
 
 Enterprise_Boundary(e0, "Te Wananga o Aotearoa"){
 
-System(sys_ssc, "Salesforce Service Cloud", "is a core component of the Salesforce CRM suite, providing a unified view of customers across various touchpoints.")
-System(sys_smc, "Salesforce Marketing Cloud", "provides tools for email marketing, social media management, mobile marketing, SMS, and more.")
+System(sys_smc, "Salesforce Marketing Cloud", "provides tools for email marketing, social media management, mobile marketing, SMS, and more.", $sprite="salesforce")
+System(sys_ssc, "Salesforce Service Cloud", "is a core component of the Salesforce CRM suite, providing a unified view of customers across various touchpoints.", $sprite="salesforce")
 
-System_Boundary(sys_sapiens, "Take2"){
+System(sys_sms, "SMS", "Student Management System (SMS) it serves as a centralised hub for managing student information, academic records, attendance, and various other aspects of the educational ecosystem.")
+System(sys_lms, "LMS", "A Learning Management System (LMS) is a software platform for creating, managing, delivering, and tracking online learning programs.")
+
+/' System_Boundary(sb0, "Take2"){
 Container(sys_take2App, "Application", "Student Management System (SMS) it serves as a centralised hub for managing student information, academic records, attendance, and various other aspects of the educational ecosystem.")
-ContainerDb(sys_take2Db, "Application", "Student Management System (SMS) it serves as a centralised hub for managing student information, academic records, attendance, and various other aspects of the educational ecosystem.")
+ContainerDb(sys_take2Db, "Application", "Student Management System (SMS) it serves as a centralised hub for managing student information, academic records, attendance, and various other aspects of the educational ecosystem.", $sprite="AzureSqlDatabase")
+} '/
 
+System(sys_excel, "Microsoft Excel", "provides reference data.")
+
+System(sys_applicationportal, "Online Application Portal", "a digital platform that allows prospective students to apply for admission.", $sprite="web_asset")
 }
 
-System(sys_applicationportal, "Online Application Portal", "a digital platform that allows prospective students to apply for admission.")
-
-}
-
-Rel_R(sys_take2App, sys_take2Db, "Connects to", "JDBC")
-Rel(p_teacher, sys_take2App, "", "Citrix")
-Rel(p_employee, sys_take2App, "", "Citrix")
-Rel(p_student, sys_applicationportal, "", "")
-Rel_Neighbor(sys_applicationportal, sys_take2Db, "Connects to", "JDBC")
+Rel(p_employee, sys_excel, "Uses", "")
+Rel(p_employee, sys_smc, "Uses", "https")
+Rel(p_employee, sys_ssc, "Uses", "https")
+Rel(p_employee, sys_sms, "Uses", "Citrix")
+Rel(p_student, sys_applicationportal, "Uses", "https")
+Rel(p_student, sys_ssc, "Uses", "https")
+Rel(p_teacher, sys_sms, "Uses", "Citrix")
+Rel_Neighbor(sys_lms, sys_sms, "Connects to", "https")
+'Rel(sys_smc, p_student, "Sends marketing material", "smtp")
+Rel(sys_applicationportal, sys_sms, "Connects to", "JDBC")
+'Rel_Reighbor(sys_take2App, sys_take2Db, "Connects to", "JDBC")
 
 @enduml
