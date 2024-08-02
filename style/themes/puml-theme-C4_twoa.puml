@@ -2,7 +2,7 @@
 
 !ifndef $FONT_NAME
 '  !$FONT_NAME = "Aptos"
-  !$FONT_NAME = "Comic Sans"
+  !$FONT_NAME = "Comic Sans MS"
 !endif
 
 !$STEREOTYPE_FONT_SIZE ?= 16
