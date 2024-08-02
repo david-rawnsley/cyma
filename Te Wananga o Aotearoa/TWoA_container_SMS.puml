@@ -31,7 +31,7 @@ System(sys_101, "101 SIIS", "Tairua (student) Information")
 System(sys_applicationportal, "Online Application Portal", "a digital platform that allows prospective students to apply for admission.", $sprite="web_asset")
 System(sys_automation, "Automations", "Automations")
 System(sys_dgp, "Dynamics Great Plains", "Finance System")
-ContainerDb(sys_dwh, "TWoA Data Warehouse", "Microsoft SQL ???", "Data Warehouse", $sprite="AzureSqlDatabase")
+System(sys_dwh, "TWoA Data Warehouse", "Microsoft SQL ???", "Data Warehouse", $sprite="AzureSqlDatabase")
 System(sys_eip, "EIP Fin Debt Mails", "Azure Functions")
 System(sys_excel, "Microsoft Excel", "provides reference data.")
 System(sys_glist, "G List", "Graduation List")
@@ -44,7 +44,7 @@ System(sys_sharepoint, "Rakaunui", "Sharepoint/Intranet")
 System(sys_twoawebsite, "TWoA Website", "provides reference data.")
 System(sys_whatatuarirau, "Whata Tuarirau", "Tairua Resource Ordering")
 
-ContainerDb(sys_ppms, "PPMS", "Microsoft SQL ???", "Microsoft SQL 2019", $sprite="AzureSqlDatabase")
+System(sys_ppms, "PPMS", "Microsoft SQL ???", "Microsoft SQL 2019", $sprite="AzureSqlDatabase")
 
 ' Relationships
 Rel(p_employee, sb0, "Uses", "Citrix")
