@@ -25,6 +25,7 @@ System(sys_ssc, "Salesforce Service Cloud", "is a core component of the Salesfor
 
 System(sys_sms, "SMS", "Student Management System (SMS) it serves as a centralised hub for managing student information, academic records, attendance, and various other aspects of the educational ecosystem.")
 System(sys_lms, "LMS", "A Learning Management System (LMS) is a software platform for creating, managing, delivering, and tracking online learning programs.")
+System(sys_erp, "ERP", "a software system that integrates and manages core business processes like finance, HR, supply chain, and operations into a single platform.")
 
 /' System_Boundary(sb0, "Take2"){
 Container(sys_take2App, "Application", "Student Management System (SMS) it serves as a centralised hub for managing student information, academic records, attendance, and various other aspects of the educational ecosystem.")

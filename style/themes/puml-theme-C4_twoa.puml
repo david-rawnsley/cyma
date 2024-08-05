@@ -1,8 +1,7 @@
 !$THEME = "C4_twoa"
 
 !ifndef $FONT_NAME
-'  !$FONT_NAME = "Aptos"
-  !$FONT_NAME = "Comic Sans MS"
+  !$FONT_NAME = "Aptos"
 !endif
 
 !$STEREOTYPE_FONT_SIZE ?= 16
