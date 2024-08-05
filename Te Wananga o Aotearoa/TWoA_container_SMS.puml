@@ -21,7 +21,6 @@ Person_Ext(p_student, "tauira (student)", "tauira seeking Te Wananga o Aotearoa 
 
 System_Boundary(sb0, "Student Management Solution"){
     Container(sys_smsapp, "Student Management Application", "Microsoft Access 2000", "Helps to manage and organise tauira data such as enrolment, attendance, grades, and assessments")
-    'Container(sys_smsprospect, "Prospects Module", "Microsoft Access 2000", "")
     Container(sys_smssupport, "Student Support Module", "Microsoft Access 2000", "Provides the ability to manage and organise assorted services and resources to help tauira succeed in their academic journey")
     ContainerDb(sys_take2Db, "Take2", "Microsoft SQL 2019", "", $sprite="AzureSqlDatabase")
 
@@ -45,18 +44,17 @@ System(sys_smc, "Salesforce Marketing Cloud", "used to create and manage persona
 System(sys_ssc, "Salesforce Service Cloud", "Used to manage the enrolment application processes", $sprite="salesforce")
 System(sys_twoawebsite, "TWoA Website", "provides reference data.")
 System(sys_whatatuarirau, "Whata Tuarirau", "Tairua Resource Ordering")
+System(sys_tpms, "TPMS","Student Helpdesk Management System")
 
 System(sys_ppms, "PPMS", "Microsoft SQL ???", "Microsoft SQL 2019", $sprite="AzureSqlDatabase")
 
 ' Relationships
 Rel(p_employee, sb0, "Uses", "Citrix")
-'Rel(p_employee, sys_excel, "Uses", "")
 Rel(p_student, sys_applicationportal, "Uses", "https")
 Rel(p_teacher, sb0, "Uses", "Citrix")
 Rel(sys_101, sys_take2Db, "Connects to", "???")
 Rel(sys_applicationportal, sys_take2Db, "Connects to", "JDBC")
 Rel(sys_automation, sys_take2Db, "Connects to", "JDBC")
-Rel_U(sys_dwh, sys_take2Db, "Connects to", "JDBC")
 Rel(sys_eip, sys_take2Db, "Connects to", "???")
 Rel(sys_glist, sys_take2Db, "Connects to", "???")
 Rel(sys_iqualify, sys_take2Db, "Connects to", "???")
@@ -64,15 +62,15 @@ Rel(sys_keep100, sys_take2Db, "Connects to", "???")
 Rel(sys_moderation, sys_take2Db, "Connects to", "???")
 Rel(sys_moodle, sys_take2Db, "Connects to", "???")
 Rel(sys_pams, sys_take2Db, "Connects to", "JDBC")
-'Rel(sys_smc, p_student, "Sends marketing material", "smtp")
 Rel(sys_smc, sys_take2Db, "Connects to", "???")
 Rel(sys_take2Db, sys_dgp, "Connects to", "???")
 Rel(sys_take2Db, sys_ppms, "Connects to", "???")
 Rel(sys_take2Db, sys_sharepoint, "Connects to", "???")
+Rel(sys_tpms, sys_take2Db, "GET student information", "ODBC")
 Rel(sys_twoawebsite, sys_take2Db, "Connects to", "JDBC")
 Rel(sys_whatatuarirau, sys_take2Db, "Connects to", "JDBC")
-Rel_D(sys_smssupport, sys_take2Db, "Connects to", "JDBC")
-'Rel_Neighbor(sys_smsprospect, sys_take2Db, "Connects to", "JDBC")
 Rel_D(sys_smsapp, sys_take2Db, "Connects to", "ODBC")
+Rel_D(sys_smssupport, sys_take2Db, "Connects to", "JDBC")
+Rel_U(sys_dwh, sys_take2Db, "Connects to", "JDBC")
 
 @enduml
