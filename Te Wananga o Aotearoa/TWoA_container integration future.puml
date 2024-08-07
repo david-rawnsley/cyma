@@ -1,0 +1,112 @@
+@startuml PPS Integration Landscape
+'skinparam monochrome true
+'skinparam linetype polyline
+
+'Title "Education Hub Application Landscape"
+
+'!theme C4_cyma from https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/themes/
+!theme C4_twoa from https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/themes/
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/sprites.puml
+!include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/brand.puml
+
+'LAYOUT_LANDSCAPE()
+'LAYOUT_LEFT_RIGHT()
+'LAYOUT_AS_SKETCH()
+
+Person(p_employee, "Registry Kaimahi (employee)", "supports wananga (enrolment) services")
+Person(p_teacher,"Kaiako (teacher)", "provides wananga (teaching) services")
+Person_Ext(p_student, "Tauira (student)", "tauira using Te Wananga o Aotearoa services")
+Person_Ext(p_prospect, "Prospect", "prospect seeking Te Wananga o Aotearoa services ")
+
+System_Ext(sys_sdr, "Single Data Return (SDR)", "is an electronic database of student enrollment and completion information in New Zealand.")
+System_Ext(sys_nzqa, "NZQA", "the definitive source for accurate information about all quality assured qualifications, covering senior secondary school and tertiary education qualifications, and including all qualifications open to international students.")
+System_Ext(sys_nsi, "National Student Index (NSI)", "is a database system maintained by the Ministry of Education and is the education sector's core register of learner identity data.")
+System_Ext(sys_studylink, "StudyLink", "a program that helps students make educational decisions and achieve their goals by providing financial support and information.")
+System_Ext(sys_idcards, "Tauira ID Card Service", "ID creation services.")
+System_Ext(sys_extaddresssvc, "Google Maps API", "provides address lookup services")
+
+Enterprise_Boundary(e0, "Te Wananga o Aotearoa"){
+
+'System(sys_ad, "Active Directory", "identity and access platform")
+System(sys_applicationportal, "Online Application Portal", "a digital platform that allows prospective students to apply for admission.", $sprite="web_asset")
+System(sys_studentportal, "Student Portal", "a digital portal that facilitates student needs.")
+System(sys_erp, "ERP", "a software system that integrates and manages core business processes like finance, HR, supply chain, and operations into a single platform.")
+'System(sys_excel, "Microsoft Excel", "provides reference data.")
+System(sys_lms, "LMS", "A Learning Management System (LMS) is a software platform for creating, managing, delivering, and tracking online learning programs.")
+System(sys_cms, "Course Management Service (CMS)", "A course mnagement system (LMS) is a software platform for creating, and managing learning programs.")
+'System(sys_smc, "Salesforce Marketing Cloud", "provides tools for email marketing, social media management, mobile marketing, SMS, and more.", $sprite="salesforce")
+System(sys_sms, "SMS", "Student Management System (SMS) it serves as a centralised hub for managing student information, academic records, attendance, and various other aspects of the educational ecosystem.")
+'System(sys_tpms, "TPMS","Student Helpdesk Management System")
+System(sys_voyager, "Voyager", "s an integrated library system used by hundreds of libraries, universities and museums around the world.")
+System(sys_integration, "Integration Services", "Integration services that support ...")
+/' System_Boundary(sb0, "Integration Services"){
+    System(sys_coursesvc, "Course Service", "provides access to course and accreditation definitions", $tags="api")
+    System(sys_idcardsvc, "ID Card Service", "facilitates student ID card requests", $tags="api")
+    System(sys_sdrsvc, "SDR Service", "facilitates the regular submission of student and course accreditation to SDR", $tags="api")
+    System(sys_studentsvc, "Tauira Service","Tauira service to enable the organisation.", $tags="api")
+    System(sys_twoanzqa, "NZQA Service", "provides capability to update NZQA systems", $tags="api")
+    System(sys_twoastudylink, "StudyLink Service", "provides capability to update NZQA systems", $tags="api")
+    System(sys_voyagersvc,"Voyager Service", "Compiles data for the library solution", $tags="api")
+    System(sys_addresslookupsvc, "Address Lookup Service", "servie that provides address lookup against an external provider.", $tags="api")
+    }
+ }'/
+
+Rel(p_employee, sys_sms, "Uses", "https")
+Rel(p_prospect, sys_applicationportal, "Uses", "https")
+Rel(p_student, sys_studentportal, "Uses", "https")
+Rel(p_teacher, sys_sms, "Uses", "https")
+Rel(sys_applicationportal, sys_integration, "Connects to", "https")
+
+Rel(sys_studentportal, sys_integration, "Connects to", "https")
+
+/' Rel(sys_addresslookupsvc, sys_extaddresssvc, "Connects to", "https")
+Rel(sys_applicationportal, sys_addresslookupsvc, "Connects to", "https")
+Rel(sys_applicationportal, sys_coursesvc, "Connects to", "https")
+Rel(sys_applicationportal, sys_studentsvc, "Connects to", "https")
+Rel(sys_applicationportal, sys_twoanzqa, "Connects to", "https")
+Rel(sys_coursesvc, sys_sms, "Connects to", "https")
+Rel(sys_idcardsvc, sys_idcards, "Connect to", "https")
+Rel(sys_idcardsvc, sys_studentsvc, "GET student information", "https")
+Rel(sys_lms, sys_coursesvc, "Connects to", "https")
+Rel(sys_lms, sys_studentsvc, "Connects to", "https")
+Rel(sys_sdrsvc, sys_coursesvc, "GET, POST, PUT course information", "https")
+Rel(sys_sdrsvc, sys_sdr, "POST student information", "https")
+Rel(sys_sdrsvc, sys_studentsvc, "GET, POST, PUT student information", "https")
+Rel(sys_sms, sys_erp, "Sends financial data", "various")
+Rel(sys_sms, sys_idcardsvc, "send event", "https")
+Rel(sys_sms, sys_twoanzqa, "send event", "https") 
+Rel(sys_studentportal, sys_addresslookupsvc, "Connects to", "https")
+Rel(sys_studentportal, sys_coursesvc, "Connects to", "https")
+Rel(sys_studentportal, sys_studentsvc, "Connects to", "https")
+Rel(sys_studentsvc, sys_ad, "GET, POST, PUT  student information", "https")
+Rel(sys_studentsvc, sys_nsi, "Verify student information", "")
+Rel(sys_studentsvc, sys_sms, "Connects to", "https")
+Rel(sys_studentsvc, sys_integration, "Connects to", "https")
+Rel(sys_twoanzqa, sys_coursesvc, "GET, POST, PUT course information", "https")
+Rel(sys_twoanzqa, sys_nzqa, "GET, POST, PUT accreditation information", "https")
+Rel(sys_twoanzqa, sys_studentsvc, "GET, POST, PUT student information", "https") '/
+
+Rel_Back(sys_integration, sys_cms, "Connects to", "https")
+Rel(sys_integration, sys_erp, "Connects to", "https")
+Rel(sys_integration, sys_extaddresssvc, "Connects to", "https")
+Rel(sys_integration, sys_idcards, "Connects to", "https")
+Rel(sys_integration, sys_nsi, "Connects to", "https")
+Rel(sys_integration, sys_nzqa, "Connects to", "https")
+Rel(sys_integration, sys_sdr, "Connects to", "https")
+Rel(sys_integration, sys_sms, "Connects to", "https")
+Rel(sys_integration, sys_studylink, "Connects to", "https")
+Rel(sys_integration, sys_voyager, "Connects to", "https")
+Rel(sys_integration, sys_lms, "Connects to", "https")
+
+/' Rel(sys_twoastudylink, sys_coursesvc, "GET, POST, PUT course information", "https")
+Rel(sys_twoastudylink, sys_studentsvc, "GET, POST, PUT student information", "https")
+Rel(sys_twoastudylink, sys_studylink, "VOS request", "https") '/
+
+/'Rel(sys_voyagersvc, sys_studentsvc, "Connects to", "https")
+Rel(sys_voyagersvc, sys_voyager, "Connects to", "https")'/
+
+'Rel(sys_tpms, sys_ad, "POST student information", "")
+
+@enduml

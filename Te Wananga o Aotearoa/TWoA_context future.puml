@@ -1,0 +1,76 @@
+@startuml PPS Integration Landscape
+'skinparam monochrome true
+'skinparam linetype polyline
+
+'Title "Education Hub Application Landscape"
+
+'!theme C4_cyma from https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/themes/
+!theme C4_twoa from https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/themes/
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/sprites.puml
+!include https://raw.githubusercontent.com/david-rawnsley-cyma/cyma/main/style/brand.puml
+
+'LAYOUT_LANDSCAPE()
+'LAYOUT_LEFT_RIGHT()
+'LAYOUT_AS_SKETCH()
+
+Person(p_employee, "Registry Kaimahi (employee)", "supports wananga (enrolment) services")
+Person(p_teacher,"Kaiako (teacher)", "provides wananga (teaching) services")
+Person_Ext(p_student, "Tauira (student)", "tauira using Te Wananga o Aotearoa services")
+Person_Ext(p_prospect, "Prospect", "prospect seeking Te Wananga o Aotearoa services ")
+
+System_Ext(sys_sdr, "Single Data Return (SDR)", "is an electronic database of student enrollment and completion information in New Zealand.")
+System_Ext(sys_nzqa, "NZQA", "the definitive source for accurate information about all quality assured qualifications, covering senior secondary school and tertiary education qualifications, and including all qualifications open to international students.")
+System_Ext(sys_nsi, "National Student Index (NSI)", "is a database system maintained by the Ministry of Education and is the education sector's core register of learner identity data.")
+System_Ext(sys_studylink, "StudyLink", "a program that helps students make educational decisions and achieve their goals by providing financial support and information.")
+System_Ext(sys_idcards, "Tauira ID Card Service", "ID creation services.")
+System_Ext(sys_extaddresssvc, "Google Maps API", "provides address lookup services")
+
+Enterprise_Boundary(e0, "Te Wananga o Aotearoa"){
+    System(sys_applicationportal, "Application Portal", "a digital platform that allows prospective students to apply for admission.", $sprite="web_asset")
+    System(sys_dwh, "TWoA Data Warehouse", "")
+    System(sys_erp, "Finance Solution (ERP)", "a software system that integrates and manages core business processes like finance, HR, supply chain, and operations into a single platform.")
+    System(sys_excel, "Microsoft Excel", "provides enrollment plan and fees data.")
+    System(sys_lms, "Learning Management System (LMS)", "A Learning Management System (LMS) is a software platform for creating, managing, delivering, and tracking online learning programs.")
+    System(sys_smc, "Salesforce Marketing Cloud", "provides tools for email marketing, social media management, mobile marketing, SMS, and more.", $sprite="salesforce")
+    System(sys_sms, "Student Management System (SMS)", "it serves as a centralised hub for managing student information, academic records, attendance, and various other aspects of the educational ecosystem.")
+    System(sys_ssc, "Salesforce Service Cloud", "process online applications and capture expressions of interest (EOI) and lead information from different online channels", $sprite="salesforce")
+    System(sys_ssis101, "SSIS101", "allows students and tutors to update limited student information without physically logging into the Take2 system.")
+    System(sys_tpms, "TPMS","Student Helpdesk Management System")
+    System(sys_voyager, "Library System (Voyager)", "s an integrated library system used by hundreds of libraries, universities and museums around the world.")
+
+System_Boundary(sb0, "Review for Consolidation into SMS"){
+    System(sys_glist, "Graduation List", "uses enrolment data, student details, and completions to determine the graduation list, certificate requests and certificates printed")
+    System(sys_lln, "LLN Assessment tool", "assessment tool is used for literacy and numeracy assessments.")
+    System(sys_pams, "Provider Administration Management System (PAMS)", "student records are managed, and unit standard assessment sheets are maintained.")
+    System(sys_echeck, "E-Check", "uses enrolment data, programme code and status information from Take2 to manage the Enrolment checking and validation process,")
+    System(sys_adscss, "Automated Distribution and Customer Support System (ADSCSS)", "used to distribute kete (workbooks and resources) to students.")
+    System(sys_ssm, "Student Support Module", "a tool created to manage and monitor student support provided throughout the organisation.")
+
+}
+
+System(sys_cms, "Course Management Solution (CMS)", "A course mnagement system (LMS) is a software platform for creating, and managing learning programs.")
+System(sys_integration, "Integration Services", "Integration services that support ...")
+System(sys_studentportal, "Student Portal", "provides students with access to academic information, services, and resources at their educational institution.", $sprite="web_asset")
+}
+
+Rel(p_employee, sys_sms, "Uses", "https")
+Rel(p_prospect, sys_applicationportal, "Uses", "https")
+Rel(p_student, sys_studentportal, "Uses", "https")
+Rel(p_teacher, sys_sms, "Uses", "https")
+Rel(sys_applicationportal, sys_integration, "Connects to", "https")
+Rel(sys_integration, sys_erp, "Connects to", "https")
+Rel(sys_integration, sys_extaddresssvc, "Connects to", "https")
+Rel(sys_integration, sys_idcards, "Connects to", "https")
+Rel(sys_integration, sys_lms, "Connects to", "https")
+Rel(sys_integration, sys_nsi, "Connects to", "https")
+Rel(sys_integration, sys_nzqa, "Connects to", "https")
+Rel(sys_integration, sys_sdr, "Connects to", "https")
+Rel(sys_integration, sys_sms, "Connects to", "https")
+Rel(sys_integration, sys_studylink, "Connects to", "https")
+Rel(sys_integration, sys_voyager, "Connects to", "https")
+Rel(sys_studentportal, sys_integration, "Connects to", "https")
+Rel_Back(sys_integration, sys_cms, "Connects to", "https")
+
+@enduml

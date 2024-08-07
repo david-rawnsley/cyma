@@ -41,7 +41,7 @@ System(sys_moodle, "iAkoranga", "Tairua facing Learning Management System (LMS) 
 System(sys_pams, "PAMS", "Unknown", "Provider Admin Management System")
 System(sys_sharepoint, "Rakaunui", "Sharepoint/Intranet")
 System(sys_smc, "Salesforce Marketing Cloud", "used to create and manage personalised customer interactions.", $sprite="salesforce")
-System(sys_ssc, "Salesforce Service Cloud", "Used to manage the enrolment application processes", $sprite="salesforce")
+System(sys_ssis101, "SSIS101", "allows students and tutors to update limited student information without physically logging into the Take2 system.")
 System(sys_twoawebsite, "TWoA Website", "provides reference data.")
 System(sys_whatatuarirau, "Whata Tuarirau", "Tairua Resource Ordering")
 System(sys_tpms, "TPMS","Student Helpdesk Management System")
@@ -50,6 +50,7 @@ System(sys_ppms, "PPMS", "Microsoft SQL ???", "Microsoft SQL 2019", $sprite="Azu
 
 ' Relationships
 Rel(p_employee, sb0, "Uses", "Citrix")
+'Rel(p_employee, sys_excel, "Uses", "Citrix")
 Rel(p_student, sys_applicationportal, "Uses", "https")
 Rel(p_teacher, sb0, "Uses", "Citrix")
 Rel(sys_101, sys_take2Db, "Connects to", "???")
