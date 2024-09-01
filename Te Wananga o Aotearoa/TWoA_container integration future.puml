@@ -25,55 +25,110 @@ System_Ext(sys_nzqa, "NZQA", "the definitive source for accurate information abo
 System_Ext(sys_nsi, "National Student Index (NSI)", "is a database system maintained by the Ministry of Education and is the education sector's core register of learner identity data.")
 System_Ext(sys_studylink, "StudyLink", "a program that helps students make educational decisions and achieve their goals by providing financial support and information.")
 System_Ext(sys_idcards, "Tauira ID Card Service", "ID creation services.")
-System_Ext(sys_extaddresssvc, "Google Maps API", "provides address lookup services")
 
 Enterprise_Boundary(e0, "Te Wananga o Aotearoa"){
+    System(sys_cms, "Course Management Solution (CMS)", "A course management solution (CMS) is a solution for creating, and managing learning programs.")
+    System(sys_erp, "Finance Solution (ERP)", "a software system that integrates and manages core business processes like finance, HR, supply chain, and operations into a single platform.")
+    System(sys_lms, "Learning Management System (LMS)", "A Learning Management System (LMS) is a software platform for creating, managing, delivering, and tracking online learning programs.")
+    System(sys_sms, "Student Management System (SMS)", "it serves as a centralised hub for managing student information, academic records, attendance, and various other aspects of the educational ecosystem.")
+    System(sys_voyager, "Library System (Voyager)", "s an integrated library system used by hundreds of libraries, universities and museums around the world.")
+'    System(sys_dwh, "TWoA Data Warehouse", "")
+'    System(sys_smc, "Salesforce Marketing Cloud", "provides tools for email marketing, social media management, mobile marketing, SMS, and more.", $sprite="salesforce")
+'    System(sys_tpms, "TPMS","Student Helpdesk Management System")
 
-'System(sys_ad, "Active Directory", "identity and access platform")
-System(sys_applicationportal, "Online Application Portal", "a digital platform that allows prospective students to apply for admission.", $sprite="web_asset")
-System(sys_studentportal, "Student Portal", "a digital portal that facilitates student needs.")
-System(sys_erp, "ERP", "a software system that integrates and manages core business processes like finance, HR, supply chain, and operations into a single platform.")
-'System(sys_excel, "Microsoft Excel", "provides reference data.")
-System(sys_lms, "LMS", "A Learning Management System (LMS) is a software platform for creating, managing, delivering, and tracking online learning programs.")
-System(sys_cms, "Course Management Service (CMS)", "A course mnagement system (LMS) is a software platform for creating, and managing learning programs.")
-'System(sys_smc, "Salesforce Marketing Cloud", "provides tools for email marketing, social media management, mobile marketing, SMS, and more.", $sprite="salesforce")
-System(sys_sms, "SMS", "Student Management System (SMS) it serves as a centralised hub for managing student information, academic records, attendance, and various other aspects of the educational ecosystem.")
-'System(sys_tpms, "TPMS","Student Helpdesk Management System")
-System(sys_voyager, "Voyager", "s an integrated library system used by hundreds of libraries, universities and museums around the world.")
-System(sys_integration, "Integration Services", "Integration services that support ...")
-/' System_Boundary(sb0, "Integration Services"){
-    System(sys_coursesvc, "Course Service", "provides access to course and accreditation definitions", $tags="api")
-    System(sys_idcardsvc, "ID Card Service", "facilitates student ID card requests", $tags="api")
-    System(sys_sdrsvc, "SDR Service", "facilitates the regular submission of student and course accreditation to SDR", $tags="api")
-    System(sys_studentsvc, "Tauira Service","Tauira service to enable the organisation.", $tags="api")
-    System(sys_twoanzqa, "NZQA Service", "provides capability to update NZQA systems", $tags="api")
-    System(sys_twoastudylink, "StudyLink Service", "provides capability to update NZQA systems", $tags="api")
-    System(sys_voyagersvc,"Voyager Service", "Compiles data for the library solution", $tags="api")
-    System(sys_addresslookupsvc, "Address Lookup Service", "servie that provides address lookup against an external provider.", $tags="api")
+Container_Boundary(cb0, "Integration Services"){
+    Container(sys_addresslookupsvc, "Address Lookup Service", "servie that provides address lookup against an external provider.")
+    Container(sys_idcardsvc, "ID Card Service", "facilitates student ID card requests")
+    Container(sys_lmssvc, "Learning Management Service", "facilitates LMS requirements.")
+    Container(sys_sdrsvc, "SDR Service", "facilitates the regular submission of student and course accreditation to SDR")
+    Container(sys_studylinksvc, "StudyLink Service", "provides capability to exchange VoS requests")
+    Container(sys_twoanzqa, "NZQA Service", "provides capability to update NZQA systems")
+    Container(sys_twoastudylink, "StudyLink Service", "provides capability to update NZQA systems")
+    Container(sys_voyagersvc,"Voyager Service", "Compiles data for the library solution")
+    ContainerQueue(q_broker, "Message Bus", "Transport for business events.")
+
+    Container_Boundary(sb1, "Process Services"){
+        Container(sys_coursesvc, "Curriculum Service", "provides access to course and accreditation definitions")
+        Container(sys_financesvc, "Finance Service", "provides access to finance services")
+        Container(sys_studentsupportsvc, "Tairua Support Service", "provides access to tairua support services")
+        Container(sys_studentsvc, "Tauira Service","Tauira service to provision access to student details and facilitate updates.")
+        }   
     }
- }'/
+
+ }
+    Container_Boundary(sb2, "Tauira Portal Solution"){
+        System(sys_studentmobile, "Tauira Portal Mobile Solution", "provides students with access to academic information, services, and resources at their educational institution.", $sprite="web_asset")
+        System(sys_studentportal, "Tauira Portal", "provides students with access to academic information, services, and resources at their educational institution.", $sprite="web_asset")
+        Container(sys_studentportalsvc, "Tauira Portal Experience API", "integrates with relevant services to support the student portal.")
+
+        Rel(sys_studentmobile, sys_studentportalsvc, "Connects to", "https")
+        Rel(sys_studentportal, sys_studentportalsvc, "Connects to", "https")
+        Rel(sys_studentportalsvc, sys_coursesvc, "Connects to", "https")
+        Rel(sys_studentportalsvc, sys_financesvc, "Connects to", "https")
+        Rel(sys_studentportalsvc, sys_studentsupportsvc, "Connects to", "https")
+        Rel(sys_studentportalsvc, sys_studentsvc, "Connects to", "https")
+        }  
+
+    Container_Boundary(sb3, "Te Wananga Website"){
+        System(sys_applicationportal, "Application Portal", "a digital platform that allows prospective students to apply for admission.", $sprite="web_asset")
+        Container(sys_applicantportalsvc, "Appliocant Portal Experience API", "integrates with relevant services to support the application portal.")
+        }
 
 Rel(p_employee, sys_sms, "Uses", "https")
 Rel(p_prospect, sys_applicationportal, "Uses", "https")
 Rel(p_student, sys_studentportal, "Uses", "https")
 Rel(p_teacher, sys_sms, "Uses", "https")
-Rel(sys_applicationportal, sys_integration, "Connects to", "https")
 
-Rel(sys_studentportal, sys_integration, "Connects to", "https")
+Rel(sys_applicationportal, sys_applicantportalsvc, "Connects to", "https")
+Rel(sys_applicantportalsvc, sys_addresslookupsvc, "Connects to", "https")
+Rel(sys_applicantportalsvc, sys_studentsvc, "Connects to", "https")
 
-/' Rel(sys_addresslookupsvc, sys_extaddresssvc, "Connects to", "https")
+Rel(sys_sms, q_broker, "sends event", "https")
+Rel(sys_lms, q_broker, "sends event", "https")
+
+Rel(sys_idcardsvc, q_broker, "subcribes to events", "https")
+Rel(sys_idcardsvc, sys_idcards, "Connect to", "https")
+Rel(sys_idcardsvc, sys_studentsvc, "GET student information", "https")
+
+Rel(sys_twoastudylink, q_broker, "subcribes to events", "https")
+Rel(sys_twoastudylink, sys_studylink, "Connect to", "https")
+Rel(sys_twoastudylink, sys_studentsvc, "GET student information", "https")
+Rel(sys_twoastudylink, sys_coursesvc, "GET student information", "https")
+
+Rel(sys_studentsvc, q_broker, "Subscribes to events", "https")
+Rel(sys_studentsvc, sys_erp, "GET, POST, PUT student financial information", "https")
+Rel(sys_studentsvc, sys_nsi, "Verify student information", "https")
+Rel(sys_studentsvc, sys_sms, "GET, POST, PUT student information", "https")
+
+Rel(sys_sdrsvc, sys_coursesvc, "GET, POST, PUT course information", "https")
+Rel(sys_sdrsvc, sys_sdr, "POST student information", "https")
+Rel(sys_sdrsvc, sys_studentsvc, "GET, POST, PUT student information", "https")
+
+Rel(sys_lmssvc, q_broker, "Subscribes to events", "https")
+Rel(sys_lmssvc, sys_coursesvc, "GET course information", "https")
+Rel(sys_lmssvc, sys_lms, "Connects to", "https")
+Rel(sys_lmssvc, sys_studentsvc, "GET student information", "https")
+
+Rel(sys_voyagersvc, q_broker, "Subscribes to events", "https")
+Rel(sys_voyagersvc, sys_studentsvc, "Connects to", "https")
+Rel(sys_voyagersvc, sys_voyager, "Connects to", "https")
+
+Rel(sys_twoanzqa, q_broker, "Subscribes to events", "https")
+Rel(sys_twoanzqa, sys_studentsvc, "Connects to", "https")
+Rel(sys_twoanzqa, sys_nzqa, "Connects to", "https")'/
+
+Rel(sys_coursesvc, sys_cms, "Connects to", "https")
+
+Rel(sys_financesvc, sys_erp, "Connects to", "https")
+
+/' 
 Rel(sys_applicationportal, sys_addresslookupsvc, "Connects to", "https")
 Rel(sys_applicationportal, sys_coursesvc, "Connects to", "https")
 Rel(sys_applicationportal, sys_studentsvc, "Connects to", "https")
 Rel(sys_applicationportal, sys_twoanzqa, "Connects to", "https")
 Rel(sys_coursesvc, sys_sms, "Connects to", "https")
-Rel(sys_idcardsvc, sys_idcards, "Connect to", "https")
-Rel(sys_idcardsvc, sys_studentsvc, "GET student information", "https")
 Rel(sys_lms, sys_coursesvc, "Connects to", "https")
 Rel(sys_lms, sys_studentsvc, "Connects to", "https")
-Rel(sys_sdrsvc, sys_coursesvc, "GET, POST, PUT course information", "https")
-Rel(sys_sdrsvc, sys_sdr, "POST student information", "https")
-Rel(sys_sdrsvc, sys_studentsvc, "GET, POST, PUT student information", "https")
 Rel(sys_sms, sys_erp, "Sends financial data", "various")
 Rel(sys_sms, sys_idcardsvc, "send event", "https")
 Rel(sys_sms, sys_twoanzqa, "send event", "https") 
@@ -81,30 +136,17 @@ Rel(sys_studentportal, sys_addresslookupsvc, "Connects to", "https")
 Rel(sys_studentportal, sys_coursesvc, "Connects to", "https")
 Rel(sys_studentportal, sys_studentsvc, "Connects to", "https")
 Rel(sys_studentsvc, sys_ad, "GET, POST, PUT  student information", "https")
-Rel(sys_studentsvc, sys_nsi, "Verify student information", "")
 Rel(sys_studentsvc, sys_sms, "Connects to", "https")
 Rel(sys_studentsvc, sys_integration, "Connects to", "https")
 Rel(sys_twoanzqa, sys_coursesvc, "GET, POST, PUT course information", "https")
-Rel(sys_twoanzqa, sys_nzqa, "GET, POST, PUT accreditation information", "https")
 Rel(sys_twoanzqa, sys_studentsvc, "GET, POST, PUT student information", "https") '/
-
-Rel_Back(sys_integration, sys_cms, "Connects to", "https")
-Rel(sys_integration, sys_erp, "Connects to", "https")
-Rel(sys_integration, sys_extaddresssvc, "Connects to", "https")
-Rel(sys_integration, sys_idcards, "Connects to", "https")
-Rel(sys_integration, sys_nsi, "Connects to", "https")
-Rel(sys_integration, sys_nzqa, "Connects to", "https")
-Rel(sys_integration, sys_sdr, "Connects to", "https")
-Rel(sys_integration, sys_sms, "Connects to", "https")
-Rel(sys_integration, sys_studylink, "Connects to", "https")
-Rel(sys_integration, sys_voyager, "Connects to", "https")
-Rel(sys_integration, sys_lms, "Connects to", "https")
 
 /' Rel(sys_twoastudylink, sys_coursesvc, "GET, POST, PUT course information", "https")
 Rel(sys_twoastudylink, sys_studentsvc, "GET, POST, PUT student information", "https")
 Rel(sys_twoastudylink, sys_studylink, "VOS request", "https") '/
 
-/'Rel(sys_voyagersvc, sys_studentsvc, "Connects to", "https")
+/'
+Rel(sys_voyagersvc, sys_studentsvc, "Connects to", "https")
 Rel(sys_voyagersvc, sys_voyager, "Connects to", "https")'/
 
 'Rel(sys_tpms, sys_ad, "POST student information", "")

@@ -1,0 +1,75 @@
+@startuml
+
+' hide the spot
+' hide circle
+' avoid problems with angled crows feet
+skinparam linetype ortho
+skinparam defaultFontName Raleway
+
+entity "User" as e01 {
+*e1_id : number <<generated>>
+--
+*name : text
+description : text
+}
+entity "Login" as e02 {
+*e2_id : number <<generated>>
+--
+*e1_id : number <<FK>>
+other_details : text
+}
+entity "Roles" as e03 {
+*e3_id : number <<generated>>
+--
+e1_id : number <<FK>>
+other_details : text
+}
+entity "Permission" as e04 {
+*e4_id : number <<generated>>
+--
+e1_id : number <<FK>>
+other_details : text
+}
+entity "Course" as e05 {
+*e5_id : number <<generated>>
+--
+e1_id : number <<FK>>
+other_details : text
+}
+entity "Location" as e06 {
+*e6_id : number <<generated>>
+--
+e1_id : number <<FK>>
+other_details : text
+}
+entity "Student" as e07 {
+*e7_id : number <<generated>>
+--
+e1_id : number <<FK>>
+other_details : text
+}
+entity "Registration" as e08 {
+*e8_id : number <<generated>>
+--
+e1_id : number <<FK>>
+e7_id : number <<FK>>
+e9_id : number <<FK>>
+other_details : text
+}
+entity "Tutor" as e09 {
+*e9_id : number <<generated>>
+--
+e1_id : number <<FK>>
+other_details : text
+}
+
+e01 ||..o{ e02
+e01 |o..o{ e03
+e05 }|--|{ e06
+e07 ||--|| e02
+e03 ||--|{ e04
+e07 }|--|| e08
+e08 }|--|| e05
+e09 }|--|| e08
+
+@enduml
